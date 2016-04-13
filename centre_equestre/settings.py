@@ -56,7 +56,10 @@ ROOT_URLCONF = 'centre_equestre.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # os.path.join(BASE_DIR,'centre_equestre','templates')
+            "/home/psarrus/Code/Centre_Equestre/centre_equestre/centre_equestre/templates"
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
