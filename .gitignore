@@ -1,1 +1,4 @@
-centre_equestre/static/css/*.css
+eplefpa/static/css/*.css
+eplefpa/*.pyc
+eplefpa/migrations/*.pyc
+centre_equestre/*.pyc
