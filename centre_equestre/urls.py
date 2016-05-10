@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-import eplefpa
+import monte, cheval, profil, sante
 
 urlpatterns = [
-    url(r'^', include('eplefpa.urls')),
+    url(r'^monte/', include('monte.urls')),
+    url(r'^cheval/', include('cheval.urls')),
+    url(r'^profil/', include('profil.urls')),
+    url(r'^sante/', include('sante.urls')),
     url(r'^admin/', admin.site.urls),
 ]

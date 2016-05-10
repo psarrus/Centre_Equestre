@@ -1,5 +1,3 @@
-eplefpa/static/css/*.css
+*.css
 centre_equestre/site_settings.py
-eplefpa/*.pyc
-eplefpa/migrations/*.pyc
-centre_equestre/*.pyc
+*.pyc

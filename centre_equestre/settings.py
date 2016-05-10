@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'eplefpa',
+    'monte',
+    'sante',
+    'cheval',
+    'profil',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -57,10 +60,7 @@ ROOT_URLCONF = 'centre_equestre.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            # os.path.join(BASE_DIR,'centre_equestre','templates')
-            "/home/psarrus/Code/Centre_Equestre/centre_equestre/centre_equestre/templates"
-        ],
+        'DIRS': [os.path.join(BASE_DIR, 'centre_equestre', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,18 +74,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'centre_equestre.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/1.9/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 
 
 # Password validation

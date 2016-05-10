@@ -1,11 +1,7 @@
 from django.forms import ModelForm
 
-from models import Profil, Cheval
+from models import Cheval
 
-class ProfilForm(ModelForm):
-    class Meta:
-        model = Profil
-        fields = ['civilite', 'nom', 'prenom', 'adresse', 'cp', 'ville', 'tel', 'mobile', 'mail']
 
 class ChevalForm(ModelForm):
     class Meta:
