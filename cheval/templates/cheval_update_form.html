@@ -2,7 +2,7 @@
 
 {% block content %}
 <fieldset>
-    <legend>Enregistrer un nouveau cheval</legend>
+    <legend>Fiche de {{ cheval.nom }}</legend>
     <form action="{{ request.path }}" method="POST">
         {% csrf_token %}
         {% for field in form %}
@@ -21,7 +21,7 @@
             </div>
         </div>
         {% endfor %}
-        <button class="btn btn-success" type="submit">Enregistrer</button>
+        <button class="btn btn-success" type="submit">Modifier</button>
         <a class="btn btn-danger" href="/cheval">Annuler</a>
     </form>
 </fieldset>

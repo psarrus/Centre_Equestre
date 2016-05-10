@@ -1,14 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- <form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Save" />
-</form> -->
-<form action="eplefpa/cheval_create_form.html" method="POST">
-{% csrf_token %}
-{{form.as_ul}}
-<input type="submit" value="Créer"/>
-</form>
+<fieldset>
+    <legend>Liste des chevaux</legend>
+    <ul>
+        {% for cheval in chevaux %}
+            <li><a href="/cheval/{{cheval.sire}}">{{ cheval.nom }} (n° sire : {{ cheval.sire }})</a></li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-default" href="/cheval/creer">Enregistrer un nouveau cheval</a>
+</fieldset>
 {% endblock %}
