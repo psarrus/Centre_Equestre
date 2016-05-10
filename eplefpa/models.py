@@ -6,7 +6,7 @@ from django.db import models
 
 # Create your models here.
 class Profil(models.Model):
-    civilite = models.CharField(max_length=3)
+    civilite = models.CharField(max_length=3) # attribut choices
     nom = models.CharField(max_length = 60)
     prenom = models.CharField(max_length = 60)
     adresse = models.CharField(max_length=200)
@@ -15,6 +15,8 @@ class Profil(models.Model):
     tel = models.CharField(max_length=10)
     mobile = models.CharField(max_length=10)
     mail = models.CharField(max_length=300)
+
+    #FK User null=True
 
     def __unicode__(self):
         return "%s %s" % (self.nom, self.prenom)
