@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 
 
 class Profil(models.Model):
-    user     = models.ForeignKey(User)
+    # user   = models.ForeignKey(User)
+    nom      = models.CharField(max_length=200) # A spprimer si User
+    prenom   = models.CharField(max_length=200) # A spprimer si User
+    email    = models.CharField(max_length=200) # A spprimer si User
     civilite = models.CharField(max_length=3)
     adresse  = models.CharField(max_length=200)
     cp       = models.CharField(max_length=5)
     ville    = models.CharField(max_length=100)
     tel      = models.CharField(max_length=10)
     mobile   = models.CharField(max_length=10)
-    siret    = models.IntegerField() # Pour Veto
+    siret    = models.IntegerField(null=True) # Pour Veto
 
     # La classe d un eventuel eleve peut etre gere grace au group django
 

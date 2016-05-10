@@ -3,6 +3,6 @@ from views import create_profil, edit_profil
 
 
 urlpatterns = [
-    url(r'^profil$', create_profil),
+    url(r'^$', create_profil),
     url(r'^vue_profil/(?P<id>[\w-]+)$', edit_profil),
 ]
