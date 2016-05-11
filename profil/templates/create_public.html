@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <fieldset>
+            <legend>Fiche Public</legend>
+           <form class="" action="{{ request.path }}" method="post">
+                {% csrf_token %}
+                {% for field in form%}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-2">
+                            {{field.label_tag}}
+                        </div>
+                        <div class="col-md-10">
+                            {{field}}
+                            {{field.errors}}
+                            {% if field.help_text %}
+                            {{field.help_text}}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div id="btn-profil">
+                    <input id="btn-valid-profil" type="submit" name="name" value="Envoyer">
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</div>
+
+{% endblock %}
