@@ -4,26 +4,6 @@
 <div class="row">
     <div class="col-md-6">
         <fieldset>
-            <legend>
-                <a class="btn btn-default" href="/profil">nouveau</a>
-                 Liste des Profils
-                 <div class="choix-profil">
-                     <input type="checkbox" name="cb-eleve" value="1"> Elève
-                     <input type="checkbox" name="cb-cavalier" value="3"> Cavalier
-                     <input type="checkbox" name="cb-professeur" value="2"> Professeur
-                     <input type="checkbox" name="cb-personnel" value="4"> Personnel
-                 </div>
-             </legend>
-            <ul>
-                {% for profil in profils %}
-                <li><a href="/vue_profil/{{profil.id}}">{{profil.nom}}</a></li>
-                {% endfor %}
-            </ul>
-
-        </fieldset>
-    </div>
-    <div class="col-md-6">
-        <fieldset>
             <legend>Fiche Profil</legend>
            <form class="" action="{{ request.path }}" method="post">
                 {% csrf_token %}
