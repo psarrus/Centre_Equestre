@@ -41,7 +41,7 @@ class Cheval(models.Model):
     pedigree        = models.CharField(max_length = 500)
     annee_naissance = models.CharField(max_length = 60)
     photo           = models.CharField(max_length = 500)
-    date_entree     = models.DateField(default = date.today())
+    date_entree     = models.DateField(auto_now_add=True)
     date_sortie     = models.DateField(null=True)
     activite        = models.CharField(max_length = 1, choices = ACTIVITE_CHOICES)
     remarques       = models.TextField()

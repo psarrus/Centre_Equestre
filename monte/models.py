@@ -1,7 +1,7 @@
 #  -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-from profil.models import Profil
+from profil.models import Profil, Public
 from cheval.models import Cheval
 
 jour_choices = (
@@ -17,10 +17,10 @@ class CreneauMontoir(models.Model): # Fiche Vide
                             choices = jour_choices)
     heure_debut = models.TimeField()
     duree     = models.FloatField()
-    classe    = models.CharField(max_length=65)
     effectif  = models.CharField(max_length=65)
     encadrant = models.ForeignKey(Profil)
     remarque  = models.TextField(blank=True)
+    public    = models.ForeignKey(Public)
 
 class PiquetMontoirStaff(models.Model):
     montoir = models.ForeignKey(CreneauMontoir)
