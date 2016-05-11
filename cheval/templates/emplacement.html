@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<fieldset>
+    <legend>Liste des emplacements</legend>
+    <ul>
+        {% for emplacement in emplacements %}
+            <li><a href="/cheval/emplacement/{{emplacement.box}}">{{ emplacement.box }} (zone : {{ emplacement.zone }})</a></li>
+        {% endfor %}
+    </ul>
+    <a class="btn btn-default" href="/cheval/emplacement/creer">Enregistrer un nouvel emplacement</a>
+    <a class="btn btn-default" href="/cheval">Gérer les chevaux</a>
+</fieldset>
+{% endblock %}
