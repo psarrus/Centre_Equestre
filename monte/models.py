@@ -20,7 +20,7 @@ class CreneauMontoir(models.Model): # Fiche Vide
     classe    = models.CharField(max_length=65)
     effectif  = models.CharField(max_length=65)
     encadrant = models.ForeignKey(Profil)
-    remarque  = models.TextField()
+    remarque  = models.TextField(blank=True)
 
 class PiquetMontoirStaff(models.Model):
     montoir = models.ForeignKey(CreneauMontoir)
