@@ -13,14 +13,14 @@ class ChevalList(ListView):
 
 class ChevalCreate(CreateView):
     model = Cheval
-    fields = ['sire','nom','race','pedigree','annee_naissance','photo','date_entree','activite','remarques','status','aptitude','emplacement']
+    fields = ['sire','nom','race','pedigree','annee_naissance','photo','activite','remarques','status','aptitude','emplacement']
     template_name = 'cheval_create_form.html'
     success_url = reverse_lazy('cheval_list')
 
 
 class ChevalUpdate(UpdateView):
     model = Cheval
-    fields = ['sire','nom','race','pedigree','annee_naissance','photo','date_entree','activite','remarques','status','aptitude','emplacement']
+    fields = ['sire','nom','race','pedigree','annee_naissance','photo','activite','remarques','status','aptitude','emplacement']
     template_name = 'cheval_update_form.html'
     success_url = reverse_lazy('cheval_list')
 
