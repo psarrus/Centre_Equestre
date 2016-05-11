@@ -5,9 +5,10 @@
     <legend>Liste des chevaux</legend>
     <ul>
         {% for cheval in chevaux %}
-            <li><a href="/cheval/{{cheval.sire}}">{{ cheval.nom }} (n° sire : {{ cheval.sire }})</a></li>
+            <li><a href="/cheval/{{cheval.sire}}">{{ cheval.nom }} (n° sire : {{ cheval.sire }}), emplacement : {{ cheval.emplacement }}</a></li>
         {% endfor %}
     </ul>
     <a class="btn btn-default" href="/cheval/creer">Enregistrer un nouveau cheval</a>
+    <a class="btn btn-default" href="/cheval/emplacement">Gérer les emplacements</a>
 </fieldset>
 {% endblock %}
