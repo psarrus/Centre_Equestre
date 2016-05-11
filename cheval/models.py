@@ -44,7 +44,7 @@ class Cheval(models.Model):
     nom             = models.CharField(max_length = 200)
     race            = models.CharField(max_length = 100)
     pedigree        = models.CharField(max_length = 500)
-    annee_naissance = models.IntegerField()
+    annee_naissance = models.CharField(max_length = 60)
     photo           = models.CharField(max_length = 500)
     date_entree     = models.DateField()
     date_sortie     = models.DateField()
