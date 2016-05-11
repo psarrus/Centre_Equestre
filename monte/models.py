@@ -4,20 +4,23 @@ from django.db import models
 from profil.models import Profil
 from cheval.models import Cheval
 
-
-class PeriodeMontoir(models.Model):
-    chevaux_disponible = models.ManyToManyField(Cheval)
-
+jour_choices = (
+    ('1','lundi'),
+    ('2','mardi'),
+    ('3','mercredi'),
+    ('4','jeudi'),
+    ('5','vendredi'),
+    )
 
 class CreneauMontoir(models.Model): # Fiche Vide
-    semaine   = models.ForeignKey(PeriodeMontoir)
-    date      = models.DateTimeField() # Pour gérer la date ET les heures
-    classe    = models.CharField(max_length=65)
-    remarque  = models.TextField()
-    encadrant = models.ForeignKey(Profil)
-    effectif  = models.CharField(max_length=65)
+    jour = models.CharField(max_length=1,
+                            choices = jour_choices)
+    heure_debut = models.TimeField()
     duree     = models.FloatField()
-
+    classe    = models.CharField(max_length=65)
+    effectif  = models.CharField(max_length=65)
+    encadrant = models.ForeignKey(Profil)
+    remarque  = models.TextField()
 
 class PiquetMontoirStaff(models.Model):
     montoir = models.ForeignKey(CreneauMontoir)
