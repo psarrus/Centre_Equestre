@@ -6,17 +6,17 @@ from cheval.models import Cheval
 
 
 ACTE_CHOICES = (
-    (1, "Soin"),
-    (2, "Vaccin"),
-    (3, "Vermifugation"),
-    (4, "Ferrage"),
-    (4, "Divers"),
+    ("1", "Soin"),
+    ("2", "Vaccin"),
+    ("3", "Vermifugation"),
+    ("4", "Ferrage"),
+    ("5", "Divers"),
 )
 
 
 class RegistreSoins(models.Model):
-    date        = models.DateField()
+    date        = models.DateField(auto_now_add = True)
     pathologie  = models.CharField(max_length = 60)
-    acte        = models.CharField(max_length = 500, choices=ACTE_CHOICES)
+    acte        = models.CharField(max_length = 1, choices=ACTE_CHOICES)
     cheval      = models.ForeignKey(Cheval)
     soigneur    = models.ForeignKey(Profil)

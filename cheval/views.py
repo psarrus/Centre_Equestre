@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from models import Cheval, Emplacement
 
@@ -25,6 +25,12 @@ class ChevalUpdate(UpdateView):
     success_url = reverse_lazy('cheval_list')
 
 
+class ChevalDelete(DeleteView):
+    model = Cheval
+    template_name = 'cheval_delete_form.html'
+    success_url = reverse_lazy('cheval_list')
+
+
 class EmplacementList(ListView):
     model = Emplacement
     template_name = 'emplacement.html'
@@ -43,4 +49,10 @@ class EmplacementUpdate(UpdateView):
     model = Emplacement
     fields = ['zone','box']
     template_name = 'emplacement_update_form.html'
+    success_url = reverse_lazy('emplacement_list')
+
+
+class EmplacementDelete(DeleteView):
+    model = Emplacement
+    template_name = 'emplacement_delete_form.html'
     success_url = reverse_lazy('emplacement_list')

@@ -53,4 +53,4 @@ class Cheval(models.Model):
                                             related_name = 'emplacement')
 
     def __unicode__(self):
-        return "%s %s %s" % (self.nom, self.sire, self.emplacement)
+        return "%s (n° sire %s)" % (self.nom, self.sire)

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<fieldset>
+    <legend>Soin n°{{ soin.id }} du {{ soin.date }}</legend>
+    <p>Pathologie : {{ soin.pathologie }}</p>
+    <p>Acte : {{ soin.acte }}</p>
+    <p>Cheval : {{ soin.cheval }}</p>
+    <p>Soigneur : {{ soin.soigneur }}</p>
+    <p><a href="/sante/{{soin.id}}/modifier">Modifier</a></p>
+    <p><a href="/sante">Retour</a></p>
+</fieldset>
+{% endblock %}

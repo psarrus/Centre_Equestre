@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a class="btn btn-default" href="/sante/creer">Enregistrer un nouveau soin</a>
+<fieldset>
+    <legend>Liste des soins</legend>
+    <ul>
+        {% for soin in soins %}
+            <li><a href="/sante/{{soin.id}}">{{ soin.date }}, {{ soin.pathologie }}, {{ soin.cheval.nom }}</a></li>
+        {% endfor %}
+    </ul>
+</fieldset>
+{% endblock %}

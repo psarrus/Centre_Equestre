@@ -2,7 +2,7 @@
 
 {% block content %}
 <fieldset>
-    <legend>Box {{ emplacement.box }} (zone {{ emplacement.zone }})</legend>
+    <legend>Enregistrer un nouveau soin</legend>
     <form action="{{ request.path }}" method="POST">
         {% csrf_token %}
         {% for field in form %}
@@ -21,9 +21,8 @@
             </div>
         </div>
         {% endfor %}
-        <button class="btn btn-success" type="submit">Modifier</button>
-        <a class="btn btn-danger" href="/cheval/emplacement/{{emplacement.id}}/supprimer">Supprimer</a>
-        <a href="/cheval/emplacement">Retour</a>
+        <button class="btn btn-success" type="submit">Enregistrer</button>
+        <a href="/sante">Retour</a>
     </form>
 </fieldset>
 {% endblock %}
