@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'sante',
     'cheval',
     'profil',
-    'multiselectfield',
 ]
 
 MIDDLEWARE_CLASSES = [
