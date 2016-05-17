@@ -22,7 +22,8 @@
         </div>
         {% endfor %}
         <button class="btn btn-success" type="submit">Modifier</button>
-        <a class="btn btn-danger" href="/cheval/emplacement">Annuler</a>
+        <a class="btn btn-danger" href="/cheval/emplacement/{{emplacement.id}}/delete">Supprimer</a>
+        <a href="/cheval/emplacement">Retour</a>
     </form>
 </fieldset>
 {% endblock %}
