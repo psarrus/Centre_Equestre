@@ -12,6 +12,7 @@ categorie_choices = (
     ('5','Autre'), #veto ?
     )
 
+
 civilite_choices = (
     ('1','Mr'),
     ('2','Mme'),
@@ -30,8 +31,7 @@ class Profil(models.Model):
     tel_1      = models.IntegerField()
     tel_2      = models.IntegerField()
     tel_3      = models.IntegerField()
-    categorie  = models.CharField(max_length=1,
-                                choices = categorie_choices)
+    # categorie  = models.CharField(max_length=100, choices=categorie_choices)
 
 
     def __unicode__(self):
