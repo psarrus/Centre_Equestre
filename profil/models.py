@@ -35,7 +35,7 @@ class Profil(models.Model):
 
 
     def __unicode__(self):
-        return "%s %s" % (self.tel, self.tel)
+        return "%s %s" % (self.nom, self.prenom)
 
 
 class Public(models.Model):
