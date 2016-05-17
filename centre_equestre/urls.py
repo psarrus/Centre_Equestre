@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 import monte, cheval, profil, sante
+from views import homepage
 
 urlpatterns = [
+    url(r'^$', homepage),
     url(r'^monte/', include('monte.urls')),
     url(r'^cheval/', include('cheval.urls')),
     url(r'^profil/', include('profil.urls')),
     url(r'^sante/', include('sante.urls')),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^admin/', admin.site.urls),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
