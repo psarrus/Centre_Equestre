@@ -1,37 +1,26 @@
+
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-6">
-        <fieldset>
-            <legend>Fiche Profil</legend>
-           <form class="" action="{{ request.path }}" method="post">
-                {% csrf_token %}
-                {% for field in form%}
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-2">
-                            {{field.label_tag}}
-                        </div>
-                        <div class="col-md-10">
-                            {{field}}
-                            {{field.errors}}
-                            {% if field.help_text %}
-                            {{field.help_text}}
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-                <div id="btn-profil">
-                    Encadrant <input type="checkbox" name="check-encadrant" value="">
-                    Soigneur <input type="checkbox" name="check-soigneur" value="">
-                    Cavalier <input type="checkbox" name="check-cavalier" value="">
-                    <input id="btn-valid-profil" type="submit" name="name" value="Envoyer">
-                </div>
-            </form>
-        </fieldset>
-    </div>
-</div>
-
+<!-- <form method="post" action="">
+    {% csrf_token %} -->
+    {% for user in users %}
+    {{ user.username }}
+    {{ user.password }}
+    {% endfor %}
+    <!-- <input type="submit" value="" />
+</form> -->
 {% endblock %}
+
+
+{% comment %}
+**registration/registration_form.html**
+Used to show the form users will fill out to register. By default, has
+the following context:
+
+``form``
+    The registration form. This will be an instance of some subclass
+    of ``django.forms.Form``; consult `Django's forms documentation
+    <http://docs.djangoproject.com/en/dev/topics/forms/>`_ for
+    information on how to display this in a template.
+{% endcomment %}
