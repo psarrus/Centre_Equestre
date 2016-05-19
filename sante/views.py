@@ -5,7 +5,8 @@ from models import RegistreSoins
 
 class SoinCreate(CreateView):
     model = RegistreSoins
-    fields = ['pathologie','acte','cheval','soigneur']
+    fields = '__all__'
+    # fields = ['pathologie','acte','cheval','soigneur']
     template_name = 'soin_create.html'
     success_url = reverse_lazy('soins')
 
