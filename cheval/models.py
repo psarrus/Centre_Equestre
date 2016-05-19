@@ -45,7 +45,7 @@ class Cheval(models.Model):
     date_sortie     = models.DateField(null=True)
     activite        = models.CharField(max_length = 1, choices = ACTIVITE_CHOICES)
     remarques       = models.TextField()
-    status          = models.CharField(max_length = 1, choices = STATUS_CHOICES)
+    statut          = models.CharField(max_length = 1, choices = STATUS_CHOICES)
     aptitude        = models.CharField(max_length = 1, choices = APTITUDE_CHOICES, default = "1")
     emplacement     = models.OneToOneField( Emplacement,
                                             unique = True,

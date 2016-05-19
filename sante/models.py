@@ -4,6 +4,7 @@ from django.db import models
 from profil.models import Profil
 from cheval.models import Cheval
 
+
 ACTE_CHOICES = (
     ("1", "Soin"),
     ("2", "Vaccin"),

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <fieldset>
+
+        <legend class="text-center">Liste des soins effectués</legend>
+        <p><a class="btn btn-default" href="/sante/creer">Nouveau</a></p>
+
+        <table id="table" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Cheval</th>
+                    <th class="text-center">Pathologie</th>
+                    <th class="text-center">Acte</th>
+                    <th class="text-center">Soigneur</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Cheval</th>
+                    <th class="text-center">Pathologie</th>
+                    <th class="text-center">Acte</th>
+                    <th class="text-center">Soigneur</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for soin in soins %}
+                <tr>
+                    <td class="large15">{{ soin.date }}</td>
+                    <td class="large15">{{ soin.cheval.nom }}</td>
+                    <td class="large20">{{ soin.pathologie }}</td>
+                    <td class="large10">{{ soin.get_acte_display }}</td>
+                    <td class="large20">{{ soin.soigneur }}</td>
+                    <td class="large10 text-center">
+                        <a href="/sante/{{soin.id}}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/sante/{{soin.id}}/modifier"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/sante/{{soin.id}}/supprimer"><i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </fieldset>
+</div>
+
+{% endblock %}

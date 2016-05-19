@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <fieldset>
+
+        <legend class="text-center">Emplacement {{ emplacement.box }}</legend>
+
+        <p>Zone : {{ emplacement.zone }}</p>
+        <p>Box : {{ emplacement.box }}</p>
+
+        <p><a class="btn btn-default" href="/cheval/emplacement/{{emplacement.id}}/modifier">Modifier</a></p>
+        <p><a class="btn btn-danger" href="/cheval/emplacement/{{emplacement.id}}/supprimer">Supprimer</a></p>
+        <p><a href="/sante"><i class="fa fa-arrow-left"></i> Retour</a></p>
+
+    </fieldset>    
+</div>
+
+{% endblock %}

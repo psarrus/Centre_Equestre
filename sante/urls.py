@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from views import SoinCreate, SoinList, SoinDetail, SoinUpdate, SoinDelete
+from views import SoinList, SoinCreate, SoinDetail, SoinUpdate, SoinDelete
 
 urlpatterns = [
     url(r'^$', SoinList.as_view(), name='soins'),

@@ -1,13 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-<fieldset>
-    <legend>Soin n°{{ soin.id }} du {{ soin.date }}</legend>
-    <p>Pathologie : {{ soin.pathologie }}</p>
-    <p>Acte : {{ soin.acte }}</p>
-    <p>Cheval : {{ soin.cheval }}</p>
-    <p>Soigneur : {{ soin.soigneur }}</p>
-    <p><a href="/sante/{{soin.id}}/modifier">Modifier</a></p>
-    <p><a href="/sante">Retour</a></p>
-</fieldset>
+
+<div class="container-fluid">
+    <fieldset>
+
+        <legend class="text-center">Soin n°{{ soin.id }} du {{ soin.date }}</legend>
+
+        <p>Date : {{ soin.date }}</p>
+        <p>Cheval : {{ soin.cheval }}</p>
+        <p>Pathologie : {{ soin.pathologie }}</p>
+        <p>Acte : {{ soin.acte }}</p>
+        <p>Soigneur : {{ soin.soigneur }}</p>
+
+        <p><a class="btn btn-default" href="/sante/{{soin.id}}/modifier">Modifier</a></p>
+        <p><a class="btn btn-danger" href="/sante/{{soin.id}}/supprimer">Supprimer</a></p>
+        <p><a href="/sante"><i class="fa fa-arrow-left"></i> Retour</a></p>
+
+    </fieldset>
+</div>
+
 {% endblock %}

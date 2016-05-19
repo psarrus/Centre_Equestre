@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <fieldset>
+
+        <legend class="text-center">Registre d'élevage</legend>
+        <p><a class="btn btn-default" href="/cheval/creer">Nouveau</a></p>
+
+        <table id="table" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">Nom</th>
+                    <th class="text-center">Aptitude</th>
+                    <th class="text-center">Dernier ferrage</th>
+                    <th class="text-center">Dernière vermifugation</th>
+                    <th class="text-center">Dernier soin</th>
+                    <!-- <th class="text-center">Actions</th> -->
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th class="text-center">Nom</th>
+                    <th class="text-center">Aptitude</th>
+                    <th class="text-center">Dernier ferrage</th>
+                    <th class="text-center">Dernière vermifugation</th>
+                    <th class="text-center">Dernier soin</th>
+                    <!-- <th class="text-center">Actions</th> -->
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for cheval in chevaux %}
+                <tr>
+                    <td class="large20">{{ cheval.nom }}</td>
+                    <td class="large20">{{ cheval.get_aptitude_display }}</td>
+                    <td class="large20">{{ cheval.ferrage }}</td>
+                    <td class="large20">{{ cheval.vermifugation }}</td>
+                    <td class="large20">{{ cheval.soin }}</td>
+                    <!-- <td class="text-center">
+                        <a href="/cheval/{{cheval.id}}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/cheval/{{cheval.id}}/modifier"><i class="fa fa-pencil"></i></a>
+                    </td> -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </fieldset>
+</div>
+
+{% endblock %}
