@@ -24,7 +24,7 @@ class CreneauMontoir(models.Model): # Fiche Vide
 
 class PiquetMontoirStaff(models.Model):
     montoir = models.ForeignKey(CreneauMontoir)
-    cheval  = models.ForeignKey(Cheval) #parmis les chevaux_disponible de MontoirSemaine
+    cheval  = models.ManyToManyField(Cheval) #parmis les chevaux_disponible de MontoirSemaine
 
 
 class PiquetMontoirEnseignant(models.Model):

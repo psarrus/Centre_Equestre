@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form role="form" name="form" action="/monte/create" method="post" enctype="multipart/form-data" >
+<form role="form" name="form" action="{{request.path}}" method="post" enctype="multipart/form-data" >
  {% csrf_token %}
    <!-- {{form.title.label_tag}}
    {{form.title}}
@@ -13,7 +13,6 @@
    {{form}}
 
    <button type="submit" class="btn btn-primary"> Modifier</button>
-   <button type="button" class="btn btn-inverse"> Annuler</button>
-
+</form>
 
 {% endblock %}
