@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from models import Profil, Public
+from models import Profil, Public, Periode
 from django.views.generic import ListView, CreateView, UpdateView
 from django.core.urlresolvers import reverse_lazy
 from forms import ProfileForm
@@ -18,12 +18,26 @@ class ListProfil(ListView):
     context_object_name = "profils"
     queryset = Profil.objects.all()
 
+    def get_context_data(self, **kwargs):
+        context = super(ListProfil, self).get_context_data(**kwargs)
+        context.update({
+            'periode': Periode.objects.all(),
+        })
+        return context
+
 
 class ProfilUpdate(UpdateView):
     model = Profil
     fields = '__all__'
     template_name = 'profil_update.html'
     success_url = reverse_lazy('list_profil')
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfilUpdate, self).get_context_data(**kwargs)
+        context.update({
+            'periode': Periode.objects.all(),
+        })
+        return context
 
 
 # =====================================================
