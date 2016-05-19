@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView
 from django.core.urlresolvers import reverse_lazy
 
 from models import *
 from cheval.models import Cheval
+
+from forms import PiquetMontoirForm
 
 
 def homepage(request):
@@ -35,23 +37,28 @@ class CreneauMontoirDelete(DeleteView):
     success_url = reverse_lazy('creneau_montoir_list')
 
 
-
-# class PiquetMontoirStaffCreate(CreateView):
-#     model = PiquetMontoirStaff
-#     fields = ['montoir', 'cheval']
-#     template_name = 'piquet_montoir_staff_create.html'
-#     success_url = reverse_lazy('homepage')
-
-class PiquetMontoirStaffDetail(DetailView):
+class CreneauMontoirDetail(DetailView):
     model = CreneauMontoir
-    template_name = 'piquet_montoir_staff_liste.html'
+    template_name = 'creneau_montoir_detail.html'
 
     def get_context_data(self, **kwargs):
-        context = super(PiquetMontoirStaffDetail, self).get_context_data(**kwargs)
+        context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
         context['creneau'] = self.get_object()
-        context['chevaux'] = Cheval.objects.all()
+        context['chevaux'] = Cheval.objects.filter(activite="1")
 
         return context
+
+
+
+
+
+class PiquetMontoirStaffCreate(FormView):
+    model = PiquetMontoirStaff
+    form_class = PiquetMontoirForm
+    # fields = ['montoir', 'cheval']
+    template_name = 'creneau_montoir_detail.html'
+    success_url = reverse_lazy('piquet_montoir')
+
 
 
 

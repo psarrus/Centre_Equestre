@@ -5,7 +5,7 @@
 <fieldset>
 
     <legend class="center">Liste des montoirs</legend>
-    <a class="btn btn-default" href="/monte/create/montoir">Nouveau</a>
+    <a class="btn btn-default" href="{% url 'creneau_montoir_create' %}">Nouveau</a>
 
     <table class="table table-bordered table-hover">
         <tr>
@@ -22,7 +22,7 @@
         </tr>
         {% for creneau in creneaux %}
         <tr>
-            <td><a href="/monte/piquet/montoir/{{creneau.pk}}"><i class="fa fa-list" aria-hidden="true"></i></a></td>
+            <td><a href="{% url 'piquet_montoir' creneau.pk %}"><i class="fa fa-list" aria-hidden="true"></i></a></td>
             <td class="large15">{{ creneau.get_jour_display }}</td>
             <td class="large30">{{ creneau.public }}</td>
             <td class="large10">{{ creneau.heure_debut }}</td>
