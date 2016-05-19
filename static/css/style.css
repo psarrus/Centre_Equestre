@@ -1,0 +1,38 @@
+/*# sourceMappingURL=style.css.map */
+
+.choix-profil {
+    font-size: 0.5em;
+}
+
+.homepage img {
+    width: 100%
+}
+.homepage h1 {
+    text-align: center;
+}
+/*.navbar {
+    margin-bottom: 0;
+}*/
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+.center {
+    text-align: center;
+}
+.table {
+    width: 80%;
+    margin: auto;
+}
+.large10 {
+    width: 10%;
+}
+.large15 {
+    width: 15%;
+}
+.large20 {
+    width: 20%;
+}
+.large30 {
+    width: 30%;
+}
