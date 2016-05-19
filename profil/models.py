@@ -28,9 +28,9 @@ class Profil(models.Model):
     adresse    = models.CharField(max_length=200)
     cp         = models.CharField(max_length=5)
     ville      = models.CharField(max_length=100)
-    tel_1      = models.IntegerField()
-    tel_2      = models.IntegerField()
-    tel_3      = models.IntegerField()
+    tel_1      = models.CharField(max_length=10)
+    tel_2      = models.CharField(max_length=10)
+    tel_3      = models.CharField(max_length=10)
     # categorie  = models.CharField(max_length=100, choices=categorie_choices)
 
 
@@ -41,10 +41,16 @@ class Profil(models.Model):
 class Public(models.Model):
     nom = models.CharField(max_length=30)
 
+    def __unicode__(self):
+        return "%s" % (self.nom)
+
 
 class Periode(models.Model):
     debut   = models.DateField()
-    fin     = models.DateField()
+    fin     = models.DateField(null=True, blank=True)
     license = models.CharField(max_length = 60)
     public  = models.ForeignKey(Public)
     profil  = models.ForeignKey(Profil)
+
+    def __unicode__(self):
+        return "%s %s %s" % (self.debut, self.fin, self.license)

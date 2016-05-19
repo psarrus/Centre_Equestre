@@ -4,7 +4,6 @@ from django.db import models
 from profil.models import Profil
 from cheval.models import Cheval
 
-
 ACTE_CHOICES = (
     ("1", "Soin"),
     ("2", "Vaccin"),
@@ -15,8 +14,9 @@ ACTE_CHOICES = (
 
 
 class RegistreSoins(models.Model):
-    date        = models.DateField(auto_now_add = True)
+    # date        = models.DateField(auto_now_add=True, blank=True)
+    date        = models.DateField()
+    cheval      = models.ForeignKey(Cheval)
     pathologie  = models.CharField(max_length = 60)
     acte        = models.CharField(max_length = 1, choices=ACTE_CHOICES)
-    cheval      = models.ForeignKey(Cheval)
     soigneur    = models.ForeignKey(Profil)

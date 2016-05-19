@@ -1,26 +1,45 @@
 {% extends "base.html" %}
+{% load phonenumber_filters %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-6">
-        <fieldset>
-            <legend>
-                <a class="btn btn-default" href="/profil/edit">nouveau</a>
-                 Liste des Profils
-                 <div class="choix-profil">
-                     <input type="checkbox" name="cb-eleve" value="1"> Elève
-                     <input type="checkbox" name="cb-cavalier" value="3"> Cavalier
-                     <input type="checkbox" name="cb-professeur" value="2"> Professeur
-                     <input type="checkbox" name="cb-personnel" value="4"> Personnel
-                 </div>
-             </legend>
-            <ul>
-                {% for profil in profils %}
-                <li><a href="{{profil.id}}">{{profil.nom}} {{profil.prenom}}</a></li>
-                {% endfor %}
-            </ul>
+<table class="table table-bordered table-hover">
+    <caption class="text-center"><h1>Profiles</h1></caption>
+    <thead>
+        <tr>
+            <th class="text-center">Nom</th>
+            <th class="text-center">Prénom</th>
+            <th class="text-center">Adresse</th>
+            <th class="text-center">Email</th>
+            <th class="text-center">Téléphone</th>
+            <th class="text-center">License</th>
+            <th class="text-center">Classe</th>
+            <th colspan="2" class="text-center">Période</th>
+            <th class="text-center">Modification</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for profil in profils %}
+        {% for per in periode %}
+        <tr>
+            <td class="text-center">{{profil.nom}}</td>
+            <td class="text-center">{{profil.prenom}}</td>
+            <td class="text-center">{{profil.adresse}} {{profil.cp}}, {{profil.ville}}</td>
+            <td class="text-center">{{profil.email}}</td>
+            <td class="text-center">{{profil.tel_1|phonenumber:"FR"}}</td>
+            <td class="text-center">{{per.license}}</td>
+            <td class="text-center">{{per.public.nom}}</td>
+            <td colspan="1" class="text-center">
+                {{per.debut|date:"d M Y"}}</td>
+                <td colspan="1" class="text-center">
+                {% if per.fin %}
+                    {{per.fin|date:"d M Y"}}
+                {% endif %}
+            </td>
 
-        </fieldset>
-    </div>
-</div>
+            <td class="text-center"><a href="{% url 'profil_update' profil.id %}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></a></i></td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
