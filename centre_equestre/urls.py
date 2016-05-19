@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 import monte, cheval, profil, sante
-from views import homepage
+from views import homepage,UserListView
 
 urlpatterns = [
     url(r'^$', homepage),
+    url(r'^users/$', UserListView.as_view(), name='users_list'),
     url(r'^monte/', include('monte.urls')),
     url(r'^cheval/', include('cheval.urls')),
     url(r'^profil/', include('profil.urls')),
