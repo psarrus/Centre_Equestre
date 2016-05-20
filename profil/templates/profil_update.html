@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block content %}
 <div class="row">
     <div class="col-md-6">
@@ -23,6 +22,22 @@
                     </div>
                 </div>
                 {% endfor %}
+                {% for test in periode%}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-2">
+                            {{test.label_tag}}
+                        </div>
+                        <div class="col-md-10">
+                            {{test}}
+                            {{test.errors}}
+                            {% if test.help_text %}
+                            {{test.help_text}}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
                 <div id="btn-profil">
                     <input id="btn-valid-profil" type="submit" name="name" value="Envoyer">
                 </div>
@@ -30,5 +45,4 @@
         </fieldset>
     </div>
 </div>
-
 {% endblock %}
