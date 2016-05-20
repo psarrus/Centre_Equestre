@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <fieldset>
+
+        <legend class="text-center">Fiche de {{ cheval.nom }}</legend>
+
+        <p>Nom : {{ cheval.nom }}</p>
+        <p>N° sire : {{ cheval.sire }}</p>
+        <p>Race : {{ cheval.race }}</p>
+        <p>Pedigree : {{ cheval.pedigree }}</p>
+        <p>Année de naissance : {{ cheval.annee_naissance }}</p>
+        <p>Photo : {{ cheval.photo }}</p>
+        <p>Date d'entrée : {{ cheval.date_entree }}</p>
+        <p>Date de sortie : {{ cheval.date_sortie }}</p>
+        <p>Activité : {{ cheval.activite }}</p>
+        <p>Remarques : {{ cheval.remarques }}</p>
+        <p>Statut : {{ cheval.statut }}</p>
+        <p>Aptitude : {{ cheval.aptitude }}</p>
+        <p>Emplacement (zone) : {{ cheval.emplacement.zone }}</p>
+        <p>Emplacement (box) : {{ cheval.emplacement.box }}</p>
+
+        <p><a class="btn btn-default" href="/cheval/{{cheval.id}}/modifier">Modifier</a></p>
+        <p><a href="/sante"><i class="fa fa-arrow-left"></i> Retour</a></p>
+
+    </fieldset>
+</div>
+
+{% endblock %}

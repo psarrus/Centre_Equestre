@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <fieldset>
+
+        <legend class="text-center">Registre d'élevage</legend>
+        <p><a class="btn btn-default" href="/cheval/creer">Nouveau</a></p>
+
+        <table id="table" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">Nom</th>
+                    <th class="text-center">Sire</th>
+                    <th class="text-center">Race</th>
+                    <th class="text-center">Pedigree</th>
+                    <th class="text-center">Année de naissance</th>
+                    <th class="text-center">Date d'entrée</th>
+                    <!-- <th class="text-center">Date de sortie</th> -->
+                    <th class="text-center">Activité</th>
+                    <!-- <th class="text-center">Remarques</th> -->
+                    <th class="text-center">Statut</th>
+                    <th class="text-center">Aptitude</th>
+                    <th class="text-center">Emplacement</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th class="text-center">Nom</th>
+                    <th class="text-center">Sire</th>
+                    <th class="text-center">Race</th>
+                    <th class="text-center">Pedigree</th>
+                    <th class="text-center">Année de naissance</th>
+                    <th class="text-center">Date d'entrée</th>
+                    <!-- <th class="text-center">Date de sortie</th> -->
+                    <th class="text-center">Activité</th>
+                    <!-- <th class="text-center">Remarques</th> -->
+                    <th class="text-center">Statut</th>
+                    <th class="text-center">Aptitude</th>
+                    <th class="text-center">Emplacement</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for cheval in chevaux %}
+                <tr>
+                    <td>{{ cheval.nom }}</td>
+                    <td>{{ cheval.sire }}</td>
+                    <td>{{ cheval.race }}</td>
+                    <td>{{ cheval.pedigree }}</td>
+                    <td>{{ cheval.annee_naissance }}</td>
+                    <td>{{ cheval.date_entree }}</td>
+                    <!-- <td>{{ cheval.date_sortie }}</td> -->
+                    <td>{{ cheval.get_activite_display }}</td>
+                    <!-- <td>{{ cheval.remarques }}</td> -->
+                    <td>{{ cheval.get_statut_display }}</td>
+                    <td>{{ cheval.get_aptitude_display }}</td>
+                    <td>{{ cheval.emplacement }}</td>
+                    <td class="text-center">
+                        <a href="/cheval/{{cheval.id}}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/cheval/{{cheval.id}}/modifier"><i class="fa fa-pencil"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </fieldset>
+</div>
+
+{% endblock %}

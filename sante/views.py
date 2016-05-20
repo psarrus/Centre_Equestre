@@ -1,21 +1,21 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from models import RegistreSoins
-
-class SoinCreate(CreateView):
-    model = RegistreSoins
-    fields = '__all__'
-    # fields = ['pathologie','acte','cheval','soigneur']
-    template_name = 'soin_create.html'
-    success_url = reverse_lazy('soins')
 
 
 class SoinList(ListView):
     model = RegistreSoins
-    template_name = 'soin.html'
+    template_name = 'soin_list.html'
     context_object_name = 'soins'
     queryset = RegistreSoins.objects.all()
+
+
+class SoinCreate(CreateView):
+    model = RegistreSoins
+    fields = '__all__'
+    template_name = 'soin_create.html'
+    success_url = reverse_lazy('soins')
 
 
 class SoinDetail(DetailView):
@@ -26,7 +26,7 @@ class SoinDetail(DetailView):
 
 class SoinUpdate(UpdateView):
     model = RegistreSoins
-    fields = ['pathologie','acte','cheval','soigneur']
+    fields = ['cheval', 'pathologie', 'acte', 'soigneur']
     template_name = 'soin_update.html'
     success_url = reverse_lazy('soins')
 

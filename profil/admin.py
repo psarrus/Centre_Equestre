@@ -1,11 +1,15 @@
 from django.contrib import admin
 from profil.models import Profil, Periode
+from profil.forms import ProfileForm
 
 
 class PeriodeInlineAdmin(admin.TabularInline):
     model = Periode
     extra = 1
 
+# class CatInlineAdmin(admin.TabularInline):
+#     model = ProfileForm
+#     extra = 1
 
 class ProfilAdmin(admin.ModelAdmin):
     list_display  = ['nom', 'prenom', 'cp', 'ville', 'adresse', 'email', 'tel_1']

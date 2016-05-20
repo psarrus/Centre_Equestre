@@ -2,7 +2,7 @@
 
 {% block content %}
 <fieldset>
-    <legend>Supprimer la fiche de {{ cheval.nom }}</legend>
+    <legend>Supprimer ce creneau montoir?</legend>
     <form action="{{ request.path }}" method="POST">
         {% csrf_token %}
         {{ form.errors }}

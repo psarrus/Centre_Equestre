@@ -5,17 +5,17 @@
 <div class="container-fluid">
     <fieldset>
 
-        <legend class="text-center">Supprimer le soin</legend>
+        <legend class="text-center">Supprimer l'emplacement</legend>
 
-        <p class="text-center">Voulez-vous supprimer ce soin ?</p>
+        <p class="text-center">Voulez-vous supprimer cet emplacement ?</p>
         <form class="text-center" action="{{ request.path }}" method="POST">
             {% csrf_token %}
             {{ form.errors }}
             <p><button class="btn btn-danger" type="submit">Supprimer</button></p>
-            <p><a href="/sante"><i class="fa fa-arrow-left"></i> Retour</a></p>
+            <p><a href="/cheval/emplacement"><i class="fa fa-arrow-left"></i> Retour</a></p>
         </form>
 
-    </fieldset>
+    </fieldset>    
 </div>
 
 {% endblock %}

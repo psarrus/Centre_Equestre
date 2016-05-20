@@ -1,39 +1,46 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from models import Cheval, Emplacement
+from sante.models import RegistreSoins
 
 
 class ChevalList(ListView):
     model = Cheval
-    template_name = 'cheval.html'
+    template_name = 'cheval_list.html'
     context_object_name = 'chevaux'
     queryset = Cheval.objects.all()
 
 
 class ChevalCreate(CreateView):
     model = Cheval
-    fields = ['sire','nom','race','pedigree','annee_naissance','photo','activite','remarques','status','aptitude','emplacement']
-    template_name = 'cheval_create_form.html'
+    fields = ['sire','nom','race','pedigree','annee_naissance','photo','activite','remarques','statut','aptitude','emplacement']
+    template_name = 'cheval_create.html'
     success_url = reverse_lazy('cheval_list')
+
+
+class ChevalDetail(DetailView):
+    model = Cheval
+    template_name = 'cheval_detail.html'
+    context_object_name = 'cheval'
 
 
 class ChevalUpdate(UpdateView):
     model = Cheval
-    fields = ['sire','nom','race','pedigree','annee_naissance','photo','activite','remarques','status','aptitude','emplacement']
-    template_name = 'cheval_update_form.html'
+    fields = ['sire','nom','race','pedigree','annee_naissance','photo','activite','remarques','statut','aptitude','emplacement']
+    template_name = 'cheval_update.html'
     success_url = reverse_lazy('cheval_list')
 
 
-class ChevalDelete(DeleteView):
+class ChevalEtat(ListView):
     model = Cheval
-    template_name = 'cheval_delete_form.html'
-    success_url = reverse_lazy('cheval_list')
+    template_name = 'cheval_etat.html'
+    context_object_name = 'chevaux'
 
 
 class EmplacementList(ListView):
     model = Emplacement
-    template_name = 'emplacement.html'
+    template_name = 'emplacement_list.html'
     context_object_name = 'emplacements'
     queryset = Emplacement.objects.all()
 
@@ -41,18 +48,24 @@ class EmplacementList(ListView):
 class EmplacementCreate(CreateView):
     model = Emplacement
     fields = ['zone','box']
-    template_name = 'emplacement_create_form.html'
+    template_name = 'emplacement_create.html'
     success_url = reverse_lazy('emplacement_list')
+
+
+class EmplacementDetail(DetailView):
+    model = Emplacement
+    template_name = 'emplacement_detail.html'
+    context_object_name = 'emplacement'
 
 
 class EmplacementUpdate(UpdateView):
     model = Emplacement
     fields = ['zone','box']
-    template_name = 'emplacement_update_form.html'
+    template_name = 'emplacement_update.html'
     success_url = reverse_lazy('emplacement_list')
 
 
 class EmplacementDelete(DeleteView):
     model = Emplacement
-    template_name = 'emplacement_delete_form.html'
+    template_name = 'emplacement_delete.html'
     success_url = reverse_lazy('emplacement_list')

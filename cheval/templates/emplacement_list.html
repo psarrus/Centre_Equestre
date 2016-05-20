@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <fieldset>
+
+        <legend class="text-center">Liste des emplacements</legend>
+        <p><a class="btn btn-default" href="/cheval/emplacement/creer">Nouveau</a></p>
+
+        <table id="table" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">Zone</th>
+                    <th class="text-center">Box</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th class="text-center">Zone</th>
+                    <th class="text-center">Box</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for emplacement in emplacements %}
+                <tr>
+                    <td class="large30">{{ emplacement.zone }}</td>
+                    <td class="large30">{{ emplacement.box }}</td>
+                    <td class="large30 text-center">
+                        <a href="/cheval/emplacement/{{emplacement.id}}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/cheval/emplacement/{{emplacement.id}}/modifier"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="/cheval/emplacement/{{emplacement.id}}/supprimer"><i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </fieldset>
+</div>
+
+{% endblock %}
