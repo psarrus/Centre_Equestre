@@ -1,0 +1,23 @@
+{
+  "name": "centre_equestre",
+  "homepage": "https://github.com/psarrus/Centre_Equestre",
+  "authors": [
+    "Pierre Sarrus"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "datatables": "^1.10.11",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}
