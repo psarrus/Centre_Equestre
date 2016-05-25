@@ -11,36 +11,33 @@
         <table id="table" class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="text-center">Nom</th>
-                    <th class="text-center">Aptitude</th>
-                    <th class="text-center">Dernier ferrage</th>
-                    <th class="text-center">Dernière vermifugation</th>
-                    <th class="text-center">Dernier soin</th>
-                    <!-- <th class="text-center">Actions</th> -->
+                    <th class="text-center col-xs-2">Nom</th>
+                    <th class="text-center col-xs-2">Aptitude</th>
+                    <th class="text-center col-xs-2">Emplacement</th>
+                    <th class="text-center col-xs-2">Dernier ferrage</th>
+                    <th class="text-center col-xs-2">Dernière vermifugation</th>
+                    <th class="text-center col-xs-2">Dernier soin</th>
                 </tr>
             </thead>
             <tfoot>
                 <tr>
                     <th class="text-center">Nom</th>
                     <th class="text-center">Aptitude</th>
+                    <th class="text-center">Emplacement</th>
                     <th class="text-center">Dernier ferrage</th>
                     <th class="text-center">Dernière vermifugation</th>
                     <th class="text-center">Dernier soin</th>
-                    <!-- <th class="text-center">Actions</th> -->
                 </tr>
             </tfoot>
             <tbody>
                 {% for cheval in chevaux %}
                 <tr>
-                    <td class="large20">{{ cheval.nom }}</td>
-                    <td class="large20">{{ cheval.get_aptitude_display }}</td>
-                    <td class="large20">{{ cheval.ferrage }}</td>
-                    <td class="large20">{{ cheval.vermifugation }}</td>
-                    <td class="large20">{{ cheval.soin }}</td>
-                    <!-- <td class="text-center">
-                        <a href="/cheval/{{cheval.id}}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/cheval/{{cheval.id}}/modifier"><i class="fa fa-pencil"></i></a>
-                    </td> -->
+                    <td>{{ cheval.nom }}</td>
+                    <td>{{ cheval.get_aptitude_display }}</td>
+                    <td>{{ cheval.emplacement }}</td>
+                    <td>{{ ferrage.date }}</td>
+                    <td>{{ vermifugation.date }}</td>
+                    <td>{{ soins.date }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

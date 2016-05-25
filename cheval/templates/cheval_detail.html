@@ -7,23 +7,29 @@
 
         <legend class="text-center">Fiche de {{ cheval.nom }}</legend>
 
-        <p>Nom : {{ cheval.nom }}</p>
-        <p>N° sire : {{ cheval.sire }}</p>
-        <p>Race : {{ cheval.race }}</p>
-        <p>Pedigree : {{ cheval.pedigree }}</p>
-        <p>Année de naissance : {{ cheval.annee_naissance }}</p>
-        <p>Photo : {{ cheval.photo }}</p>
-        <p>Date d'entrée : {{ cheval.date_entree }}</p>
-        <p>Date de sortie : {{ cheval.date_sortie }}</p>
-        <p>Activité : {{ cheval.activite }}</p>
-        <p>Remarques : {{ cheval.remarques }}</p>
-        <p>Statut : {{ cheval.statut }}</p>
-        <p>Aptitude : {{ cheval.aptitude }}</p>
-        <p>Emplacement (zone) : {{ cheval.emplacement.zone }}</p>
-        <p>Emplacement (box) : {{ cheval.emplacement.box }}</p>
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-push-6">
+                <img alt="Photo du cheval" src="/media/{{cheval.photo}}" class="img-responsive" />
+            </div>
+            <div class="col-xs-12 col-md-6 col-md-pull-6">
+                <p>Nom : {{ cheval.nom }}</p>
+                <p>N° sire : {{ cheval.sire }}</p>
+                <p>Race : {{ cheval.race }}</p>
+                <p>Pedigree : {{ cheval.pedigree }}</p>
+                <p>Année de naissance : {{ cheval.annee_naissance }}</p>
+                <p>Date d'entrée : {{ cheval.date_entree }}</p>
+                <p>Date de sortie : {{ cheval.date_sortie }}</p>
+                <p>Activité : {{ cheval.get_activite_display }}</p>
+                <p>Remarques : {{ cheval.remarques }}</p>
+                <p>Statut : {{ cheval.get_statut_display }}</p>
+                <p>Aptitude : {{ cheval.get_aptitude_display }}</p>
+                <p>Emplacement (zone) : {{ cheval.emplacement.zone }}</p>
+                <p>Emplacement (box) : {{ cheval.emplacement.box }}</p>
 
-        <p><a class="btn btn-default" href="/cheval/{{cheval.id}}/modifier">Modifier</a></p>
-        <p><a href="/sante"><i class="fa fa-arrow-left"></i> Retour</a></p>
+                <p><a class="btn btn-default" href="/cheval/{{cheval.id}}/modifier">Modifier</a></p>
+                <p><a href="/cheval"><i class="fa fa-arrow-left"></i> Retour</a></p>
+            </div>
+        </div>
 
     </fieldset>
 </div>

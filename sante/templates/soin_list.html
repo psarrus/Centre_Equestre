@@ -11,12 +11,12 @@
         <table id="table" class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="text-center">Date</th>
-                    <th class="text-center">Cheval</th>
-                    <th class="text-center">Pathologie</th>
-                    <th class="text-center">Acte</th>
-                    <th class="text-center">Soigneur</th>
-                    <th class="text-center">Actions</th>
+                    <th class="text-center col-xs-2">Date</th>
+                    <th class="text-center col-xs-2">Cheval</th>
+                    <th class="text-center col-xs-2">Pathologie</th>
+                    <th class="text-center col-xs-2">Acte</th>
+                    <th class="text-center col-xs-2">Soigneur</th>
+                    <th class="text-center col-xs-2">Actions</th>
                 </tr>
             </thead>
             <tfoot>
@@ -32,12 +32,12 @@
             <tbody>
                 {% for soin in soins %}
                 <tr>
-                    <td class="large15">{{ soin.date }}</td>
-                    <td class="large15">{{ soin.cheval.nom }}</td>
-                    <td class="large20">{{ soin.pathologie }}</td>
-                    <td class="large10">{{ soin.get_acte_display }}</td>
-                    <td class="large20">{{ soin.soigneur }}</td>
-                    <td class="large10 text-center">
+                    <td>{{ soin.date }}</td>
+                    <td>{{ soin.cheval.nom }}</td>
+                    <td>{{ soin.pathologie }}</td>
+                    <td>{{ soin.get_acte_display }}</td>
+                    <td>{{ soin.soigneur }}</td>
+                    <td class="text-center">
                         <a href="/sante/{{soin.id}}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="/sante/{{soin.id}}/modifier"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="/sante/{{soin.id}}/supprimer"><i class="fa fa-times"></i></a>

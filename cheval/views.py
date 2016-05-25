@@ -37,6 +37,13 @@ class ChevalEtat(ListView):
     template_name = 'cheval_etat.html'
     context_object_name = 'chevaux'
 
+    def get_context_data(self, **kwargs):
+        context = super(ChevalEtat, self).get_context_data(**kwargs)
+        context["ferrage"] = RegistreSoins.objects.order_by("-date").get(acte=4)
+        context["vermifugation"] = RegistreSoins.objects.order_by("-date").get(acte=3)
+        context["soins"] = RegistreSoins.objects.order_by("-date").first()
+        return context
+
 
 class EmplacementList(ListView):
     model = Emplacement

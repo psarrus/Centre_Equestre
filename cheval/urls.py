@@ -1,5 +1,8 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import url
 from views import ChevalList, ChevalCreate, ChevalDetail, ChevalUpdate, ChevalEtat, EmplacementList, EmplacementCreate, EmplacementDetail, EmplacementUpdate, EmplacementDelete
+
 
 urlpatterns = [
     url(r'^$', ChevalList.as_view(), name='cheval_list'),
@@ -15,4 +18,4 @@ urlpatterns = [
     url(r'^emplacement/(?P<pk>[\w-]+)$', EmplacementDetail.as_view(), name='emplacement_detail'),
     url(r'^emplacement/(?P<pk>[\w-]+)/modifier$', EmplacementUpdate.as_view(), name='emplacement_update'),
     url(r'^emplacement/(?P<pk>[\w-]+)/supprimer$', EmplacementDelete.as_view(), name='emplacement_delete'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

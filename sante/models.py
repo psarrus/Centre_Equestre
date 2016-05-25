@@ -15,9 +15,8 @@ ACTE_CHOICES = (
 
 
 class RegistreSoins(models.Model):
-    # date        = models.DateField(auto_now_add=True, blank=True)
     date        = models.DateField()
     cheval      = models.ForeignKey(Cheval)
     pathologie  = models.CharField(max_length = 60)
-    acte        = models.CharField(max_length = 1, choices=ACTE_CHOICES)
+    acte        = models.CharField(max_length = 1, choices = ACTE_CHOICES)
     soigneur    = models.ForeignKey(Profil)

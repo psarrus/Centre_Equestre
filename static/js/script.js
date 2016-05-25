@@ -1,13 +1,18 @@
 $(document).ready(function(){
     $('#table').DataTable({
+        rowReorder: true,
+        colReorder: true,
+        fixedHeader: true,
+        responsive: true,
+        select: false,
         language: {
-            "decimal":        "",
+            "decimal":        ",",
             "emptyTable":     "Le tableau est vide",
             "info":           "Lignes _START_ à _END_ sur _TOTAL_",
             "infoEmpty":      "Lignes 0 à 0 sur 0",
             "infoFiltered":   "(filtrées sur un total de _MAX_ lignes)",
             "infoPostFix":    "",
-            "thousands":      ",",
+            "thousands":      " ",
             "lengthMenu":     "Afficher _MENU_ lignes",
             "loadingRecords": "Chargement ...",
             "processing":     "Recherche ...",
@@ -20,8 +25,8 @@ $(document).ready(function(){
                 "previous":   "Précédent"
             },
             "aria": {
-                "sortAscending":  ": trier par ordre croissant",
-                "sortDescending": ": trier par ordre décroissant"
+                "sortAscending":  "Trier par ordre croissant",
+                "sortDescending": "Trier par ordre décroissant"
             }
         },
         initComplete: function () {

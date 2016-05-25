@@ -7,7 +7,7 @@
 
         <legend class="text-center">Enregistrer un nouveau cheval</legend>
 
-        <form action="{{ request.path }}" method="POST">
+        <form action="{{ request.path }}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
             <div class="form-group">
@@ -33,7 +33,7 @@
             </div>
         </form>
 
-    </fieldset>    
+    </fieldset>
 </div>
 
 {% endblock %}
