@@ -23,6 +23,23 @@
                     </div>
                 </div>
                 {% endfor %}
+                {{profilline_formset.management_form}}
+                {% for field in profilline_formset%}
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-2">
+                            {{field.label_tag}}
+                        </div>
+                        <div class="col-md-10">
+                            {{field}}
+                            {{field.errors}}
+                            {% if field.help_text %}
+                            {{field.help_text}}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
                 <div id="btn-profil">
                     <input id="btn-valid-profil" type="submit" name="name" value="Envoyer">
                 </div>
