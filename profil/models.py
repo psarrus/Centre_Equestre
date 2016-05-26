@@ -34,7 +34,7 @@ class Profil(models.Model):
     tel_1      = models.CharField(max_length=10)
     tel_2      = models.CharField(max_length=10)
     tel_3      = models.CharField(max_length=10)
-
+    profil_actif  = models.BooleanField(default=False)
 
     def __unicode__(self):
         return "%s %s" % (self.nom, self.prenom)
@@ -63,11 +63,12 @@ class Periode(models.Model):
 @receiver(post_save, sender=Profil)
 def create_user(sender, created, instance, **kwargs):
     if created:
-        user = User.objects.create(email=instance.email,
+        user = User(email=instance.email,
                                    first_name=instance.prenom,
                                    last_name=instance.nom,
-                                   username=instance.email,
-                                   password='plop',
-                                   is_active=False)
+                                   username=instance.nom,
+                                   is_active=instance.profil_actif)
+        user.set_password("plop48000")
+        user.save()
         instance.user = user
         instance.save()

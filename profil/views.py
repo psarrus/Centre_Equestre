@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from models import Profil, Public, Periode
+from django.contrib.auth.models import User
 from django.views.generic import ListView, CreateView, UpdateView
 from django.core.urlresolvers import reverse_lazy, reverse
 from .forms import ProfilLineFormSet
@@ -8,7 +9,7 @@ from .forms import ProfilLineFormSet
 
 class CreateProfil(CreateView):
     model = Profil
-    fields = ['civilite', 'nom', 'prenom', 'email', 'adresse', 'cp', 'ville', 'tel_1', 'tel_2', 'tel_3']
+    fields = ['civilite', 'nom', 'prenom', 'email', 'adresse', 'cp', 'ville', 'tel_1', 'tel_2', 'tel_3', 'profil_actif']
     template_name = 'create_profil.html'
     success_url = reverse_lazy('list_profil')
 
