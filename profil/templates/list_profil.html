@@ -11,6 +11,7 @@
                     <th class="text-center">Prénom</th>
                     <th class="text-center">Adresse</th>
                     <th class="text-center">License</th>
+                    <th class="text-center">Catégorie</th>
                     <th class="text-center">Classe</th>
                     <th colspan="2" class="text-center">Période</th>
                     <th class="text-center">Visualisation</th>
@@ -19,12 +20,14 @@
             </thead>
             <tbody>
                 {% for profil in profils %}
-                {% for per in periode %}
                 <tr>
                     <td class="text-center">{{profil.nom}}</td>
                     <td class="text-center">{{profil.prenom}}</td>
                     <td class="text-center">{{profil.adresse}} {{profil.cp}}, {{profil.ville}}</td>
+                    {% for per in periodes %}
+                    {% if per.profil.id == profil.id %}
                     <td class="text-center">{{per.license}}</td>
+                    <td class="text-center">{{per.get_categorie_display}}</td>
                     <td class="text-center">{{per.public.nom}}</td>
                     <td colspan="1" class="text-center">
                         {{per.debut|date:"d M Y"}}</td>
@@ -33,12 +36,13 @@
                             {{per.fin|date:"d M Y"}}
                         {% endif %}
                     </td>
+                    {% endif %}
+                    {% endfor %}
 
                     <td class="text-center"><a href="{% url 'profil_update' profil.id %}"><i class="fa fa-eye fa-2x" aria-hidden="true"></a></i></td>
                     <td class="text-center"><a href="{% url 'profil_update' profil.id %}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></a></i></td>
+                    {% endfor %}
                 </tr>
-                {% endfor %}
-                {% endfor %}
             </tbody>
         </table>
     </div>
