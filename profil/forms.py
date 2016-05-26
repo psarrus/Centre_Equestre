@@ -1,12 +1,7 @@
-from django.forms import ModelForm
-from django import forms
-from models import Profil, categorie_choices
-from django.forms.widgets import CheckboxSelectMultiple
+from django.forms import ModelForm, modelform_factory
+from django.forms.models import inlineformset_factory
+from models import Profil, Periode
 
-
-class ProfileForm(forms.ModelForm):
-    categorie = forms.MultipleChoiceField(required=False, widget=forms.CheckboxSelectMultiple(attrs={'class': 'list-group'}), choices=categorie_choices)
-
-    class Meta:
-        model = Profil
-        fields = '__all__'
+ProfilLineFormSet = inlineformset_factory(Profil, Periode,
+                                            fields='__all__',
+                                            extra=3)
