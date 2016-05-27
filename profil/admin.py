@@ -1,6 +1,5 @@
 from django.contrib import admin
 from profil.models import Profil, Periode
-from profil.forms import ProfileForm
 
 
 class PeriodeInlineAdmin(admin.TabularInline):

@@ -6,7 +6,7 @@
     <fieldset>
 
         <legend class="text-center">Registre d'élevage</legend>
-        <p><a class="btn btn-default" href="/cheval/creer">Nouveau</a></p>
+        <p><a class="btn btn-default" href="{% url 'cheval_create' %}">Nouveau</a></p>
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
@@ -59,8 +59,8 @@
                     <td>{{ cheval.get_aptitude_display }}</td>
                     <td>{{ cheval.emplacement }}</td>
                     <td class="text-center">
-                        <a href="/cheval/{{cheval.id}}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/cheval/{{cheval.id}}/modifier"><i class="fa fa-pencil"></i></a>
+                        <a href="{% url 'cheval_detail' cheval.pk %}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'cheval_update' cheval.pk %}"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
                 {% endfor %}

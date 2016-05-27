@@ -15,7 +15,7 @@ STATUS_CHOICES = (
 
 ACTIVITE_CHOICES = (
     ("1", "Monte"),
-    ("2", "Elevage"),
+    ("2", "Élevage"),
 )
 
 APTITUDE_CHOICES = (
@@ -40,17 +40,26 @@ class Cheval(models.Model):
     race            = models.CharField(max_length = 100)
     pedigree        = models.CharField(max_length = 500)
     annee_naissance = models.CharField(max_length = 60)
-    photo           = models.CharField(max_length = 500)
-    date_entree     = models.DateField(auto_now_add=True)
-    date_sortie     = models.DateField(null=True)
+    photo           = models.FileField(upload_to = "photos")
+    date_entree     = models.DateField(auto_now_add = True)
+    date_sortie     = models.DateField(null = True, blank = True)
     activite        = models.CharField(max_length = 1, choices = ACTIVITE_CHOICES)
     remarques       = models.TextField()
     statut          = models.CharField(max_length = 1, choices = STATUS_CHOICES)
     aptitude        = models.CharField(max_length = 1, choices = APTITUDE_CHOICES, default = "1")
     emplacement     = models.OneToOneField( Emplacement,
                                             unique = True,
-                                            verbose_name = _('emplacement'),
-                                            related_name = 'emplacement')
+                                            verbose_name = _("emplacement"),
+                                            related_name = "emplacement")
+
+    def get_dernier_soin(self):
+        return self.registresoins_set.filter(acte=1).order_by("-date").first()
+
+    def get_dernier_ferrage(self):
+        return self.registresoins_set.filter(acte=4).order_by("-date").first()
+
+    def get_dernier_vermifugation(self):
+        return self.registresoins_set.filter(acte=3).order_by("-date").first()
 
     def __unicode__(self):
         return "%s (n° sire %s)" % (self.nom, self.sire)

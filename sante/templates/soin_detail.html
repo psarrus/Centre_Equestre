@@ -13,9 +13,9 @@
         <p>Acte : {{ soin.acte }}</p>
         <p>Soigneur : {{ soin.soigneur }}</p>
 
-        <p><a class="btn btn-default" href="/sante/{{soin.id}}/modifier">Modifier</a></p>
-        <p><a class="btn btn-danger" href="/sante/{{soin.id}}/supprimer">Supprimer</a></p>
-        <p><a href="/sante"><i class="fa fa-arrow-left"></i> Retour</a></p>
+        <p><a class="btn btn-default" href="{% url 'soin_update' soin.pk %}">Modifier</a></p>
+        <p><a class="btn btn-danger" href="{% url 'soin_delete' soin.pk %}">Supprimer</a></p>
+        <p><a href="{% url 'soins' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
 
     </fieldset>
 </div>

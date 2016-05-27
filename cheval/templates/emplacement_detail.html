@@ -10,11 +10,11 @@
         <p>Zone : {{ emplacement.zone }}</p>
         <p>Box : {{ emplacement.box }}</p>
 
-        <p><a class="btn btn-default" href="/cheval/emplacement/{{emplacement.id}}/modifier">Modifier</a></p>
-        <p><a class="btn btn-danger" href="/cheval/emplacement/{{emplacement.id}}/supprimer">Supprimer</a></p>
-        <p><a href="/sante"><i class="fa fa-arrow-left"></i> Retour</a></p>
+        <p><a class="btn btn-default" href="{% url 'emplacement_update' emplacement.pk %}">Modifier</a></p>
+        <p><a class="btn btn-danger" href="{% url 'emplacement_delete' emplacement.pk %}">Supprimer</a></p>
+        <p><a href="{% url 'emplacement_list' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
 
-    </fieldset>    
+    </fieldset>
 </div>
 
 {% endblock %}

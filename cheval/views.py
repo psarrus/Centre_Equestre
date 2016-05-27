@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from models import Cheval, Emplacement
-from sante.models import RegistreSoins
 
 
 class ChevalList(ListView):

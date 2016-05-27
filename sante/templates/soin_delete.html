@@ -12,7 +12,7 @@
             {% csrf_token %}
             {{ form.errors }}
             <p><button class="btn btn-danger" type="submit">Supprimer</button></p>
-            <p><a href="/sante"><i class="fa fa-arrow-left"></i> Retour</a></p>
+            <p><a href="{% url 'soins' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
         </form>
 
     </fieldset>
