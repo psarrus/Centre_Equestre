@@ -48,16 +48,29 @@ class CreneauMontoirDetail(DetailView):
 
         return context
 
+# def creneau_montoir_detail(request, pk):
+#
+#     if request.method=='GET':
+#         creneau = CreneauMontoir.objects.get(pk=pk)
+#         cheval = Cheval.objects.filter(activite="1")
+#         form = PiquetMontoirForm(request.POST)
+#         # form.fields["activite"].queryset = Cheval.objects.filter(activite="1")
+#
+#
+#         return render(request, "creneau_montoir_detail.html", {"creneau":creneau,
+#                                                   "chevaux":cheval,
+#                                                   "form":form })
 
 
 
 
-class PiquetMontoirStaffCreate(FormView):
-    model = PiquetMontoirStaff
-    form_class = PiquetMontoirForm
-    # fields = ['montoir', 'cheval']
-    template_name = 'creneau_montoir_detail.html'
-    success_url = reverse_lazy('piquet_montoir')
+
+# class PiquetMontoirStaffCreate(FormView):
+#     model = PiquetMontoirStaff
+#     form_class = PiquetMontoirForm
+#     fields = ['montoir', 'cheval']
+#     template_name = 'creneau_montoir_detail.html'
+#     success_url = reverse_lazy('piquet_montoir')
 
 
 
