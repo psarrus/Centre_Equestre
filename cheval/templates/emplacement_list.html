@@ -6,7 +6,7 @@
     <fieldset>
 
         <legend class="text-center">Liste des emplacements</legend>
-        <p><a class="btn btn-default" href="/cheval/emplacement/creer">Nouveau</a></p>
+        <p><a class="btn btn-default" href="{% url 'emplacement_create' %}">Nouveau</a></p>
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
@@ -29,9 +29,9 @@
                     <td>{{ emplacement.zone }}</td>
                     <td>{{ emplacement.box }}</td>
                     <td class="text-center">
-                        <a href="/cheval/emplacement/{{emplacement.id}}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/cheval/emplacement/{{emplacement.id}}/modifier"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="/cheval/emplacement/{{emplacement.id}}/supprimer"><i class="fa fa-times"></i></a>
+                        <a href="{% url 'emplacement_detail' emplacement.pk %}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'emplacement_update' emplacement.pk %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'emplacement_delete' emplacement.pk %}"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
                 {% endfor %}

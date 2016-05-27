@@ -52,5 +52,14 @@ class Cheval(models.Model):
                                             verbose_name = _("emplacement"),
                                             related_name = "emplacement")
 
+    def get_dernier_soin(self):
+        return self.registresoins_set.filter(acte=1).order_by("-date").first()
+
+    def get_dernier_ferrage(self):
+        return self.registresoins_set.filter(acte=4).order_by("-date").first()
+
+    def get_dernier_vermifugation(self):
+        return self.registresoins_set.filter(acte=3).order_by("-date").first()
+
     def __unicode__(self):
         return "%s (n° sire %s)" % (self.nom, self.sire)
