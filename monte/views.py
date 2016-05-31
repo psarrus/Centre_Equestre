@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView, TemplateView
 from django.core.urlresolvers import reverse_lazy
+from json_views.views import JSONDetailView
+
 
 from models import *
 from cheval.models import Cheval
@@ -52,31 +54,20 @@ class CreneauMontoirDetail(DetailView):
     #     return context
 
 
-class PiquetMontoirStaffUpdate(UpdateView):
-    model = PiquetMontoirStaff
-    fields = "__all__"
-    # template_name_suffix = 'creneau_montoir_detail_update_form.html'
-    # template_name_suffix = '_update_form'
-    success_url = reverse_lazy('creneau_montoir_list')
-
-    def get_context_data(self, **kwargs):
-        context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
-        context['creneau'] = self.get_object()
-        context['chevaux'] = self.get_object().piquetmontoirstaff_set.all()
-        context['form'] = PiquetMontoirForm()
-
-        return context
-
-
-
-# class PiquetMontoirEnseignantCreate(CreateView):
-#     model = PiquetMontoirEnseignant
-#     fields = ['montoir', 'cheval', 'date', 'profil']
-#     template_name = 'piquet_montoir_enseignant_create.html'
-#     success_url = reverse_lazy('homepage')
+# class PiquetMontoirStaffUpdate(UpdateView):
+#     model = PiquetMontoirStaff
+#     fields = "__all__"
+#     success_url = reverse_lazy('creneau_montoir_list')
 #
-# class PiquetMontoirEnseignantUpdate(UpdateView):
-#     model = PiquetMontoirEnseignant
-#     fields = ['montoir', 'cheval', 'date', 'profil']
-#     template_name = 'piquet_montoir_enseignant_update.html'
-#     success_url = reverse_lazy('homepage')
+#     def get_context_data(self, **kwargs):
+#         context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
+#         context['creneau'] = self.get_object()
+#         context['chevaux'] = self.get_object().piquetmontoirstaff_set.all()
+#         context['form'] = PiquetMontoirForm()
+#
+#         return context
+
+
+class PiquetDetailJsonView(JSONDetailView):
+    
+    model = PiquetMontoirStaff

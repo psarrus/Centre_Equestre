@@ -50,4 +50,25 @@ $(document).ready(function(){
             } );
         }
     });
+    // $( ".check" ).change(function() {
+    //     console.log( "ok" );
+    // });
+    $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
+      //console.log(this); // DOM element
+      //console.log(event); // jQuery event
+      console.log(state); // true | false
+
+
+        //console.log( JSON.stringify($(state)) );
+
+        $.getJSON("/detail/montoir/25/json", function(data){
+            alert(data);
+        });
+
+
+    });
+
 });
+
+
+$("[name='my-checkbox']").bootstrapSwitch(); // bouton checkbox
