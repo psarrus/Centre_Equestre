@@ -1,7 +1,6 @@
 from django.contrib import admin
-from models import CreneauMontoir
-# from cheval.models import Cheval
+from models import CreneauMontoir, PiquetMontoirStaff
 
 # Register your models here.
 admin.site.register(CreneauMontoir)
-# admin.site.register(Cheval)
+admin.site.register(PiquetMontoirStaff)

@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView, TemplateView
 from django.core.urlresolvers import reverse_lazy
 
 from models import *
@@ -39,52 +39,36 @@ class CreneauMontoirDelete(DeleteView):
 
 class CreneauMontoirDetail(DetailView):
     model = CreneauMontoir
+    context_object_name = 'creneau'
     template_name = 'creneau_montoir_detail.html'
+    #
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
+    #     context['creneau'] = self.get_object()
+    #     context['chevaux'] = self.get_object().piquetmontoirstaff_set.all()
+    #     context['form'] = PiquetMontoirForm()
+    #
+    #     return context
+
+
+class PiquetMontoirStaffUpdate(UpdateView):
+    model = PiquetMontoirStaff
+    fields = "__all__"
+    # template_name_suffix = 'creneau_montoir_detail_update_form.html'
+    # template_name_suffix = '_update_form'
+    success_url = reverse_lazy('creneau_montoir_list')
 
     def get_context_data(self, **kwargs):
         context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
         context['creneau'] = self.get_object()
-        context['chevaux'] = Cheval.objects.filter(activite="1")
+        context['chevaux'] = self.get_object().piquetmontoirstaff_set.all()
+        context['form'] = PiquetMontoirForm()
 
         return context
 
-# def creneau_montoir_detail(request, pk):
-#
-#     if request.method=='GET':
-#         creneau = CreneauMontoir.objects.get(pk=pk)
-#         cheval = Cheval.objects.filter(activite="1")
-#         form = PiquetMontoirForm(request.POST)
-#         # form.fields["activite"].queryset = Cheval.objects.filter(activite="1")
-#
-#
-#         return render(request, "creneau_montoir_detail.html", {"creneau":creneau,
-#                                                   "chevaux":cheval,
-#                                                   "form":form })
 
 
-
-
-
-# class PiquetMontoirStaffCreate(FormView):
-#     model = PiquetMontoirStaff
-#     form_class = PiquetMontoirForm
-#     fields = ['montoir', 'cheval']
-#     template_name = 'creneau_montoir_detail.html'
-#     success_url = reverse_lazy('piquet_montoir')
-
-
-
-
-
-# class PiquetMontoirStaffUpdate(UpdateView):
-#     model = PiquetMontoirStaff
-#     fields = ['montoir', 'cheval']
-#     template_name = 'piquet_montoir_staff_update.html'
-#     success_url = reverse_lazy('homepage')
-#
-#
-#
-#
 # class PiquetMontoirEnseignantCreate(CreateView):
 #     model = PiquetMontoirEnseignant
 #     fields = ['montoir', 'cheval', 'date', 'profil']
