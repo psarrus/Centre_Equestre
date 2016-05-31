@@ -3,8 +3,6 @@
 {% block content %}
 
 
-<form role="form" name="form" action="" method="post" enctype="multipart/form-data" >
- {% csrf_token %}
 
 
 
@@ -38,29 +36,28 @@
 
 
     <table class="table table-bordered table-hover">
-        <tr>
-            <th>Chevaux</th>
-        </tr>
+        <form role="form" name="form" action="" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
 
-        {% for cheval in chevaux %}
+
+        {% for piquet in creneau.piquet_staff.all %}
         <tr>
-            <td class="large15">{{ cheval.nom }}</td>
-            <td class="large15">{{ cheval.get_aptitude_display }}</td>
-            <td><input type="checkbox" name="selectioncheval" value=""></td>
+            <td class="large15">{{ piquet.cheval.nom }}</td>
+            <td class="large15">{{ piquet.selected }}</td>
+            <td><input type="checkbox" name="selectioncheval" value="" {% if piquet.selected %}checked{% endif %}></td>
+
         </tr>
         {% endfor %}
+        <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+
+
+
     </table>
 
+
 </fieldset>
-{% for field in form %}
-{{field}}
-{% endfor %}
 
-
-
-
-<button type="submit" class="btn btn-primary">Valider</button>
-</form>
 
 
 {% endblock %}
