@@ -6,7 +6,6 @@
     <fieldset>
 
         <legend class="text-center">État des chevaux</legend>
-        <p><a class="btn btn-default" href="{% url 'cheval_create' %}">Nouveau</a></p>
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
@@ -37,7 +36,7 @@
                     <td>{{ cheval.emplacement }}</td>
                     <td>{{ cheval.get_dernier_soin.date }}</td>
                     <td>{{ cheval.get_dernier_ferrage.date }}</td>
-                    <td>{{ cheval.get_dernier_vermifugation.date }}</td>
+                    <td>{{ cheval.get_derniere_vermifugation.date }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
