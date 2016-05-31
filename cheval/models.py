@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-from django.utils.translation import ugettext as _
 from datetime import date
 
 
@@ -10,7 +9,7 @@ STATUS_CHOICES = (
     ("2", "Commodat"),
     ("3", "Pension"),
     ("4", "Débourrage"),
-    ("5", "Divers"),
+    ("5", "Autres"),
 )
 
 ACTIVITE_CHOICES = (
@@ -47,19 +46,22 @@ class Cheval(models.Model):
     remarques       = models.TextField()
     statut          = models.CharField(max_length = 1, choices = STATUS_CHOICES)
     aptitude        = models.CharField(max_length = 1, choices = APTITUDE_CHOICES, default = "1")
-    emplacement     = models.OneToOneField( Emplacement,
-                                            unique = True,
-                                            verbose_name = _("emplacement"),
-                                            related_name = "emplacement")
+    emplacement     = models.OneToOneField(Emplacement, unique = True)
+
+    class Meta:
+        verbose_name_plural = "Chevaux"
 
     def get_dernier_soin(self):
         return self.registresoins_set.filter(acte=1).order_by("-date").first()
 
-    def get_dernier_ferrage(self):
-        return self.registresoins_set.filter(acte=4).order_by("-date").first()
+    def get_dernier_vaccin(self):
+        return self.registresoins_set.filter(acte=2).order_by("-date").first()
 
-    def get_dernier_vermifugation(self):
+    def get_dernier_ferrage(self):
         return self.registresoins_set.filter(acte=3).order_by("-date").first()
 
+    def get_derniere_vermifugation(self):
+        return self.registresoins_set.filter(acte=4).order_by("-date").first()
+
     def __unicode__(self):
-        return "%s (n° sire %s)" % (self.nom, self.sire)
+        return self.nom
