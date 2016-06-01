@@ -69,5 +69,5 @@ class CreneauMontoirDetail(DetailView):
 
 
 class PiquetDetailJsonView(JSONDetailView):
-    
+
     model = PiquetMontoirStaff
