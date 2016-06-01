@@ -25,7 +25,7 @@ class ChevalDetail(DetailView):
 
 class ChevalUpdate(UpdateView):
     model = Cheval
-    fields = ['sire','nom','race','pedigree','annee_naissance','photo','activite','remarques','statut','aptitude','emplacement']
+    fields = ['sire','nom','race','pedigree','annee_naissance','photo','date_sortie','activite','remarques','statut','aptitude','emplacement']
     template_name = 'cheval_update.html'
     success_url = reverse_lazy('cheval_list')
 

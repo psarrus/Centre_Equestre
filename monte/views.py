@@ -43,31 +43,8 @@ class CreneauMontoirDetail(DetailView):
     model = CreneauMontoir
     context_object_name = 'creneau'
     template_name = 'creneau_montoir_detail.html'
-    #
-    #
-    # def get_context_data(self, **kwargs):
-    #     context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
-    #     context['creneau'] = self.get_object()
-    #     context['chevaux'] = self.get_object().piquetmontoirstaff_set.all()
-    #     context['form'] = PiquetMontoirForm()
-    #
-    #     return context
-
-
-# class PiquetMontoirStaffUpdate(UpdateView):
-#     model = PiquetMontoirStaff
-#     fields = "__all__"
-#     success_url = reverse_lazy('creneau_montoir_list')
-#
-#     def get_context_data(self, **kwargs):
-#         context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
-#         context['creneau'] = self.get_object()
-#         context['chevaux'] = self.get_object().piquetmontoirstaff_set.all()
-#         context['form'] = PiquetMontoirForm()
-#
-#         return context
 
 
 class PiquetDetailJsonView(JSONDetailView):
-    
+
     model = PiquetMontoirStaff
