@@ -7,6 +7,8 @@ from django.dispatch import receiver
 
 
 
+
+
 categorie_choices = (
     ('1','Elève'),
     ('2','Cavalier'),

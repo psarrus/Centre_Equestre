@@ -61,14 +61,12 @@ $(document).ready(function(){
 
         //console.log( JSON.stringify($(state)) );
 
-        $.getJSON("/detail/montoir/25/json", function(data){
-            alert(data);
+        $.getJSON("/detail/montoir/1/json", function(data){
+            console.log(data);
         });
 
 
     });
 
+    $("[name='my-checkbox']").bootstrapSwitch(); // bouton checkbox
 });
-
-
-$("[name='my-checkbox']").bootstrapSwitch(); // bouton checkbox

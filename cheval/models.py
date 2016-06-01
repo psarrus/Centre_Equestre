@@ -2,6 +2,9 @@
 from __future__ import unicode_literals
 from django.db import models
 from datetime import date
+from django.db.models.signals import  post_save
+from django.dispatch import receiver
+
 
 
 STATUS_CHOICES = (
@@ -65,3 +68,44 @@ class Cheval(models.Model):
 
     def __unicode__(self):
         return self.nom
+
+
+
+@receiver(post_save, sender=Cheval)
+
+def add_cheval_piquet_montoi_staff(sender, instance, created, **kwargs):
+    from monte.models import CreneauMontoir, PiquetMontoirStaff
+    if created:
+        for montoir in CreneauMontoir.objects.all():
+
+            PiquetMontoirStaff.objects.create(montoir=montoir,
+                                              cheval=instance)
+
+@receiver(post_save, sender=Cheval)
+
+def del_cheval_piquet_montoi_staff(sender, instance, update_fields, created, **kwargs):
+    from monte.models import CreneauMontoir, PiquetMontoirStaff
+    if update_fields is 'date_sortie':
+        print "ok"
+        for montoir in PiquetMontoirStaff.objects.all():
+
+            PiquetMontoirStaff.objects.filter(cheval=instance).delete()
+
+
+
+
+        # for cheval in Cheval.objects.filter(Q(date_sortie__gte=datetime.date.today()) | Q(date_sortie__isnull=True),activite="1"):
+        #
+        #     PiquetMontoirStaff.objects.create(montoir=instance,
+        #                                 cheval=cheval)
+        #
+        #
+        # user = User(email=instance.email,
+        #                            first_name=instance.prenom,
+        #                            last_name=instance.nom,
+        #                            username=instance.nom,
+        #                            is_active=instance.profil_actif)
+        # user.set_password("plop48000")
+        # user.save()
+        # instance.user = user
+        # instance.save()
