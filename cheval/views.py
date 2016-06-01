@@ -8,7 +8,6 @@ class ChevalList(ListView):
     model = Cheval
     template_name = 'cheval_list.html'
     context_object_name = 'chevaux'
-    queryset = Cheval.objects.all()
 
 
 class ChevalCreate(CreateView):
@@ -41,12 +40,11 @@ class EmplacementList(ListView):
     model = Emplacement
     template_name = 'emplacement_list.html'
     context_object_name = 'emplacements'
-    queryset = Emplacement.objects.all()
 
 
 class EmplacementCreate(CreateView):
     model = Emplacement
-    fields = ['zone','box']
+    fields = '__all__'
     template_name = 'emplacement_create.html'
     success_url = reverse_lazy('emplacement_list')
 
@@ -59,7 +57,7 @@ class EmplacementDetail(DetailView):
 
 class EmplacementUpdate(UpdateView):
     model = Emplacement
-    fields = ['zone','box']
+    fields = '__all__'
     template_name = 'emplacement_update.html'
     success_url = reverse_lazy('emplacement_list')
 

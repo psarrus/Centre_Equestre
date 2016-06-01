@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView, TemplateView
 from django.core.urlresolvers import reverse_lazy
+from json_views.views import JSONDetailView
+
 
 from models import *
 from cheval.models import Cheval
@@ -39,47 +41,33 @@ class CreneauMontoirDelete(DeleteView):
 
 class CreneauMontoirDetail(DetailView):
     model = CreneauMontoir
+    context_object_name = 'creneau'
     template_name = 'creneau_montoir_detail.html'
-
-    def get_context_data(self, **kwargs):
-        context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
-        context['creneau'] = self.get_object()
-        context['chevaux'] = Cheval.objects.filter(activite="1")
-
-        return context
-
-
-
-
-
-class PiquetMontoirStaffCreate(FormView):
-    model = PiquetMontoirStaff
-    form_class = PiquetMontoirForm
-    # fields = ['montoir', 'cheval']
-    template_name = 'creneau_montoir_detail.html'
-    success_url = reverse_lazy('piquet_montoir')
-
-
-
+    #
+    #
+    # def get_context_data(self, **kwargs):
+    #     context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
+    #     context['creneau'] = self.get_object()
+    #     context['chevaux'] = self.get_object().piquetmontoirstaff_set.all()
+    #     context['form'] = PiquetMontoirForm()
+    #
+    #     return context
 
 
 # class PiquetMontoirStaffUpdate(UpdateView):
 #     model = PiquetMontoirStaff
-#     fields = ['montoir', 'cheval']
-#     template_name = 'piquet_montoir_staff_update.html'
-#     success_url = reverse_lazy('homepage')
+#     fields = "__all__"
+#     success_url = reverse_lazy('creneau_montoir_list')
 #
+#     def get_context_data(self, **kwargs):
+#         context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
+#         context['creneau'] = self.get_object()
+#         context['chevaux'] = self.get_object().piquetmontoirstaff_set.all()
+#         context['form'] = PiquetMontoirForm()
 #
-#
-#
-# class PiquetMontoirEnseignantCreate(CreateView):
-#     model = PiquetMontoirEnseignant
-#     fields = ['montoir', 'cheval', 'date', 'profil']
-#     template_name = 'piquet_montoir_enseignant_create.html'
-#     success_url = reverse_lazy('homepage')
-#
-# class PiquetMontoirEnseignantUpdate(UpdateView):
-#     model = PiquetMontoirEnseignant
-#     fields = ['montoir', 'cheval', 'date', 'profil']
-#     template_name = 'piquet_montoir_enseignant_update.html'
-#     success_url = reverse_lazy('homepage')
+#         return context
+
+
+class PiquetDetailJsonView(JSONDetailView):
+    
+    model = PiquetMontoirStaff

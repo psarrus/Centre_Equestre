@@ -3,10 +3,7 @@
 {% block content %}
 
 
-<form role="form" name="form" action="{% url 'my_form_view_url' %}" method="post" enctype="multipart/form-data" >
- {% csrf_token %}
 
- {{form.a_p}}
 
 
 
@@ -37,25 +34,40 @@
         </tr>
     </table>
 
+            {{creneauJSON}}
 
     <table class="table table-bordered table-hover">
-        <tr>
-            <th>Chevaux</th>
-        </tr>
+        <form role="form" name="form" action="" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
 
-        {% for cheval in chevaux %}
+
+        {% for piquet in creneau.piquet_staff.all %}
         <tr>
-            <td class="large15">{{ cheval.nom }}</td>
-            <td class="large15">{{ cheval.get_aptitude_display }}</td>
-            <td><input type="checkbox" name="name" value=""></td>
+            <td class="large15">{{ piquet.cheval.nom }}</td>
+            <td class="large15">{{ piquet.selected }}</td>
+            <td><input class="check" type="checkbox" name="my-checkbox" value="" {% if piquet.selected %}checked{% endif %}></td>
+
+            <!-- <script type='text/javascript'>
+
+            $(document).ready(function(){
+                    $( ".check" ).change(function() {
+                        console.log( "ok" );
+                    });
+                });
+
+            </script> -->
+
         </tr>
         {% endfor %}
+        <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+
+
+
     </table>
 
-</fieldset>
 
-<button type="submit" class="btn btn-primary">Valider</button>
-</form>
+</fieldset>
 
 
 

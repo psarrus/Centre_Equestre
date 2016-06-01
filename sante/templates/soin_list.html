@@ -39,8 +39,7 @@
                     <td>{{ soin.soigneur }}</td>
                     <td class="text-center">
                         <a href="{% url 'soin_detail' soin.pk %}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{% url 'soin_update' soin.pk %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{% url 'soin_delete' soin.pk %}"><i class="fa fa-trash"></i></a>
+                        <a href="{% url 'soin_update' soin.pk %}"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
                 {% endfor %}
