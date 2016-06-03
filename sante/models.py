@@ -20,3 +20,6 @@ class Soin(models.Model):
     pathologie  = models.CharField(max_length = 100)
     acte        = models.CharField(max_length = 1, choices = ACTE_CHOICES)
     soigneur    = models.ForeignKey(Profil)
+
+    def __unicode__(self):
+        return '%s pour %s le %s' % (self.acte, self.cheval, self.date)

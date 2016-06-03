@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'sante',
     'cheval',
     'profil',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE_CLASSES = [
