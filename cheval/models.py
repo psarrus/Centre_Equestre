@@ -35,6 +35,13 @@ class Emplacement(models.Model):
     def __unicode__(self):
         return 'Zone %s - box %s' % (self.zone, self.box)
 
+    def serialize(self):
+        return {
+            'zone': self.zone,
+            'box': self.box,
+            }
+
+
 
 class Cheval(models.Model):
     sire            = models.IntegerField(unique = True)
@@ -68,6 +75,24 @@ class Cheval(models.Model):
 
     def __unicode__(self):
         return self.nom
+
+    def serialize(self):
+        return {
+            'sire': self.sire,
+            'nom': self.nom,
+            'race': self.race,
+            'pedigree': self.pedigree,
+            'annee_naissance': self.annee_naissance,
+            # 'photo': self.photo,
+            'date_entree': self.date_entree,
+            'date_sortie': self.date_sortie,
+            'activite': self.activite,
+            'remarques': self.remarques,
+            'statut': self.statut,
+            'aptitude': self.aptitude,
+            'emplacement': self.emplacement,
+            }
+
 
 
 

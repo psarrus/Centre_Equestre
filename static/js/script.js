@@ -50,23 +50,74 @@ $(document).ready(function(){
             } );
         }
     });
+
+
+
+
+    function getCookie(name) {
+       var cookieValue = null;
+       if (document.cookie && document.cookie != '') {
+           var cookies = document.cookie.split(';');
+           for (var i = 0; i < cookies.length; i++) {
+               var cookie = jQuery.trim(cookies[i]);
+               // Does this cookie string begin with the name we want?
+               if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                   cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                   break;
+               }
+           }
+       }
+       return cookieValue;
+   }
     // $( ".check" ).change(function() {
     //     console.log( "ok" );
     // });
     $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
-      //console.log(this); // DOM element
+    //   console.log(this); // DOM element
       //console.log(event); // jQuery event
       console.log(state); // true | false
 
 
         //console.log( JSON.stringify($(state)) );
 
-        $.getJSON("/detail/montoir/31/json", function(data){
-            console.log(data);
+        //$.getJSON("/monte/piquet/update/62/json/", function(data){
+        // $.getJSON("http://127.0.0.1:8080/monte/json", function(data){
+        //     console.log(data);
+        // });
+
+
+        // $.post("/monte/piquet/update/62/json/", $(this).serialize(), function(response){
+        //     if(response.success){
+        //         // Horray!
+        //         console.log(data);
+        //     }else{
+        //         // Do something with response.errors/non_field_errors
+        //         console.log(data);
+        //     }
+        // }, 'json');
+
+
+
+        $.ajax({
+          type: "POST",
+          dataType: "xml/html/script/json", // expected format for response
+          contentType: "application/json", // send as JSON
+          url: "http://127.0.0.1:8080/monte/piquet/update/62/json",
+          headers : {
+               "HTTP_X_REQUESTED":'XMLHttpRequest',
+               "X-CSRFToken" : getCookie('csrftoken'),
+           },
+          data: {montoir: 33, cheval: 1},
+          success: function(data) {
+              console.log("ok");
+          },
+          error: function(data) {
+              console.log(data);
+          }
         });
 
 
     });
 
-    $("[name='my-checkbox']").bootstrapSwitch(); // bouton checkbox
+    $("[name='my-checkbox']").bootstrapSwitch();
 });
