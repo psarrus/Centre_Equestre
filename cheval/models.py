@@ -84,9 +84,10 @@ def add_cheval_piquet_montoi_staff(sender, instance, created, **kwargs):
 @receiver(post_save, sender=Cheval)
 
 def del_cheval_piquet_montoi_staff(sender, instance, update_fields, created, **kwargs):
-    from monte.models import CreneauMontoir, PiquetMontoirStaff
-    if update_fields is 'date_sortie':
-        print "ok"
+    from monte.models import PiquetMontoirStaff
+    print update_fields
+    if 'date_sortie' in update_fields:
+        print "OK"
         for montoir in PiquetMontoirStaff.objects.all():
 
             PiquetMontoirStaff.objects.filter(cheval=instance).delete()

@@ -45,6 +45,6 @@ class CreneauMontoirDetail(DetailView):
     template_name = 'creneau_montoir_detail.html'
 
 
-class PiquetDetailJsonView(JSONDetailView):
-
-    model = PiquetMontoirStaff
+# class PiquetDetailJsonView(JSONDetailView):
+#
+#     model = PiquetMontoirStaff
