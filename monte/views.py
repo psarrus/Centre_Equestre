@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView, TemplateView
 from django.core.urlresolvers import reverse_lazy
+from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from json_views.views import JSONListView, JSONFormView, JSONDataView, PaginatedJSONListView
-from django.views.decorators.csrf import csrf_exempt
 
 from models import *
 

@@ -54,24 +54,26 @@ $(document).ready(function(){
 
 
 
-    function getCookie(name) {
-       var cookieValue = null;
-       if (document.cookie && document.cookie != '') {
-           var cookies = document.cookie.split(';');
-           for (var i = 0; i < cookies.length; i++) {
-               var cookie = jQuery.trim(cookies[i]);
-               // Does this cookie string begin with the name we want?
-               if (cookie.substring(0, name.length + 1) == (name + '=')) {
-                   cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                   break;
-               }
-           }
-       }
-       return cookieValue;
-   }
+   //  function getCookie(name) {
+   //     var cookieValue = null;
+   //     if (document.cookie && document.cookie != '') {
+   //         var cookies = document.cookie.split(';');
+   //         for (var i = 0; i < cookies.length; i++) {
+   //             var cookie = jQuery.trim(cookies[i]);
+   //             // Does this cookie string begin with the name we want?
+   //             if (cookie.substring(0, name.length + 1) == (name + '=')) {
+   //                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+   //                 break;
+   //             }
+   //         }
+   //     }
+   //     return cookieValue;
+   // }
     // $( ".check" ).change(function() {
     //     console.log( "ok" );
     // });
+
+
     $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
     //   console.log(this); // DOM element
       //console.log(event); // jQuery event
@@ -98,23 +100,23 @@ $(document).ready(function(){
 
 
 
-        $.ajax({
-          type: "POST",
-          dataType: "xml/html/script/json", // expected format for response
-          contentType: "application/json", // send as JSON
-          url: "http://127.0.0.1:8080/monte/piquet/update/62/json",
-          headers : {
-               "HTTP_X_REQUESTED":'XMLHttpRequest',
-               "X-CSRFToken" : getCookie('csrftoken'),
-           },
-          data: {montoir: 33, cheval: 1},
-          success: function(data) {
-              console.log("ok");
-          },
-          error: function(data) {
-              console.log(data);
-          }
-        });
+        // $.ajax({
+        //   type: "POST",
+        //   dataType: "xml/html/script/json", // expected format for response
+        //   contentType: "application/json", // send as JSON
+        //   url: "http://127.0.0.1:8080/monte/piquet/update/70/json",
+        //   headers : {
+        //        "HTTP_X_REQUESTED":'XMLHttpRequest',
+        //        "X-CSRFToken" : getCookie('csrftoken'),
+        //    },
+        //   data: {montoir: 33, cheval: 1},
+        //   success: function(data) {
+        //       console.log("ok");
+        //   },
+        //   error: function(data) {
+        //       console.log(data);
+        //   }
+        // });
 
 
     });
