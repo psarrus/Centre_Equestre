@@ -5,6 +5,7 @@ from views import ChevalList, ChevalCreate, ChevalDetail, ChevalUpdate, ChevalEt
 
 
 urlpatterns = [
+
     url(r'^$', ChevalList.as_view(), name='cheval_list'),
     url(r'^etat$', ChevalEtat.as_view(), name='cheval_etat'),
     url(r'^creer$', ChevalCreate.as_view(), name='cheval_create'),
@@ -18,4 +19,5 @@ urlpatterns = [
     url(r'^emplacement/(?P<pk>[\w-]+)$', EmplacementDetail.as_view(), name='emplacement_detail'),
     url(r'^emplacement/(?P<pk>[\w-]+)/modifier$', EmplacementUpdate.as_view(), name='emplacement_update'),
     url(r'^emplacement/(?P<pk>[\w-]+)/supprimer$', EmplacementDelete.as_view(), name='emplacement_delete'),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
