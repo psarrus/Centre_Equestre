@@ -10,4 +10,4 @@ class UserListView(ListView):
     model = User
     template_name = 'registration/registration_form.html'
     context_object_name = 'users'
-    queryset = User.objects.all()
+    queryset = User.objects.all().order_by('username')

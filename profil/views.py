@@ -44,17 +44,25 @@ class ListProfil(ListView):
 
 class ProfilUpdate(UpdateView):
     model = Profil
-    fields = ['civilite', 'nom', 'prenom', 'email', 'adresse', 'cp', 'ville', 'tel_1', 'tel_2', 'tel_3']
+    fields = ['civilite', 'nom', 'prenom', 'email', 'adresse', 'cp', 'ville', 'tel_1', 'tel_2', 'tel_3', 'profil_actif']
     template_name = 'profil_update.html'
     success_url = reverse_lazy('list_profil')
 
     def get_context_data(self, **kwargs):
         context = super(ProfilUpdate, self).get_context_data(**kwargs)
-        context.update({
-            'periode': Periode.objects.all(),
-        })
+        context ["periodes"] = ProfilLineFormSet(instance=self.get_object())
         return context
 
+    def form_valid(self, form):
+        profilline_formset = ProfilLineFormSet(self.request.POST, instance=self.get_object())
+        if form.is_valid() and profilline_formset.is_valid():
+            profil = form.save()
+            #(Des)Activation du User
+            profil.user.is_active = profil.profil_actif
+            profil.user.save()
+            profilline_formset.save()
+            return redirect(reverse('list_profil'))
+        return self.render_to_response(self.get_context_data(form=form))
 
 # =====================================================
 
