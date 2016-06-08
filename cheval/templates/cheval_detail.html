@@ -28,7 +28,9 @@
                 <p>Emplacement (zone) : {{ cheval.emplacement.zone }}</p>
                 <p>Emplacement (box) : {{ cheval.emplacement.box }}</p>
 
+                {% if user.is_authenticated and perms.profil.chef_ecurie %}
                 <p><a class="btn btn-default" href="{% url 'cheval_update' cheval.pk %}">Modifier</a></p>
+                {% endif %}
                 <p><a href="{% url 'cheval_list' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
             </div>
         </div>

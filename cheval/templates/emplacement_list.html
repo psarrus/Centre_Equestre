@@ -8,7 +8,9 @@
     <fieldset>
 
         <legend class="text-center">Liste des emplacements</legend>
+        {% if user.is_authenticated and perms.profil.chef_ecurie %}
         <p><a class="btn btn-primary" href="{% url 'emplacement_create' %}">Nouveau</a></p>
+        {% endif %}
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
@@ -32,8 +34,10 @@
                     <td>{{ emplacement.box }}</td>
                     <td class="text-center">
                         <a href="{% url 'emplacement_detail' emplacement.pk %}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        {% if user.is_authenticated and perms.profil.chef_ecurie %}
                         <a href="{% url 'emplacement_update' emplacement.pk %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="{% url 'emplacement_delete' emplacement.pk %}"><i class="fa fa-trash"></i></a>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

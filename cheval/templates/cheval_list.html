@@ -8,7 +8,9 @@
     <fieldset>
 
         <legend class="text-center">Registre d'élevage</legend>
+        {% if user.is_authenticated and perms.profil.chef_ecurie %}
         <p><a class="btn btn-primary" href="{% url 'cheval_create' %}">Nouveau</a></p>
+        {% endif %}
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
@@ -56,7 +58,9 @@
                     <td>{{ cheval.emplacement }}</td>
                     <td class="text-center">
                         <a href="{% url 'cheval_detail' cheval.pk %}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        {% if user.is_authenticated and perms.profil.chef_ecurie %}
                         <a href="{% url 'cheval_update' cheval.pk %}"><i class="fa fa-pencil"></i></a>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

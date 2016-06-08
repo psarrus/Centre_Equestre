@@ -4,12 +4,13 @@ from django.contrib.auth.models import User
 from django.views.generic import ListView, CreateView, UpdateView
 from django.core.urlresolvers import reverse_lazy, reverse
 from .forms import ProfilLineFormSet
+# from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 
 class CreateProfil(CreateView):
     model = Profil
-    fields = ['civilite', 'nom', 'prenom', 'email', 'adresse', 'cp', 'ville', 'tel_1', 'tel_2', 'tel_3', 'profil_actif']
+    fields = ['civilite', 'nom', 'prenom', 'email', 'adresse', 'cp', 'ville', 'tel_1', 'tel_2', 'tel_3', 'profil_actif', 'permis']
     template_name = 'create_profil.html'
     success_url = reverse_lazy('list_profil')
 

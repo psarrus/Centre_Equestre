@@ -48,4 +48,15 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    var permis = $('#id_permis').parent().parent();
+    var actif  = $('#id_profil_actif')
+    if (actif.checked) {
+        alert("checked");
+        permis.show();
+    }else{
+        permis.hide()
+    }
+</script>
+
 {% endblock %}
