@@ -14,30 +14,62 @@ class CreneauMontoirCreate(CreateView):
     model = CreneauMontoir
     fields = ['jour','heure_debut','duree','public','effectif','encadrant','remarque']
     template_name = 'creneau_montoir_create.html'
-    success_url = reverse_lazy('creneau_montoir_list')
+    success_url = reverse_lazy('creneau_montoir_previsonnel_list')
 
-class CreneauMontoirList(ListView):
+class CreneauMontoirPrevisionnelList(ListView):
     model = CreneauMontoir
-    template_name = 'creneau_montoir_liste.html'
+    template_name = 'creneau_montoir_previsionnel_list.html'
     context_object_name = 'creneaux'
     queryset = CreneauMontoir.objects.all()
+
+
+class CreneauMontoirReelList(ListView):
+    model = CreneauMontoir
+    template_name = 'creneau_montoir_reel_list.html'
+    context_object_name = 'creneaux'
+    queryset = CreneauMontoir.objects.all()
+
 
 class CreneauMontoirUpdate(UpdateView):
     model = CreneauMontoir
     fields = "__all__"
     template_name = 'creneau_montoir_update.html'
-    success_url = reverse_lazy('creneau_montoir_list')
+    success_url = reverse_lazy('creneau_montoir_previsonnel_list')
 
 class CreneauMontoirDelete(DeleteView):
     model = CreneauMontoir
     template_name = 'creneau_montoir_delete.html'
-    success_url = reverse_lazy('creneau_montoir_list')
+    success_url = reverse_lazy('creneau_montoir_previsonnel_list')
 
 
-class CreneauMontoirDetail(DetailView):
+class CreneauMontoirPrevisionnelDetail(DetailView):
     model = CreneauMontoir
     context_object_name = 'creneau'
-    template_name = 'creneau_montoir_detail.html'
+    template_name = 'creneau_montoir_previsionnel_detail.html'
+
+
+
+class CreneauMontoirReelDetail(DetailView):
+    model = CreneauMontoir
+    context_object_name = 'creneau'
+    template_name = 'creneau_montoir_reel_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(CreneauMontoirReelDetail, self).get_context_data(**kwargs)
+        if not PiquetMontoirEnseignant.objects.all():
+            print "ok"
+            liste_piquet = PiquetMontoirStaff.objects.all()
+        else:
+            liste_piquet = CreneauMontoir.piquet_enseignant.filter(date = datetime.date.today())
+            if not liste_piquet:
+                liste_piquet = CreneauMontoir.piquet_staff.all
+        context['liste_piquet'] = liste_piquet
+        return context
+
+# class CreneauMontoirReelDetail(DetailView):
+#     model = CreneauMontoir
+#     context_object_name = 'creneau'
+#     template_name = 'creneau_montoir_reel_detail.html'
 
 
 class PiquetMontoirJsonListView(JSONListView):

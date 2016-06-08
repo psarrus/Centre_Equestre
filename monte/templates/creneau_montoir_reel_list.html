@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+
+
+    <fieldset>
+
+        <legend class="center">Liste des montoirs</legend>
+
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th></th>
+                <th class="large15 center">Jour</th>
+                <th class="center">Public</th>
+                <th class="center">Heure</th>
+                <th class="center">Duree</th>
+                <th class="center">Professeur</th>
+                <th class="center">Effectif</th>
+                <th class="center">Remarques</th>
+            </tr>
+            {% for creneau in creneaux %}
+            <tr>
+                <td><a href="{% url 'piquet_montoir_reel' creneau.pk %}"><i class="fa fa-list" aria-hidden="true"></i></a></td>
+                <td class="large15">{{ creneau.get_jour_display }}</td>
+                <td class="large30">{{ creneau.public }}</td>
+                <td class="large10">{{ creneau.heure_debut }}</td>
+                <td class="large20">{{ creneau.duree }}</td>
+                <td class="large20">{{ creneau.encadrant }}</td>
+                <td class="large20">{{ creneau.effectif }}</td>
+                <td class="large20">{{ creneau.remarque }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </fieldset>
+
+</div>
+
+
+{% endblock %}
