@@ -1,16 +1,13 @@
-from django.shortcuts import render
-from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView
+from django.shortcuts import render, redirect
+from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView, TemplateView
 from django.core.urlresolvers import reverse_lazy
+from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
+from json_views.views import JSONListView, JSONFormView, JSONDataView, PaginatedJSONListView
 
 from models import *
-from cheval.models import Cheval
 
 from forms import PiquetMontoirForm
-
-
-def homepage(request):
-    return render(request,'homepage.html')
-
 
 
 class CreneauMontoirCreate(CreateView):
@@ -39,47 +36,28 @@ class CreneauMontoirDelete(DeleteView):
 
 class CreneauMontoirDetail(DetailView):
     model = CreneauMontoir
+    context_object_name = 'creneau'
     template_name = 'creneau_montoir_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(CreneauMontoirDetail, self).get_context_data(**kwargs)
-        context['creneau'] = self.get_object()
-        context['chevaux'] = Cheval.objects.filter(activite="1")
 
-        return context
-
-
-
-
-
-class PiquetMontoirStaffCreate(FormView):
+class PiquetMontoirJsonListView(JSONListView):
     model = PiquetMontoirStaff
+
+
+class PiquetMontoirJsonUpdateView(JSONFormView):
     form_class = PiquetMontoirForm
-    # fields = ['montoir', 'cheval']
-    template_name = 'creneau_montoir_detail.html'
-    success_url = reverse_lazy('piquet_montoir')
 
+    @csrf_exempt
+    def dispatch(self, request, *args, **kwargs):
+        return super(PiquetMontoirJsonUpdateView,self).dispatch(request, *args, **kwargs)
 
+    def get_form(self):
+        return PiquetMontoirForm(self.request.POST, instance=self.piquet_staff)
 
+    def form_valid(self, form):
+        piquet_staff = form.save()
+        return self.render_to_response(self.get_context_data(success=True, piquet_staff=piquet_staff, form=form))
 
-
-# class PiquetMontoirStaffUpdate(UpdateView):
-#     model = PiquetMontoirStaff
-#     fields = ['montoir', 'cheval']
-#     template_name = 'piquet_montoir_staff_update.html'
-#     success_url = reverse_lazy('homepage')
-#
-#
-#
-#
-# class PiquetMontoirEnseignantCreate(CreateView):
-#     model = PiquetMontoirEnseignant
-#     fields = ['montoir', 'cheval', 'date', 'profil']
-#     template_name = 'piquet_montoir_enseignant_create.html'
-#     success_url = reverse_lazy('homepage')
-#
-# class PiquetMontoirEnseignantUpdate(UpdateView):
-#     model = PiquetMontoirEnseignant
-#     fields = ['montoir', 'cheval', 'date', 'profil']
-#     template_name = 'piquet_montoir_enseignant_update.html'
-#     success_url = reverse_lazy('homepage')
+    def post(self, request, *args, **kwargs):
+        self.piquet_staff=PiquetMontoirStaff.objects.get(id=kwargs["pk"])
+        return super(PiquetMontoirJsonUpdateView,self).post(request, *args, **kwargs)

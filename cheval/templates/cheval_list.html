@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
+{% block title %}Registre d'élevage{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
     <fieldset>
 
         <legend class="text-center">Registre d'élevage</legend>
-        <p><a class="btn btn-default" href="{% url 'cheval_create' %}">Nouveau</a></p>
+        <p><a class="btn btn-primary" href="{% url 'cheval_create' %}">Nouveau</a></p>
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
@@ -17,9 +19,7 @@
                     <th class="text-center">Pedigree</th>
                     <th class="text-center">Année de naissance</th>
                     <th class="text-center">Date d'entrée</th>
-                    <!-- <th class="text-center">Date de sortie</th> -->
                     <th class="text-center">Activité</th>
-                    <!-- <th class="text-center">Remarques</th> -->
                     <th class="text-center">Statut</th>
                     <th class="text-center">Aptitude</th>
                     <th class="text-center">Emplacement</th>
@@ -34,9 +34,7 @@
                     <th class="text-center">Pedigree</th>
                     <th class="text-center">Année de naissance</th>
                     <th class="text-center">Date d'entrée</th>
-                    <!-- <th class="text-center">Date de sortie</th> -->
                     <th class="text-center">Activité</th>
-                    <!-- <th class="text-center">Remarques</th> -->
                     <th class="text-center">Statut</th>
                     <th class="text-center">Aptitude</th>
                     <th class="text-center">Emplacement</th>
@@ -52,9 +50,7 @@
                     <td>{{ cheval.pedigree }}</td>
                     <td>{{ cheval.annee_naissance }}</td>
                     <td>{{ cheval.date_entree }}</td>
-                    <!-- <td>{{ cheval.date_sortie }}</td> -->
                     <td>{{ cheval.get_activite_display }}</td>
-                    <!-- <td>{{ cheval.remarques }}</td> -->
                     <td>{{ cheval.get_statut_display }}</td>
                     <td>{{ cheval.get_aptitude_display }}</td>
                     <td>{{ cheval.emplacement }}</td>

@@ -20,25 +20,25 @@
             </thead>
             <tbody>
                 {% for profil in profils %}
-                {% for per in periode %}
                 <tr>
                     <td class="text-center">{{profil.nom}}</td>
                     <td class="text-center">{{profil.prenom}}</td>
                     <td class="text-center">{{profil.adresse}} {{profil.cp}}, {{profil.ville}}</td>
                     <td class="text-center">{{profil.email}}</td>
                     <td class="text-center">{{profil.tel_1|phonenumber:"FR"}}</td>
-                    <td class="text-center">{{per.license}}</td>
-                    <td class="text-center">{{per.public.nom}}</td>
-                    <td colspan="1" class="text-center">
-                        {{per.debut|date:"d M Y"}}
-                    </td>
-                    <td colspan="1" class="text-center">
-                        {% if per.fin %}
-                            {{per.fin|date:"d M Y"}}
-                        {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
+                            {% for per in periode %}
+                            <td class="text-center">{{per.license}}</td>
+                            <td class="text-center">{{per.public.nom}}</td>
+                            <td colspan="1" class="text-center">
+                                {{per.debut|date:"d M Y"}}
+                            </td>
+                            <td colspan="1" class="text-center">
+                                {% if per.fin %}
+                                    {{per.fin|date:"d M Y"}}
+                                {% endif %}
+                            </td>
+                            {% endfor %}
+                        </tr>
                 {% endfor %}
             </tbody>
         </table>

@@ -5,6 +5,4 @@ class PiquetMontoirForm(forms.ModelForm):
     class Meta:
         model = PiquetMontoirStaff
         fields = '__all__'
-        # widgets = {
-        #     'chevaux': forms.CheckboxSelectMultiple,
-        # }
+        # fields = ['selected']

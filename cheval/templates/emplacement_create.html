@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% load i18n widget_tweaks %}
+
+{% block title %}Enregistrer un nouvel emplacement{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
@@ -10,24 +14,21 @@
         <form action="{{ request.path }}" method="POST">
             {% csrf_token %}
             {% for field in form %}
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-xs-6 col-md-3 col-md-offset-3">
-                        {{ field.label_tag }}
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        {{ field }}
-                        {{ field.errors }}
-                        {% if field.help_text %}
-                        {{ field.help_text }}
-                        {% endif %}
-                    </div>
+            <div class="form-group row">
+                <div class="col-xs-12 col-md-4 col-md-offset-4">
+                    {{ field.label_tag }}
+                    {{ field|attr:"class:form-control" }}
+                    {{ field.errors }}
+                    {% if field.help_text %}
+                    {{ field.help_text }}
+                    {% endif %}
                 </div>
             </div>
             {% endfor %}
             <div class="row">
-                <div class="col-xs-6 col-md-3 col-md-offset-3">
-                    <p><button class="btn btn-success" type="submit">Enregistrer</button></p>
+                <div class="col-xs-12 col-md-4 col-md-offset-4">
+                    <p><button class="btn btn-success btn-block" type="submit">Enregistrer</button></p>
+                    <p><button class="btn btn-default btn-block" type="reset">Vider les champs</button></p>
                     <p><a href="{% url 'emplacement_list' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
                 </div>
             </div>

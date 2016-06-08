@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
+{% block title %}Liste des soins effectués{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
     <fieldset>
 
         <legend class="text-center">Liste des soins effectués</legend>
-        <p><a class="btn btn-default" href="{% url 'soin_create' %}">Nouveau</a></p>
+        <p><a class="btn btn-primary" href="{% url 'soin_create' %}">Nouveau</a></p>
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
@@ -39,8 +41,7 @@
                     <td>{{ soin.soigneur }}</td>
                     <td class="text-center">
                         <a href="{% url 'soin_detail' soin.pk %}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{% url 'soin_update' soin.pk %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{% url 'soin_delete' soin.pk %}"><i class="fa fa-trash"></i></a>
+                        <a href="{% url 'soin_update' soin.pk %}"><i class="fa fa-pencil"></i></a>
                     </td>
                 </tr>
                 {% endfor %}

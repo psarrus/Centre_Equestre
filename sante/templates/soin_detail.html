@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block title %}Soin n°{{ soin.id }} du {{ soin.date }}{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
@@ -10,12 +12,11 @@
         <p>Date : {{ soin.date }}</p>
         <p>Cheval : {{ soin.cheval }}</p>
         <p>Pathologie : {{ soin.pathologie }}</p>
-        <p>Acte : {{ soin.acte }}</p>
+        <p>Acte : {{ soin.get_acte_display }}</p>
         <p>Soigneur : {{ soin.soigneur }}</p>
 
         <p><a class="btn btn-default" href="{% url 'soin_update' soin.pk %}">Modifier</a></p>
-        <p><a class="btn btn-danger" href="{% url 'soin_delete' soin.pk %}">Supprimer</a></p>
-        <p><a href="{% url 'soins' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
+        <p><a href="{% url 'soin_list' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
 
     </fieldset>
 </div>
