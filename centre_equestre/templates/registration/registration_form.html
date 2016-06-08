@@ -2,14 +2,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- <form method="post" action="">
-    {% csrf_token %} -->
-    {% for user in users %}
-    {{ user.username }}
-    {{ user.password }}
-    {% endfor %}
-    <!-- <input type="submit" value="" />
-</form> -->
+<div class="table-user">
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Liste des personnes pouvant se connecter</th>
+        </tr>
+        {% for user in users %}
+        {% if user.is_active %}
+        <tr>
+            <td title="Modifier"><a href="{% url 'profil_update' user.id %}">{{ user.profil.nom }} {{ user.profil.prenom }}</a></td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+    </table>
+    <a id="btn-nouveau" class="btn btn-default" href="{% url 'list_profil' %}">Nouveau</a>
+</div>
 {% endblock %}
 
 

@@ -36,3 +36,24 @@
 .large30 {
     width: 30%;
 }
+.table-user {
+    width: 50%;
+    margin: auto;
+}
+.table-user table {
+    text-align: center;
+}
+.table-user th {
+    text-align: center;
+}
+.table-user a {
+    text-decoration: none;
+    color: inherit;
+}
+.table-user {
+    text-decoration: none;
+    color: inherit;
+}
+#btn-nouveau {
+    text-align: left;
+}

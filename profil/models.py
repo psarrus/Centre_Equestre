@@ -17,26 +17,37 @@ categorie_choices = (
     ('5','Autre'), #veto ?
     )
 
-
 civilite_choices = (
     ('1','Mr'),
     ('2','Mme'),
     ('3','Mlle'),
     )
 
+perms_choices = (
+    ('1',"Chef d'écurie"),
+    ('2','Professeur'),
+    )
+
 class Profil(models.Model):
-    user       = models.OneToOneField(User, null=True)
-    civilite   = models.CharField(max_length=3, choices = civilite_choices)
-    nom        = models.CharField(max_length=200)
-    prenom     = models.CharField(max_length=200)
-    email      = models.CharField(max_length=200)
-    adresse    = models.CharField(max_length=200)
-    cp         = models.CharField(max_length=5)
-    ville      = models.CharField(max_length=100)
-    tel_1      = models.CharField(max_length=10)
-    tel_2      = models.CharField(max_length=10)
-    tel_3      = models.CharField(max_length=10)
-    profil_actif  = models.BooleanField(default=False)
+    user         = models.OneToOneField(User, null=True)
+    civilite     = models.CharField(max_length=3, choices = civilite_choices)
+    nom          = models.CharField(max_length=200)
+    prenom       = models.CharField(max_length=200)
+    email        = models.CharField(max_length=200)
+    adresse      = models.CharField(max_length=200)
+    cp           = models.CharField(max_length=5)
+    ville        = models.CharField(max_length=100)
+    tel_1        = models.CharField(max_length=10)
+    tel_2        = models.CharField(max_length=10)
+    tel_3        = models.CharField(max_length=10)
+    profil_actif = models.BooleanField(default=False)
+    permis       = models.CharField(max_length=30, choices=perms_choices, blank=True, default="")
+
+    class Meta:
+        permissions = (
+        ("chef_ecurie", "Look all and modif Chevaux and Monte"),
+        ("professeur", "Look all and modif Piquet cours"),
+        )
 
     def __unicode__(self):
         return "%s %s" % (self.nom, self.prenom)
@@ -63,7 +74,8 @@ class Periode(models.Model):
 
 
 @receiver(post_save, sender=Profil)
-def create_user(sender, created, instance, **kwargs):
+
+def active_user(sender, instance, created, **kwargs):
     if created:
         user = User(email=instance.email,
                                    first_name=instance.prenom,

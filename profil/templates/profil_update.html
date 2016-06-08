@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row">
-    <div class="col-md-6">
         <fieldset>
             <legend>Fiche de {{ profil.nom }} {{ profil.prenom }}</legend>
            <form class="" action="{{ request.path }}" method="post">
@@ -9,31 +7,26 @@
                 {% for field in form%}
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                             {{field.label_tag}}
                         </div>
                         <div class="col-md-10">
                             {{field}}
                             {{field.errors}}
-                            {% if field.help_text %}
-                            {{field.help_text}}
-                            {% endif %}
                         </div>
                     </div>
                 </div>
                 {% endfor %}
-                {% for test in periode%}
+                {{periodes.management_form}}
+                {% for periode in periodes %}
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-md-2">
-                            {{test.label_tag}}
+                        <div class="col-md-1">
+                            {{periode.label_tag}}
                         </div>
                         <div class="col-md-10">
-                            {{test}}
-                            {{test.errors}}
-                            {% if test.help_text %}
-                            {{test.help_text}}
-                            {% endif %}
+                            {{periode}}
+                            {{periode.errors}}
                         </div>
                     </div>
                 </div>
@@ -43,6 +36,4 @@
                 </div>
             </form>
         </fieldset>
-    </div>
-</div>
 {% endblock %}
