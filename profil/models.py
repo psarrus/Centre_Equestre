@@ -63,7 +63,8 @@ class Periode(models.Model):
 
 
 @receiver(post_save, sender=Profil)
-def create_user(sender, created, instance, **kwargs):
+
+def active_user(sender, instance, created, **kwargs):
     if created:
         user = User(email=instance.email,
                                    first_name=instance.prenom,
