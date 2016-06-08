@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
+{% block title %}Liste des soins effectués{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
     <fieldset>
 
         <legend class="text-center">Liste des soins effectués</legend>
-        <p><a class="btn btn-default" href="{% url 'soin_create' %}">Nouveau</a></p>
+        <p><a class="btn btn-primary" href="{% url 'soin_create' %}">Nouveau</a></p>
 
         <table id="table" class="table table-bordered table-hover">
             <thead>

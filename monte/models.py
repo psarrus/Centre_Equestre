@@ -30,15 +30,24 @@ class CreneauMontoir(models.Model): # Fiche Vide
 
 class PiquetMontoirStaff(models.Model):
     montoir = models.ForeignKey(CreneauMontoir, related_name='piquet_staff')
-    cheval  = models.ForeignKey(Cheval) #parmis les chevaux_disponible de MontoirSemaine
+    cheval  = models.ForeignKey(Cheval)
     selected = models.BooleanField(default=False)
 
+    def serialize(self):
+        return {
+            'montoir': self.montoir,
+            'cheval': self.cheval,
+            'selected': self.selected,
+            }
 
 class PiquetMontoirEnseignant(models.Model):
     montoir = models.ForeignKey(CreneauMontoir)
-    cheval  = models.ForeignKey(Cheval) #parmis les chevaux_disponible de MontoirSemaine
+    cheval  = models.ForeignKey(Cheval)
     date    = models.DateField()
-    profil  = models.ForeignKey(Profil) #cavalier
+    profil  = models.ForeignKey(Profil) 
+
+
+
 
 
 @receiver(post_save, sender=CreneauMontoir)

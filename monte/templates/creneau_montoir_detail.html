@@ -9,7 +9,7 @@
 
 <fieldset>
 
-    <legend class="center">Piquet</legend>
+    <legend class="center" id="creneau_montoir" id_montoir="{{creneau.id}}">Piquet</legend>
 
 
     <table class="table table-bordered table-hover">
@@ -44,7 +44,7 @@
         <tr>
             <td class="large15">{{ piquet.cheval.nom }}</td>
             <td class="large15">{{ piquet.selected }}</td>
-            <td><input class="check" type="checkbox" name="my-checkbox" value="" {% if piquet.selected %}checked{% endif %}></td>
+            <td><input class="check" type="checkbox" name="my-checkbox" value="{{ piquet.cheval.id }}" piquet_staff="{{ piquet.id }}" {% if piquet.selected %}checked{% endif %}></td>
 
             <!-- <script type='text/javascript'>
 
@@ -58,7 +58,7 @@
 
         </tr>
         {% endfor %}
-        <button type="submit" class="btn btn-primary">Valider</button>
+        <!-- <button type="submit" class="btn btn-primary">Valider</button> -->
         </form>
 
 

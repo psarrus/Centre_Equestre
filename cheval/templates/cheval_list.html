@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
+{% block title %}Registre d'élevage{% endblock %}
+
 {% block content %}
 
 <div class="container-fluid">
     <fieldset>
 
         <legend class="text-center">Registre d'élevage</legend>
-        <p><a class="btn btn-default" href="{% url 'cheval_create' %}">Nouveau</a></p>
+        <p><a class="btn btn-primary" href="{% url 'cheval_create' %}">Nouveau</a></p>
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
