@@ -42,9 +42,9 @@ class PiquetMontoirStaff(models.Model):
 
 class PiquetMontoirEnseignant(models.Model):
     montoir = models.ForeignKey(CreneauMontoir)
-    cheval  = models.ForeignKey(Cheval) #parmis les chevaux_disponible de MontoirSemaine
+    cheval  = models.ForeignKey(Cheval)
     date    = models.DateField()
-    profil  = models.ForeignKey(Profil) #cavalier
+    profil  = models.ForeignKey(Profil) 
 
 
 

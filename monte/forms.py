@@ -5,3 +5,4 @@ class PiquetMontoirForm(forms.ModelForm):
     class Meta:
         model = PiquetMontoirStaff
         fields = '__all__'
+        # fields = ['selected']
