@@ -1,4 +1,15 @@
 $(document).ready(function(){
+    var permis = $('#id_permis').parent().parent();
+    var actif  = $('#id_profil_actif');
+    permis.hide();
+    if (actif.is(":checked")) {
+        permis.show();
+    }
+    actif.change(function() {
+        var change = this.checked ? permis.show() : permis.hide();
+    });
+
+
     $('#table').DataTable({
         rowReorder: true,
         colReorder: true,
@@ -99,5 +110,5 @@ $(document).ready(function(){
 
     });
 
-    $("[name='my-checkbox']").bootstrapSwitch();
+    // $("[name='my-checkbox']").bootstrapSwitch();
 });

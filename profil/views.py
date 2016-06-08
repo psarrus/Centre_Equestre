@@ -45,7 +45,7 @@ class ListProfil(ListView):
 
 class ProfilUpdate(UpdateView):
     model = Profil
-    fields = ['civilite', 'nom', 'prenom', 'email', 'adresse', 'cp', 'ville', 'tel_1', 'tel_2', 'tel_3', 'profil_actif']
+    fields = ['civilite', 'nom', 'prenom', 'email', 'adresse', 'cp', 'ville', 'tel_1', 'tel_2', 'tel_3', 'profil_actif', 'permis']
     template_name = 'profil_update.html'
     success_url = reverse_lazy('list_profil')
 
@@ -60,6 +60,7 @@ class ProfilUpdate(UpdateView):
             profil = form.save()
             #(Des)Activation du User
             profil.user.is_active = profil.profil_actif
+            profil.user.user_permissions = profil.permis
             profil.user.save()
             profilline_formset.save()
             return redirect(reverse('list_profil'))

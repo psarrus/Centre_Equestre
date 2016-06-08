@@ -8,7 +8,7 @@
             <th>Liste des personnes pouvant se connecter</th>
         </tr>
         {% for user in users %}
-        {% if user.is_active = True %}
+        {% if user.is_active %}
         <tr>
             <td title="Modifier"><a href="{% url 'profil_update' user.id %}">{{ user.profil.nom }} {{ user.profil.prenom }}</a></td>
         </tr>

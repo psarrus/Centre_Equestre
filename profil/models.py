@@ -41,7 +41,7 @@ class Profil(models.Model):
     tel_2        = models.CharField(max_length=10)
     tel_3        = models.CharField(max_length=10)
     profil_actif = models.BooleanField(default=False)
-    permis       = models.CharField(max_length=30, choices=perms_choices, null=True, blank=True)
+    permis       = models.CharField(max_length=30, choices=perms_choices, blank=True, default="")
 
     class Meta:
         permissions = (
