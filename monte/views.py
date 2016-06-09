@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from datetime import date
 from django.views.generic import ListView, CreateView, UpdateView, DetailView, DeleteView, FormView, TemplateView
 from django.core.urlresolvers import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
@@ -6,8 +7,10 @@ from django.core import serializers
 from json_views.views import JSONListView, JSONFormView, JSONDataView, PaginatedJSONListView
 
 from models import *
+from django.contrib.auth.models import User
+from profil.models import Profil
 
-from forms import PiquetMontoirForm
+from forms import PiquetMontoirForm, CreneauMontoirEnseignForm
 
 
 class CreneauMontoirCreate(CreateView):
@@ -22,13 +25,16 @@ class CreneauMontoirPrevisionnelList(ListView):
     context_object_name = 'creneaux'
     queryset = CreneauMontoir.objects.all()
 
-
 class CreneauMontoirReelList(ListView):
     model = CreneauMontoir
     template_name = 'creneau_montoir_reel_list.html'
     context_object_name = 'creneaux'
-    queryset = CreneauMontoir.objects.all()
-
+    queryset = CreneauMontoir.objects.filter(encadrant=4)
+    def get_context_data(self, **kwargs):
+        context = super(CreneauMontoirReelList, self).get_context_data(**kwargs)
+        context['date_du_jour'] = date.today()
+        # context['creneaux_encadrants'] = CreneauMontoir.objects.filter(encadrant=4)
+        return context
 
 class CreneauMontoirUpdate(UpdateView):
     model = CreneauMontoir
@@ -41,13 +47,10 @@ class CreneauMontoirDelete(DeleteView):
     template_name = 'creneau_montoir_delete.html'
     success_url = reverse_lazy('creneau_montoir_previsonnel_list')
 
-
 class CreneauMontoirPrevisionnelDetail(DetailView):
     model = CreneauMontoir
     context_object_name = 'creneau'
     template_name = 'creneau_montoir_previsionnel_detail.html'
-
-
 
 class CreneauMontoirReelDetail(DetailView):
     model = CreneauMontoir
@@ -70,6 +73,11 @@ class CreneauMontoirReelDetail(DetailView):
 #     model = CreneauMontoir
 #     context_object_name = 'creneau'
 #     template_name = 'creneau_montoir_reel_detail.html'
+
+class CreneauMontoirEnseignantCreate(FormView):
+    form_class = CreneauMontoirEnseignForm
+    template_name = 'creneau_montoir_enseignant_create.html'
+    success_url = reverse_lazy('piquet_montoir_reel')
 
 
 class PiquetMontoirJsonListView(JSONListView):

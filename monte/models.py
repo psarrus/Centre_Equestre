@@ -18,19 +18,24 @@ jour_choices = (
     ('5','vendredi'),
     )
 
-class CreneauMontoir(models.Model): # Fiche Vide
-    jour = models.CharField(max_length=1,
+class CreneauMontoir(models.Model):
+    jour        = models.CharField(max_length=1,
                             choices = jour_choices)
     heure_debut = models.TimeField()
-    duree     = models.FloatField()
-    effectif  = models.CharField(max_length=65)
-    encadrant = models.ForeignKey(Profil)
-    remarque  = models.TextField(blank=True)
-    public    = models.ForeignKey(Public)
+    duree       = models.FloatField()
+    effectif    = models.CharField(max_length=65)
+    encadrant   = models.ForeignKey(Profil)
+    remarque    = models.TextField(blank=True)
+    public      = models.ForeignKey(Public)
+
+class CreneauMontoirEnseignant(models.Model):
+    date            = models.DateField(null=True, blank=True)
+    creneau_montoir = models.ForeignKey(CreneauMontoir, null=True)
+
 
 class PiquetMontoirStaff(models.Model):
-    montoir = models.ForeignKey(CreneauMontoir, related_name='piquet_staff')
-    cheval  = models.ForeignKey(Cheval)
+    montoir  = models.ForeignKey(CreneauMontoir, related_name='piquet_staff')
+    cheval   = models.ForeignKey(Cheval)
     selected = models.BooleanField(default=False)
 
     def serialize(self):
@@ -41,11 +46,11 @@ class PiquetMontoirStaff(models.Model):
             }
 
 class PiquetMontoirEnseignant(models.Model):
-    montoir = models.ForeignKey(CreneauMontoir, null=True, related_name='piquet_enseignant')
-    date    = models.DateField(null=True, blank=True)
-    cheval  = models.ForeignKey(Cheval)
+    montoir  = models.ForeignKey(CreneauMontoir, null=True, related_name='piquet_enseignant')
+    date     = models.DateField(null=True, blank=True)
+    cheval   = models.ForeignKey(Cheval)
     selected = models.BooleanField(default=False)
-    profil  = models.ForeignKey(Profil, null=True)
+    profil   = models.ForeignKey(Profil, null=True)
     # piquet_montoir_staff = models.ForeignKey(PiquetMontoirStaff, null=True, related_name='piquet_enseignant')
 
 

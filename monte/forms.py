@@ -1,8 +1,12 @@
 from django import forms
-from models import PiquetMontoirStaff
+from models import PiquetMontoirStaff, CreneauMontoirEnseignant
 
 class PiquetMontoirForm(forms.ModelForm):
     class Meta:
         model = PiquetMontoirStaff
         fields = '__all__'
-        # fields = ['selected']
+
+class CreneauMontoirEnseignForm(forms.ModelForm):
+    class Meta:
+        model = CreneauMontoirEnseignant
+        fields = '__all__'
