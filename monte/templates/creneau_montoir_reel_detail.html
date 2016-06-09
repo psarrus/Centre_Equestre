@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+
+
+<fieldset>
+
+    <legend class="center" id="creneau_montoir" id_montoir="{{creneau.id}}">Piquet</legend>
+
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th class="large15 center">Jour</th>
+            <th class="center">Public</th>
+            <th class="center">Heure</th>
+            <th class="center">Duree</th>
+            <th class="center">Professeur</th>
+            <th class="center">Effectif</th>
+            <th class="center">Remarques</th>
+        </tr>
+        <tr>
+            <td class="large15">{{ creneau.get_jour_display }}</td>
+            <td class="large30">{{ creneau.public }}</td>
+            <td class="large10">{{ creneau.heure_debut }}</td>
+            <td class="large20">{{ creneau.duree }}</td>
+            <td class="large20">{{ creneau.encadrant }}</td>
+            <td class="large20">{{ creneau.effectif }}</td>
+            <td class="large20">{{ creneau.remarque }}</td>
+
+        </tr>
+    </table>
+
+
+    <table class="table table-bordered table-hover">
+        <form role="form" name="form" action="" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+
+
+
+        {% for piquet in liste_piquet %}
+        <tr>
+            <td class="large15">{{ piquet.cheval.nom }}</td>
+            <td class="large15">{{ piquet.selected }}</td>
+            <td><input class="check" type="checkbox"
+                                     name="my-checkbox"
+                                     value="{{ piquet.cheval.id }}"
+                                     piquet_staff="{{ piquet.id }}"
+                                     {% if piquet.selected %}checked{% endif %}></td>
+
+            <!-- <script type='text/javascript'>
+
+            $(document).ready(function(){
+                    $( ".check" ).change(function() {
+                        console.log( "ok" );
+                    });
+                });
+
+            </script> -->
+
+        </tr>
+        {% endfor %}
+        <!-- <button type="submit" class="btn btn-primary">Valider</button> -->
+        </form>
+
+
+
+    </table>
+
+
+</fieldset>
+
+
+
+{% endblock %}
