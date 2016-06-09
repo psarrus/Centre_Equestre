@@ -6,7 +6,7 @@ $(document).ready(function(){
         permis.show();
     }
     actif.change(function() {
-        var change = this.checked ? permis.show() : permis.hide();
+        var change = this.checked ? permis.show() && $('#id_permis').val(1) : permis.hide() && $('#id_permis').val(0);
     });
 
 

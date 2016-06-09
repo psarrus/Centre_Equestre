@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from models import Profil, Public, Periode
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.views.generic import ListView, CreateView, UpdateView
 from django.core.urlresolvers import reverse_lazy, reverse
 from .forms import ProfilLineFormSet
@@ -26,6 +26,13 @@ class CreateProfil(CreateView):
             profilline_formset = ProfilLineFormSet(self.request.POST, instance=profil)
             profilline_formset.is_valid()
             profilline_formset.save()
+            chef_ecurie = Group.objects.get(name='Chef_ecurie')
+            professeur  = Group.objects.get(name='Professeur')
+            user        = User.objects.get(username=profil.user.username)
+            if profil.permis == "1":
+                user.groups.add(professeur)
+            if profil.permis == "2":
+                user.groups.add(chef_ecurie)
             return redirect(reverse('list_profil'))
         return self.render_to_response(self.get_context_data(form=form))
 
@@ -60,9 +67,20 @@ class ProfilUpdate(UpdateView):
             profil = form.save()
             #(Des)Activation du User
             profil.user.is_active = profil.profil_actif
-            profil.user.user_permissions = profil.permis
             profil.user.save()
             profilline_formset.save()
+            chef_ecurie = Group.objects.get(name='Chef_ecurie')
+            professeur  = Group.objects.get(name='Professeur')
+            user        = User.objects.get(username=profil.user.username)
+            user_group  = user.groups.all()
+            if profil.permis == "1":
+                user.groups.clear()
+                user.groups.add(professeur)
+            elif profil.permis == "2":
+                user.groups.clear()
+                user.groups.add(chef_ecurie)
+            else:
+                user.groups.clear()
             return redirect(reverse('list_profil'))
         return self.render_to_response(self.get_context_data(form=form))
 
