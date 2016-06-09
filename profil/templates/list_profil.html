@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load phonenumber_filters %}
 {% block content %}
 {% url 'list_profil' as list_profil %}
 {% if request.get_full_path == list_profil %}
@@ -29,7 +29,7 @@
                     <td class="text-center">{{profil.prenom}}</td>
                     <td class="text-center">{{profil.adresse}} {{profil.cp}}, {{profil.ville}}</td>
                     <td class="text-center">{{profil.email}}</td>
-                    <td class="text-center">{{profil.tel_1}}</td>
+                    <td class="text-center">{{profil.tel_1|phonenumber:"FR"}}</td>
                     <!-- {% for per in periodes %}
                     {% if per.profil.id == profil.id %}
                     <td class="text-center">{{per.license}}</td>
