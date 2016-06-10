@@ -5,8 +5,8 @@
 
 
 
-
-
+<form class="" action="{{request.path}}" method="post"> {% csrf_token %}
+{{form}}
 <fieldset>
 
     <legend class="center" id="creneau_montoir" id_montoir="{{creneau.id}}">Piquet</legend>
@@ -23,41 +23,28 @@
             <th class="center">Remarques</th>
         </tr>
         <tr>
-            <td class="large15">{{ creneau.get_jour_display }}</td>
+            <td class="large15">{{ date }}</td>
             <td class="large30">{{ creneau.public }}</td>
             <td class="large10">{{ creneau.heure_debut }}</td>
             <td class="large20">{{ creneau.duree }}</td>
-            <td class="large20">{{ creneau.encadrant }}</td>
+            <td class="large20">{{ encadrant }}</td>
             <td class="large20">{{ creneau.effectif }}</td>
             <td class="large20">{{ creneau.remarque }}</td>
 
         </tr>
     </table>
-
-
-    <!-- <table class="table table-bordered table-hover">
-        <form role="form" name="form" action="" method="post" enctype="multipart/form-data" >
-        {% csrf_token %}
-
-
-
-        {% for piquet in liste_piquet %}
+    <table class="table table-bordered table-hover">
+        {% for piquet_montoir_reel_form in piquet_montoir_reel_forms %}
         <tr>
-            <td class="large15">{{ piquet.cheval.nom }}</td>
-            <td class="large15">{{ piquet.selected }}</td>
-            <td><input class="check" type="checkbox"
-                                     name="my-checkbox"
-                                     value="{{ piquet.cheval.id }}"
-                                     piquet_staff="{{ piquet.id }}"
-                                     {% if piquet.selected %}checked{% endif %}></td>
-
-        </tr>
-        {% endfor %}
+            <td class="large15">{{ piquet_montoir_reel_form.cheval}}</td>
+            <td class="large15">{{ piquet_montoir_reel_form.selected }}</td>
+            <td class="large15">{{ piquet_montoir_reel_form.profil }}</td>
+            {% endfor %}
         </form>
+    </table>
+    <input type="submit" value="Créer">
+</form>
 
-
-
-    </table> -->
 
 
 </fieldset>

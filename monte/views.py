@@ -10,7 +10,7 @@ from models import *
 from django.contrib.auth.models import User
 from profil.models import Profil
 
-from forms import PiquetMontoirForm, CreneauMontoirEnseignForm
+from forms import PiquetMontoirForm, CreneauMontoirEnseignantForm, PiquetMontoirReelForm
 
 
 class CreneauMontoirCreate(CreateView):
@@ -29,7 +29,7 @@ class CreneauMontoirReelList(ListView):
     model = CreneauMontoir
     template_name = 'creneau_montoir_reel_list.html'
     context_object_name = 'creneaux'
-    queryset = CreneauMontoir.objects.filter(encadrant=4)
+    queryset = CreneauMontoir.objects.all()
     def get_context_data(self, **kwargs):
         context = super(CreneauMontoirReelList, self).get_context_data(**kwargs)
         context['date_du_jour'] = date.today()
@@ -52,37 +52,49 @@ class CreneauMontoirPrevisionnelDetail(DetailView):
     context_object_name = 'creneau'
     template_name = 'creneau_montoir_previsionnel_detail.html'
 
-class CreneauMontoirReelDetail(DetailView):
-    model = CreneauMontoir
-    context_object_name = 'creneau'
-    template_name = 'creneau_montoir_reel_detail.html'
+class CreneauMontoirReelCreate(CreateView):
+    model = CreneauMontoirEnseignant
+    form_class = CreneauMontoirEnseignantForm
+    template_name = 'creneau_montoir_reel_create.html'
+    success_url = reverse_lazy('creneau_montoir_reel_list')
+
+    def dispatch(self, *args, **kwargs):
+        self.creneau =  CreneauMontoir.objects.get(id=kwargs["pk_prev"])
+        return super(CreneauMontoirReelCreate, self).dispatch(*args, **kwargs)
+
+    def get_form_kwargs(self):
+        form_kwargs = super(CreneauMontoirReelCreate, self).get_form_kwargs()
+        form_kwargs.update({
+            "initial" : {
+                "date" : date.today(),
+                "encadrant" : self.request.user.profile,
+                "creneau_montoir" : self.creneau
+            }
+        })
+        return form_kwargs
 
     def get_context_data(self, **kwargs):
-        context = super(CreneauMontoirReelDetail, self).get_context_data(**kwargs)
-        if not PiquetMontoirEnseignant.objects.all():
-            print "ok"
-            liste_piquet = PiquetMontoirStaff.objects.all()
-        else:
-            liste_piquet = CreneauMontoir.piquet_enseignant.filter(date = datetime.date.today())
-            if not liste_piquet:
-                liste_piquet = CreneauMontoir.piquet_staff.all
-        context['liste_piquet'] = liste_piquet
+        context = super(CreneauMontoirReelCreate, self).get_context_data(**kwargs)
+        context['creneau'] = self.creneau
+        context['date'] =  date.today()
+        context['encadrant'] = self.request.user.profile
+
+        context['piquet_montoir_reel_forms'] = []
+        for piquet_montoir_staff in self.creneau.piquet_staff.all():
+            piquet_montoir_reel_form = PiquetMontoirReelForm(prefix="piquet_montoir_reel_form_%s" %  piquet_montoir_staff.id, initial={
+                "cheval" : piquet_montoir_staff.cheval,
+                "selected" : piquet_montoir_staff.selected
+            })
+            profil_ids = self.creneau.public.periode_set.filter(fin__isnull=True).values_list("profil", flat=True)
+            profils = Profil.objects.filter(id__in=profil_ids)
+            piquet_montoir_reel_form.fields["profil"].queryset = profils
+            context['piquet_montoir_reel_forms'].append(piquet_montoir_reel_form)
         return context
 
-# class CreneauMontoirReelDetail(DetailView):
-#     model = CreneauMontoir
-#     context_object_name = 'creneau'
-#     template_name = 'creneau_montoir_reel_detail.html'
-
-class CreneauMontoirEnseignantCreate(FormView):
-    form_class = CreneauMontoirEnseignForm
-    template_name = 'creneau_montoir_enseignant_create.html'
-    success_url = reverse_lazy('piquet_montoir_reel')
 
 
 class PiquetMontoirJsonListView(JSONListView):
     model = PiquetMontoirStaff
-
 
 class PiquetMontoirJsonUpdateView(JSONFormView):
     form_class = PiquetMontoirForm
