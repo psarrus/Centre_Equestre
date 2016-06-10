@@ -28,6 +28,9 @@ class CreneauMontoir(models.Model):
     remarque    = models.TextField(blank=True)
     public      = models.ForeignKey(Public)
 
+    def __unicode__(self):
+        return "%s %s" % (self.jour, self.public)
+
 class CreneauMontoirEnseignant(models.Model):
     date            = models.DateField(null=True, blank=True)
     encadrant       = models.ForeignKey(Profil, null=True)

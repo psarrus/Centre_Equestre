@@ -73,6 +73,25 @@ class CreneauMontoirReelCreate(CreateView):
         })
         return form_kwargs
 
+    def form_valid(self, form):
+        post_data = self.request.POST.copy()
+        if form.is_valid():
+            creneau_montoir_enseignant = form.save()
+            for piquet_montoir_staff in self.creneau.piquet_staff.all():
+                post_data.update({
+                    "piquet_montoir_reel_form_%s-date" % piquet_montoir_staff.id : creneau_montoir_enseignant.date,
+                    "piquet_montoir_reel_form_%s-montoir" % piquet_montoir_staff.id : creneau_montoir_enseignant.id,
+                })
+                piquet_montoir_reel_form = PiquetMontoirReelForm(post_data,
+                                                                 prefix="piquet_montoir_reel_form_%s" %  piquet_montoir_staff.id)
+                if piquet_montoir_reel_form.is_valid():
+                    piquet_montoir_reel_form.save()
+                else:
+                    print piquet_montoir_reel_form.errors
+                return HttpResponseRedirect(self.get_success_url())
+        return self.render_to_response(self.get_context_data(form=form))
+
+
     def get_context_data(self, **kwargs):
         context = super(CreneauMontoirReelCreate, self).get_context_data(**kwargs)
         context['creneau'] = self.creneau
@@ -85,9 +104,13 @@ class CreneauMontoirReelCreate(CreateView):
                 "cheval" : piquet_montoir_staff.cheval,
                 "selected" : piquet_montoir_staff.selected
             })
+
+            piquet_montoir_reel_form.nom_cheval = piquet_montoir_staff.cheval.nom
+
             profil_ids = self.creneau.public.periode_set.filter(fin__isnull=True).values_list("profil", flat=True)
             profils = Profil.objects.filter(id__in=profil_ids)
             piquet_montoir_reel_form.fields["profil"].queryset = profils
+
             context['piquet_montoir_reel_forms'].append(piquet_montoir_reel_form)
         return context
 
