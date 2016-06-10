@@ -24,12 +24,12 @@ civilite_choices = (
     )
 
 perms_choices = (
-    ('1',"Chef d'écurie"),
-    ('2','Professeur'),
+    ('1','Professeur'),
+    ('2',"Chef d'écurie"),
     )
 
 class Profil(models.Model):
-    user         = models.OneToOneField(User, null=True)
+    user         = models.OneToOneField(User, null=True, related_name="profile" )
     civilite     = models.CharField(max_length=3, choices = civilite_choices)
     nom          = models.CharField(max_length=200)
     prenom       = models.CharField(max_length=200)
@@ -41,7 +41,7 @@ class Profil(models.Model):
     tel_2        = models.CharField(max_length=10)
     tel_3        = models.CharField(max_length=10)
     profil_actif = models.BooleanField(default=False)
-    permis       = models.CharField(max_length=30, choices=perms_choices, blank=True, default="")
+    permis       = models.CharField(max_length=30, choices=perms_choices, null=True, blank=True)
 
     class Meta:
         permissions = (

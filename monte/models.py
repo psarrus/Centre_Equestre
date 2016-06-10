@@ -18,19 +18,25 @@ jour_choices = (
     ('5','vendredi'),
     )
 
-class CreneauMontoir(models.Model): # Fiche Vide
-    jour = models.CharField(max_length=1,
-                            choices = jour_choices)
+class CreneauMontoir(models.Model):
+    jour        = models.CharField(max_length = 1,
+                                   choices = jour_choices)
     heure_debut = models.TimeField()
-    duree     = models.FloatField()
-    effectif  = models.CharField(max_length=65)
-    encadrant = models.ForeignKey(Profil)
-    remarque  = models.TextField(blank=True)
-    public    = models.ForeignKey(Public)
+    duree       = models.FloatField()
+    effectif    = models.CharField(max_length=65)
+    encadrant   = models.ForeignKey(Profil)
+    remarque    = models.TextField(blank=True)
+    public      = models.ForeignKey(Public)
+
+class CreneauMontoirEnseignant(models.Model):
+    date            = models.DateField(null=True, blank=True)
+    encadrant       = models.ForeignKey(Profil, null=True)
+    creneau_montoir = models.ForeignKey(CreneauMontoir, null=True)
+
 
 class PiquetMontoirStaff(models.Model):
-    montoir = models.ForeignKey(CreneauMontoir, related_name='piquet_staff')
-    cheval  = models.ForeignKey(Cheval)
+    montoir  = models.ForeignKey(CreneauMontoir, related_name='piquet_staff')
+    cheval   = models.ForeignKey(Cheval)
     selected = models.BooleanField(default=False)
 
     def serialize(self):
@@ -41,35 +47,17 @@ class PiquetMontoirStaff(models.Model):
             }
 
 class PiquetMontoirEnseignant(models.Model):
-    montoir = models.ForeignKey(CreneauMontoir, null=True, related_name='piquet_enseignant')
-    date    = models.DateField(null=True, blank=True)
-    cheval  = models.ForeignKey(Cheval)
+    montoir  = models.ForeignKey(CreneauMontoirEnseignant, null=True, related_name='piquet_enseignant')
+    date     = models.DateField(null=True, blank=True)
+    cheval   = models.ForeignKey(Cheval)
     selected = models.BooleanField(default=False)
-    profil  = models.ForeignKey(Profil, null=True)
-    # piquet_montoir_staff = models.ForeignKey(PiquetMontoirStaff, null=True, related_name='piquet_enseignant')
-
-
-
-
+    profil   = models.ForeignKey(Profil, null=True)
 
 
 @receiver(post_save, sender=CreneauMontoir)
-
 def create_piquet_montoir_staff(sender, instance, created, **kwargs):
     if created:
         for cheval in Cheval.objects.filter(Q(date_sortie__gte=datetime.date.today()) | Q(date_sortie__isnull=True),activite="1"):
 
             PiquetMontoirStaff.objects.create(montoir=instance,
                                               cheval=cheval)
-
-            # PiquetMontoirEnseignant.objects.create(montoir=instance,
-            #                                        cheval=cheval)
-
-
-
-# @receiver(post_save, sender=PiquetMontoirStaff)
-#
-# def update_piquet_montoir_enseignant(sender, instance, update_fields, **kwargs):
-#     print "OK"
-#     PiquetMontoirEnseignant.objects.create(montoir=instance,
-#                                             cheval=instance)

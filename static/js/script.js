@@ -4,9 +4,10 @@ $(document).ready(function(){
     permis.hide();
     if (actif.is(":checked")) {
         permis.show();
+        // $('#id_permis option:first').remove();
     }
     actif.change(function() {
-        var change = this.checked ? permis.show() : permis.hide();
+        var change = this.checked ? permis.show() && $('#id_permis').val(1) : permis.hide() && $('#id_permis').val(0);
     });
 
 
@@ -110,5 +111,5 @@ $(document).ready(function(){
 
     });
 
-    // $("[name='my-checkbox']").bootstrapSwitch();
+    $("[name='my-checkbox']").bootstrapSwitch();
 });
