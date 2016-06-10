@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Journal entrées/sorties{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="container">
+        <fieldset class="modif-journal">
+            <legend class="center">Modification d'un mouvement</legend>
+                <form class="" action="{% url 'journal-update' journal.id %}" method="post">
+                {% csrf_token %}
+                {% for field in form%}
+                <div class="row">
+                    <div class="col-md-1 col-md-offset-5">
+                        {{ field.label_tag }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ field }}
+                        {{ field.errors }}
+                        {% if field.help_text %}
+                        {{ field.help_text }}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-6">
+                        <input class ="right" type="submit" name="name" value="Modifier">
+                    </div>
+                </div>
+                </form>
+            </fieldset>
+
+    </div>
+</div>
+
+{% endblock %}

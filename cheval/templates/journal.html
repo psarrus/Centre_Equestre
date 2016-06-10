@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Journal entrées/sorties{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="table-journal">
+        <fieldset>
+            <legend class="center">Saisie d'une Entrée / Sortie</legend>
+                <form action="{% url 'journal-create' %}" method="post">
+                {% csrf_token %}
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>{{ form.cheval }}</td>
+                                <td>{{ form.date }}</td>
+                                <td>{{ form.motif }}</td>
+                                <td>{{ form.lieu }}</td>
+                                <td><input type="submit" name="name" value="Créer"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </fieldset>
+
+        <fieldset>
+            <legend class="center">Journal des Entrées Sorties</legend>
+            <table id="table" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th class="text-center col-xs-2">Cheval</th>
+                        <th class="text-center col-xs-2">Date</th>
+                        <th class="text-center col-xs-2">Motif</th>
+                        <th class="text-center col-xs-2">Lieu</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th class="text-center col-xs-2">Cheval</th>
+                        <th class="text-center col-xs-2">Date</th>
+                        <th class="text-center col-xs-2">Motif</th>
+                        <th class="text-center col-xs-2">Lieu</th>
+                        <th class="text-center col-xs-2">Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                {% for journal in journaux %}
+                <tr>
+                    <td>{{ journal.cheval.nom }}</td>
+                    <td>{{ journal.date }}</td>
+                    <td>{{ journal.motif }}</td>
+                    <td>{{ journal.lieu }}</td>
+                    <td class="text-center">
+                        <a title="Modifier" href="{% url 'journal-update' journal.id %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a id="trash" title="Supprimer" href=""><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+        </fieldset>
+    </div>
+</div>
+
+{% endblock %}

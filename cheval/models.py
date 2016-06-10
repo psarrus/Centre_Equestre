@@ -123,3 +123,12 @@ def del_cheval_piquet_montoir_staff(sender, instance, created, **kwargs):
         # user.save()
         # instance.user = user
         # instance.save()
+
+class Journal(models.Model):
+    cheval      = models.ForeignKey(Cheval)
+    date        = models.DateField()
+    motif       = models.CharField(max_length=100)
+    lieu        = models.CharField(max_length=100)
+
+    def __unicode__(self):
+        return '%s %s' % (self.cheval.nom,self.lieu)

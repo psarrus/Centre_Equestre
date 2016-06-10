@@ -57,3 +57,14 @@
 #btn-nouveau {
     text-align: left;
 }
+.modif-journal .row {
+    margin: 5px 0;
+}
+.table-journal {
+    width: 90%;
+    margin: auto;
+}
+.table-journal table {
+    width: 100%;
+    margin-bottom: 20px
+}

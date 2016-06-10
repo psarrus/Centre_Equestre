@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
-from models import Cheval, Emplacement
+from models import Cheval, Emplacement, Journal
+from forms import JournalForm
 
 
 class ChevalList(ListView):
@@ -66,3 +67,25 @@ class EmplacementDelete(DeleteView):
     model = Emplacement
     template_name = 'emplacement_delete.html'
     success_url = reverse_lazy('emplacement_list')
+
+
+class JournalCreate(CreateView):
+    model = Journal
+    form_class = JournalForm
+    success_url = reverse_lazy('journal-list')
+
+class JournalUpdate(UpdateView):
+    model = Journal
+    fields = '__all__'
+    template_name = 'journal_update.html'
+    success_url = reverse_lazy('journal-list')
+
+class JournalList(ListView):
+    model = Journal
+    template_name = 'journal.html'
+    context_object_name = 'journaux'
+
+    def get_context_data(self, **kwargs):
+        context = super(JournalList,self).get_context_data(**kwargs)
+        context["form"] = JournalForm()
+        return context
