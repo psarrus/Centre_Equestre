@@ -34,7 +34,12 @@
                 {% for cheval in chevaux %}
                 <tr>
                     <td>{{ cheval.nom }}</td>
-                    <td>{{ cheval.get_aptitude_display }}</td>
+                    <td>
+                        {{ cheval.get_aptitude_display }}
+                        {% if user.is_authenticated and perms.profil.chef_ecurie %}
+                        <a class="pull-right" href="{% url 'cheval_update' cheval.pk %}"><i class="fa fa-pencil"></i> Modifier l'état</a>
+                        {% endif %}
+                    </td>
                     <td>{{ cheval.emplacement }}</td>
                     <td>{{ cheval.get_dernier_soin.date }}</td>
                     <td>{{ cheval.get_dernier_ferrage.date }}</td>
