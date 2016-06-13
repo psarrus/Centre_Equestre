@@ -54,7 +54,7 @@ class PiquetMontoirEnseignant(models.Model):
     date     = models.DateField(null=True, blank=True)
     cheval   = models.ForeignKey(Cheval)
     selected = models.BooleanField(default=False)
-    profil   = models.ForeignKey(Profil, null=True)
+    profil   = models.ForeignKey(Profil, null=True, blank=True)
 
 
 @receiver(post_save, sender=CreneauMontoir)

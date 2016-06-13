@@ -37,8 +37,9 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monte <span class="caret"></span></a>
             <ul class="dropdown-menu">
                 {% if user.is_authenticated and perms.profil.chef_ecurie %}
-                <li><a href="/monte/list/montoir/reel">Montoir Reel</a></li>
-                <li><a href="/monte/list/montoir/previsionnel">Montoir Previsionnel</a></li>
+                <li><a href="/monte/list/montoir/previsionnel">Montoir Prévisionnel</a></li>
+                <li><a href="{% url 'piquet_reel_list' %}">Montoirs Enseignant</a></li>
+                <li><a href="/monte/list/montoir/reel">Créer un montoir</a></li>
                 {% endif %}
                 {% if user.is_authenticated and perms.profil.chef_ecurie or perms.profil.professeur %}
                 <li><a href="">Piquet Cours</a></li>
