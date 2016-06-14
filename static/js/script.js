@@ -108,12 +108,12 @@ $(document).ready(function(){
     $(".piquet").each(function() {
       var id_piquet = $(this).attr("id_piquet_enseignant");
       if ($('#id_piquet_montoir_reel_form_'+id_piquet+'-selected').prop('checked') === false) {
-          $('#id_piquet_montoir_reel_form_'+id_piquet+'-profil').attr('disabled',"true");
+          $('#id_piquet_montoir_reel_form_'+id_piquet+'-profil').attr('disabled',"true").css("display", "none");
       }
 
       $('#id_piquet_montoir_reel_form_'+id_piquet+'-selected').click(function() {
           if(!$(this).is(":checked")) {
-              $('#id_piquet_montoir_reel_form_'+id_piquet+'-profil').attr('disabled',"true");
+              $('#id_piquet_montoir_reel_form_'+id_piquet+'-profil').attr('disabled',"true").css("display", "none");
           }
           else if (!$(this).is("checked")) {
               $('#id_piquet_montoir_reel_form_'+id_piquet+'-profil').removeAttr('disabled');
