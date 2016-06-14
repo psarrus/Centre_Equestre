@@ -6,11 +6,12 @@
 
 
 <form class="" action="{{request.path}}" method="post"> {% csrf_token %}
-{{form}}
 <fieldset>
 
     <legend class="center" id="creneau_montoir" id_montoir="{{creneau.id}}">Piquet</legend>
 
+    {{form}}
+    {{form.errors}}
 
     <table class="table table-bordered table-hover">
         <tr>
@@ -36,7 +37,7 @@
     <table class="table table-bordered table-hover">
         {% for piquet_montoir_reel_form in piquet_montoir_reel_forms %}
         <tr>
-            <td class="large15">{{ piquet_montoir_reel_form.cheval}}</td>
+            <td class="large15">{{ piquet_montoir_reel_form.nom_cheval}}{{ piquet_montoir_reel_form.cheval}}</td>
             <td class="large15">{{ piquet_montoir_reel_form.selected }}</td>
             <td class="large15">{{ piquet_montoir_reel_form.profil }}</td>
             {% endfor %}
@@ -44,9 +45,6 @@
     </table>
     <input type="submit" value="Créer">
 </form>
-
-
-
 </fieldset>
 
 

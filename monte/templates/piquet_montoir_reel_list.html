@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+
+<table id="table" class="table table-bordered table-hover">
+    <tr>
+        <th>Date</th>
+        <th>Encadrant</th>
+        <th>Public</th>
+        <th>Cheval</th>
+        <th>Profil</th>
+    </tr>
+    {% for piquet in piquets %}
+    {% if piquet.selected %}
+    <tr>
+        <td>{{piquet.date}}</td>
+        <td>{{piquet.montoir.encadrant}}</td>
+        <td>{{piquet.montoir.creneau_montoir.public}}</td>
+        <td>{{piquet.cheval}}</td>
+        <td>{{piquet.profil}}</td>
+
+    </tr>
+    {% endif %}
+    {% endfor %}
+</table>
+
+</div>
+
+
+{% endblock %}

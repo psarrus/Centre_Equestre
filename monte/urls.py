@@ -14,6 +14,9 @@ urlpatterns = [
 
     url(r'^create/montoir/enseignant/(?P<pk_prev>[\w-]+)$', CreneauMontoirReelCreate.as_view(), name='creneau_montoir_ensignant_create'),
 
+    url(r'^list/piquet/reel$', PiquetReelList.as_view(), name='piquet_reel_list'),
+
+
 
 
     url(r'^json$', PiquetMontoirJsonListView.as_view(), name='piquet_json_list'),
