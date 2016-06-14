@@ -68,3 +68,6 @@
     width: 100%;
     margin-bottom: 20px
 }
+fieldset {
+    margin-bottom: 50px;
+}
