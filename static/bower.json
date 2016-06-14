@@ -19,6 +19,7 @@
     "bootstrap": "^3.3.6",
     "datatables": "^1.10.11",
     "font-awesome": "fontawesome#^4.6.3",
-    "bootstrap-switch": "^3.3.2"
+    "bootstrap-switch": "^3.3.2",
+    "datepicker": "*"
   }
 }
