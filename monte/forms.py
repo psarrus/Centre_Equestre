@@ -15,7 +15,6 @@ class PiquetMontoirReelForm(forms.ModelForm):
         widgets = {
             'cheval': HiddenInput(),
         }
-
 class CreneauMontoirEnseignantForm(forms.ModelForm):
     class Meta:
         model = CreneauMontoirEnseignant

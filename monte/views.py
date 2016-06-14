@@ -114,22 +114,23 @@ class CreneauMontoirReelCreate(CreateView):
             })
 
             piquet_montoir_reel_form.nom_cheval = piquet_montoir_staff.cheval.nom
+            piquet_montoir_reel_form.aptitude = piquet_montoir_staff.cheval.get_aptitude_display
+            piquet_montoir_reel_form.emplacement = piquet_montoir_staff.cheval.emplacement
+            piquet_montoir_reel_form.id = piquet_montoir_staff.id
 
             profil_ids = self.creneau.public.periode_set.filter(fin__isnull=True).values_list("profil", flat=True)
             profils = Profil.objects.filter(id__in=profil_ids)
             piquet_montoir_reel_form.fields["profil"].queryset = profils
 
-            context['piquet_montoir_reel_forms'].append(piquet_montoir_reel_form)
+            context['piquet_montoir_reel_forms'].append(piquet_montoir_reel_form),
+
+            print piquet_montoir_staff.id
         return context
 
 class PiquetReelList(ListView):
     model = PiquetMontoirEnseignant
     template_name = 'piquet_montoir_reel_list.html'
     context_object_name = 'piquets'
-
-
-class PiquetMontoirJsonListView(JSONListView):
-    model = PiquetMontoirStaff
 
 class PiquetMontoirJsonUpdateView(JSONFormView):
     form_class = PiquetMontoirForm

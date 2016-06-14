@@ -36,7 +36,6 @@ class CreneauMontoirEnseignant(models.Model):
     encadrant       = models.ForeignKey(Profil, null=True)
     creneau_montoir = models.ForeignKey(CreneauMontoir, null=True)
 
-
 class PiquetMontoirStaff(models.Model):
     montoir  = models.ForeignKey(CreneauMontoir, related_name='piquet_staff')
     cheval   = models.ForeignKey(Cheval)
@@ -55,7 +54,6 @@ class PiquetMontoirEnseignant(models.Model):
     cheval   = models.ForeignKey(Cheval)
     selected = models.BooleanField(default=False)
     profil   = models.ForeignKey(Profil, null=True, blank=True)
-
 
 @receiver(post_save, sender=CreneauMontoir)
 def create_piquet_montoir_staff(sender, instance, created, **kwargs):

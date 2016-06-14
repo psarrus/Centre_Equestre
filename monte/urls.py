@@ -19,7 +19,6 @@ urlpatterns = [
 
 
 
-    url(r'^json$', PiquetMontoirJsonListView.as_view(), name='piquet_json_list'),
     url(r'^piquet/update/(?P<pk>[\w-]+)/json$', PiquetMontoirJsonUpdateView.as_view(), name='update_piquet_json'),
 
 

@@ -35,12 +35,24 @@
         </tr>
     </table>
     <table class="table table-bordered table-hover">
-        {% for piquet_montoir_reel_form in piquet_montoir_reel_forms %}
         <tr>
-            <td class="large15">{{ piquet_montoir_reel_form.nom_cheval}}{{ piquet_montoir_reel_form.cheval}}</td>
+            <th class="center">Cheval</th>
+            <th class="center">Aptitude</th>
+            <th class="center">Emplacement</th>
+            <th class="center">Selection</th>
+            <th class="center">Profil</th>
+        </tr>
+
+        {% for piquet_montoir_reel_form in piquet_montoir_reel_forms %}
+        <tr class="piquet" id_piquet_enseignant="{{piquet_montoir_reel_form.id}}">
+            <td class="large15">{{ piquet_montoir_reel_form.nom_cheval }}{{ piquet_montoir_reel_form.cheval}}</td>
+            <td class="large15">{{ piquet_montoir_reel_form.aptitude }}</td>
+            <td class="large15">{{ piquet_montoir_reel_form.emplacement }}</td>
             <td class="large15">{{ piquet_montoir_reel_form.selected }}</td>
             <td class="large15">{{ piquet_montoir_reel_form.profil }}</td>
             {% endfor %}
+        </tr>
+
         </form>
     </table>
     <input type="submit" value="Créer">
