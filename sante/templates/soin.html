@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load i18n widget_tweaks %}
+
 {% block title %}Liste des soins effectués{% endblock %}
 
 {% block content %}
@@ -7,10 +9,22 @@
 <div class="container-fluid">
     <fieldset>
 
+        <legend class="text-center">Saisie d'un soin</legend>
+
+        <form class="form-inline" action="{% url 'soin_create' %}" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            {{ field.label_tag }}
+            {{ field|attr:"class:form-control" }}
+            {% endfor %}
+            <td><button class="btn btn-default" type="submit">Créer</button></td>
+        </form>
+
+    </fieldset>
+
+    <fieldset>
+
         <legend class="text-center">Liste des soins effectués</legend>
-        {% if user.is_authenticated and perms.profil.chef_ecurie %}
-        <p><a class="btn btn-primary" href="{% url 'soin_create' %}">Nouveau</a></p>
-        {% endif %}
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
@@ -20,7 +34,9 @@
                     <th class="text-center col-xs-2">Pathologie</th>
                     <th class="text-center col-xs-2">Acte</th>
                     <th class="text-center col-xs-2">Soigneur</th>
+                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
                     <th class="text-center col-xs-2">Actions</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tfoot>
@@ -30,7 +46,9 @@
                     <th class="text-center">Pathologie</th>
                     <th class="text-center">Acte</th>
                     <th class="text-center">Soigneur</th>
+                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
                     <th class="text-center">Actions</th>
+                    {% endif %}
                 </tr>
             </tfoot>
             <tbody>
@@ -41,12 +59,11 @@
                     <td>{{ soin.pathologie }}</td>
                     <td>{{ soin.get_acte_display }}</td>
                     <td>{{ soin.soigneur }}</td>
+                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
                     <td class="text-center">
-                        <a href="{% url 'soin_detail' soin.pk %}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        {% if user.is_authenticated and perms.profil.chef_ecurie %}
                         <a href="{% url 'soin_update' soin.pk %}"><i class="fa fa-pencil"></i></a>
-                        {% endif %}
                     </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

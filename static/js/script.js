@@ -85,7 +85,7 @@ $(document).ready(function(){
 
     function getCookie(name) {
        var cookieValue = null;
-       if (document.cookie && document.cookie != '') {
+       if (document.cookie && document.cookie !== '') {
            var cookies = document.cookie.split(';');
            for (var i = 0; i < cookies.length; i++) {
                var cookie = jQuery.trim(cookies[i]);
@@ -100,8 +100,6 @@ $(document).ready(function(){
    }
 
     $('input[name="my-checkbox"]').on('switchChange.bootstrapSwitch', function(event, state) {
-    //   console.log(this); // DOM element
-      //console.log(event); // jQuery event
       var id_cheval = $(this).val();
       var id_piquet = $(this).attr("piquet_staff");
       var id_creneau = $("#creneau_montoir").attr("id_montoir");
@@ -117,18 +115,28 @@ $(document).ready(function(){
            },
           data: {cheval:id_cheval, montoir:id_creneau, selected:state},
           success: function(data) {
-              console.log("ok");
           },
           complete: function(data) {
-              console.log("complete\n"+data);
           }
-        //   error: function(data) {
-        //       console.log(data);
-        //   }
         });
-
-
     });
 
     $("[name='my-checkbox']").bootstrapSwitch();
+
+// possibilité de selection ou non des profils en fonction des checkboxs
+    $(".piquet").each(function() {
+      var id_piquet = $(this).attr("id_piquet_enseignant");
+      if ($('#id_piquet_montoir_reel_form_'+id_piquet+'-selected').prop('checked') === false) {
+          $('#id_piquet_montoir_reel_form_'+id_piquet+'-profil').attr('disabled',"true").css("display", "none");
+      }
+
+      $('#id_piquet_montoir_reel_form_'+id_piquet+'-selected').click(function() {
+          if(!$(this).is(":checked")) {
+              $('#id_piquet_montoir_reel_form_'+id_piquet+'-profil').attr('disabled',"true").css("display", "none");
+          }
+          else if (!$(this).is("checked")) {
+              $('#id_piquet_montoir_reel_form_'+id_piquet+'-profil').removeAttr('disabled');
+          }
+      });
+    });
 });

@@ -1,30 +1,30 @@
 from django.shortcuts import render
-from django.views.generic import ListView, CreateView, DetailView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView
 from django.core.urlresolvers import reverse_lazy
+
 from models import Soin
+from forms import SoinForm
 
 
-class SoinList(ListView):
+class Soin(ListView):
     model = Soin
-    template_name = 'soin_list.html'
+    template_name = 'soin.html'
     context_object_name = 'soins'
+
+    def get_context_data(self, **kwargs):
+        context = super(Soin,self).get_context_data(**kwargs)
+        context['form'] = SoinForm()
+        return context
 
 
 class SoinCreate(CreateView):
     model = Soin
-    fields = '__all__'
-    template_name = 'soin_create.html'
-    success_url = reverse_lazy('soin_list')
-
-
-class SoinDetail(DetailView):
-    model = Soin
-    template_name = 'soin_detail.html'
-    context_object_name = 'soin'
+    form_class = SoinForm
+    success_url = reverse_lazy('soin')
 
 
 class SoinUpdate(UpdateView):
     model = Soin
     fields = ['cheval', 'pathologie', 'acte', 'soigneur']
     template_name = 'soin_update.html'
-    success_url = reverse_lazy('soin_list')
+    success_url = reverse_lazy('soin')

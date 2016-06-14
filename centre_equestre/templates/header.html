@@ -1,15 +1,15 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">EPLEFPA</a>
-    </div>
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">EPLEFPA</a>
+        </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -38,28 +38,56 @@
             <ul class="dropdown-menu">
                 {% if user.is_authenticated and perms.profil.chef_ecurie %}
                 <li><a href="/monte/list/montoir/previsionnel">Montoir Prévisionnel</a></li>
-                {% endif %}
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
                 {% if user.is_authenticated and perms.profil.chef_ecurie or perms.profil.professeur %}
-                <li><a href="/monte/list/montoir/reel">Créer un montoir</a></li>
-                <li><a href="{% url 'piquet_reel_list' %}">Montoirs Enseignant</a></li>
+                <li><a href="/users">Users</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profils <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/profil">Fiche</a></li>
+                        <li><a href="/profil/public/list">Publics</a></li>
+                    </ul>
+                </li>
                 {% endif %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chevaux <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'cheval_list' %}">Registre d'élevage</a></li>
+                        <li><a href="{% url 'soin' %}">Carnet de soins</a></li>
+                        <li><a href="{% url 'journal' %}">Entrées / sorties</a></li>
+                        <li><a href="{% url 'emplacement' %}">Emplacements</a></li>
+                        <li><a href="{% url 'cheval_etat' %}">État des chevaux</a></li>
+                    </ul>
+                </li>
+                {% if user.is_authenticated and perms.profil.chef_ecurie or perms.profil.professeur %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monte <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        {% if user.is_authenticated and perms.profil.chef_ecurie %}
+                        <li><a href="/monte/list/montoir/previsionnel">Montoir Prévisionnel</a></li>
+                        <li><a href="{% url 'piquet_reel_list' %}">Montoirs Enseignant</a></li>
+                        <li><a href="/monte/list/montoir/reel">Créer un montoir</a></li>
+                        {% endif %}
+                        <li><a href="">Piquet Cours</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                <li><a href="#">Club</a></li>
+                <li><a href="#">Statistiques</a></li>
             </ul>
-        </li>
-        <li><a href="#">Club</a></li>
-        <li><a href="#">Statistiques</a></li>
-    </ul>
 
-    {% if user.is_authenticated %}
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">{{user.username}}</a> </li>
-            <li><a href="/accounts/logout/">Déconnexion</a></li>
-        </ul>
-    {% else %}
-         <ul class="nav navbar-nav navbar-right">
-             <li class="connect"><a href="/accounts/login/">Se Connecter</a></li>
-         </ul>
-    {% endif %}
+            {% if user.is_authenticated %}
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">{{user.username}}</a> </li>
+                <li><a href="/accounts/logout/">Déconnexion</a></li>
+            </ul>
+            {% else %}
+            <ul class="nav navbar-nav navbar-right">
+                <li class="connect"><a href="/accounts/login/">Se Connecter</a></li>
+            </ul>
+            {% endif %}
 
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
 </nav>

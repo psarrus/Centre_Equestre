@@ -1,66 +1,72 @@
 {% extends "base.html" %}
 
-{% block title %}Journal entrées/sorties{% endblock %}
+{% load i18n widget_tweaks %}
+
+{% block title %}Journal des entrées / sorties{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-    <div class="table-journal">
-        <fieldset>
-            <legend class="center">Saisie d'une Entrée / Sortie</legend>
-                <form action="{% url 'journal-create' %}" method="post">
-                {% csrf_token %}
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>{{ form.cheval }}</td>
-                                <td>{{ form.date }}</td>
-                                <td>{{ form.motif }}</td>
-                                <td>{{ form.lieu }}</td>
-                                <td><input type="submit" name="name" value="Créer"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </form>
-            </fieldset>
 
-        <fieldset>
-            <legend class="center">Journal des Entrées Sorties</legend>
-            <table id="table" class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th class="text-center col-xs-2">Cheval</th>
-                        <th class="text-center col-xs-2">Date</th>
-                        <th class="text-center col-xs-2">Motif</th>
-                        <th class="text-center col-xs-2">Lieu</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th class="text-center col-xs-2">Cheval</th>
-                        <th class="text-center col-xs-2">Date</th>
-                        <th class="text-center col-xs-2">Motif</th>
-                        <th class="text-center col-xs-2">Lieu</th>
-                        <th class="text-center col-xs-2">Actions</th>
-                    </tr>
-                </tfoot>
-                <tbody>
+<div class="container-fluid">
+    <fieldset>
+
+        <legend class="text-center">Saisie d'une entrée / sortie</legend>
+
+        <form class="form-inline" action="{% url 'journal_create' %}" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            {{ field.label_tag }}
+            {{ field|attr:"class:form-control" }}
+            {% endfor %}
+            <td><button class="btn btn-default" type="submit">Créer</button></td>
+        </form>
+
+    </fieldset>
+
+    <fieldset>
+
+        <legend class="text-center">Journal des entrées / sorties</legend>
+
+        <table id="table" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center col-xs-2">Cheval</th>
+                    <th class="text-center col-xs-2">Date</th>
+                    <th class="text-center col-xs-2">Motif</th>
+                    <th class="text-center col-xs-2">Lieu</th>
+                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
+                    <th class="text-center col-xs-2">Actions</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th class="text-center">Cheval</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Motif</th>
+                    <th class="text-center">Lieu</th>
+                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
+                    <th class="text-center">Actions</th>
+                    {% endif %}
+                </tr>
+            </tfoot>
+            <tbody>
                 {% for journal in journaux %}
                 <tr>
                     <td>{{ journal.cheval.nom }}</td>
                     <td>{{ journal.date }}</td>
                     <td>{{ journal.motif }}</td>
                     <td>{{ journal.lieu }}</td>
+                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
                     <td class="text-center">
-                        <a title="Modifier" href="{% url 'journal-update' journal.id %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a id="trash" class="" title="Supprimer" href=""><i class="fa fa-trash"></i></a>
+                        <a href="{% url 'journal_update' journal.id %}" title="Modifier"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
-            </table>
-        </fieldset>
-    </div>
+        </table>
+
+    </fieldset>
 </div>
 
 {% endblock %}

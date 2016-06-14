@@ -71,6 +71,7 @@
     width: 100%;
     margin-bottom: 20px
 }
+
 .montoir_cheval_eleve a {
     text-decoration: none;
     color: inherit;
@@ -80,4 +81,7 @@
 }
 .div-input {
     margin: 5px;
+}
+fieldset {
+    margin-bottom: 50px;
 }

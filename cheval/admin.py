@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Cheval, Emplacement
+from models import Cheval, Emplacement, Journal
 
 admin.site.site_header = 'Centre equestre'
 
@@ -20,3 +20,12 @@ class EmplacementAdmin(admin.ModelAdmin):
     search_fields   = ['zone', 'box']
 
 admin.site.register(Emplacement, EmplacementAdmin)
+
+
+class JournalAdmin(admin.ModelAdmin):
+    list_display    = ['cheval', 'date', 'motif', 'lieu']
+    list_filter     = ['cheval', 'motif', 'lieu']
+    ordering        = ['cheval', 'date', 'motif', 'lieu']
+    search_fields   = ['cheval', 'date', 'motif', 'lieu']
+
+admin.site.register(Journal, JournalAdmin)

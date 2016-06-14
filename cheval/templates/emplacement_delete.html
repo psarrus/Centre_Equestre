@@ -12,9 +12,8 @@
         <p class="text-center">Voulez-vous supprimer cet emplacement ?</p>
         <form class="text-center" action="{{ request.path }}" method="POST">
             {% csrf_token %}
-            {{ form.errors }}
             <p><button class="btn btn-danger" type="submit">Supprimer</button></p>
-            <p><a href="{% url 'emplacement_list' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
+            <p><a href="{% url 'emplacement' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
         </form>
 
     </fieldset>
