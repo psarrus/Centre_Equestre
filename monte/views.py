@@ -6,18 +6,16 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 from json_views.views import JSONListView, JSONFormView, JSONDataView, PaginatedJSONListView
-
 from models import *
 from django.contrib.auth.models import User
 from profil.models import Profil
 
-from forms import PiquetMontoirForm, CreneauMontoirEnseignantForm, PiquetMontoirReelForm
+from forms import PiquetMontoirForm, CreneauMontoirEnseignantForm, PiquetMontoirReelForm, CreneauMontoirPrevisionnelForm
 
 
 class CreneauMontoirCreate(CreateView):
-    model = CreneauMontoir
-    fields = ['jour','heure_debut','duree','public','effectif','encadrant','remarque']
     template_name = 'creneau_montoir_create.html'
+    form_class = CreneauMontoirPrevisionnelForm
     success_url = reverse_lazy('creneau_montoir_previsonnel_list')
 
 class CreneauMontoirPrevisionnelList(ListView):

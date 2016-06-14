@@ -1,28 +1,43 @@
-{% extends "base.html" %} {% block content %}
-<div class="container">
+{% extends "base.html" %}
 
-<table id="table" class="table table-bordered table-hover">
-    <tr>
-        <th>Date</th>
-        <th>Encadrant</th>
-        <th>Public</th>
-        <th>Cheval</th>
-        <th>Profil</th>
-    </tr>
-    {% for piquet in piquets %}
-    {% if piquet.selected %}
-    <tr>
-        <td>{{piquet.date}}</td>
-        <td>{{piquet.montoir.encadrant}}</td>
-        <td>{{piquet.montoir.creneau_montoir.public}}</td>
-        <td>{{piquet.cheval}}</td>
-        <td>{{piquet.profil}}</td>
-
-    </tr>
-    {% endif %}
-    {% endfor %}
-</table>
-
+{% block content %}
+<div class="container-fluid">
+        <table id="table" class="table table-bordered table-hover" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class="text-center col-xs-2">Date</th>
+                    <th class="text-center col-xs-2">Duree</th>
+                    <th class="text-center col-xs-2">Encadrant</th>
+                    <th class="text-center col-xs-2">Public</th>
+                    <th class="text-center col-xs-2">Cheval</th>
+                    <th class="text-center col-xs-2">Profil</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th class="text-center col-xs-2">Date</th>
+                    <th class="text-center col-xs-2">Duree</th>
+                    <th class="text-center col-xs-2">Encadrant</th>
+                    <th class="text-center col-xs-2">Public</th>
+                    <th class="text-center col-xs-2">Cheval</th>
+                    <th class="text-center col-xs-2">Profil</th>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for piquet in piquets %}
+                {% if piquet.selected %}
+                <tr class="center">
+                    <td>{{piquet.date}}</td>
+                    <td>{{piquet.montoir.creneau_montoir.duree|stringformat:".2f"}}</td>
+                    <td>{{piquet.montoir.encadrant}}</td>
+                    <td>{{piquet.montoir.creneau_montoir.public}}</td>
+                    <td class="montoir_cheval_eleve"><a href="{% url 'cheval_detail' piquet.cheval.id %}" target=blank>{{piquet.cheval}}</a></td>
+                    <td class="montoir_cheval_eleve"><a href="{% url 'profil_update' piquet.profil.id %}" target=blank>{{piquet.profil}}</a></td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
 </div>
 
 
