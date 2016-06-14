@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 
-{% load i18n widget_tweaks %}
-
 {% block title %}Liste des soins effectués{% endblock %}
 
 {% block content %}
@@ -15,7 +13,8 @@
             {% csrf_token %}
             {% for field in form %}
             {{ field.label_tag }}
-            {{ field|attr:"class:form-control" }}
+            {{ field }}
+            {{ field.errors }}
             {% endfor %}
             <td><button class="btn btn-default" type="submit">Créer</button></td>
         </form>

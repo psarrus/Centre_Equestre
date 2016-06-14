@@ -1,9 +1,9 @@
 from django.conf.urls import url
-from views import Soin, SoinCreate, SoinUpdate
+from views import SoinListView, SoinCreateView, SoinUpdateView
 
 
 urlpatterns = [
-    url(r'^$', Soin.as_view(), name='soin'),
-    url(r'^creer/$', SoinCreate.as_view(), name='soin_create'),
-    url(r'^(?P<pk>[\w-]+)/modifier/$', SoinUpdate.as_view(), name='soin_update'),
+    url(r'^$', SoinListView.as_view(), name='soin_list'),
+    url(r'^creer/$', SoinCreateView.as_view(), name='soin_create'),
+    url(r'^(?P<pk>[\w-]+)/modifier/$', SoinUpdateView.as_view(), name='soin_update'),
 ]

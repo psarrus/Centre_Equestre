@@ -6,25 +6,25 @@ from models import Soin
 from forms import SoinForm
 
 
-class Soin(ListView):
+class SoinListView(ListView):
     model = Soin
     template_name = 'soin.html'
     context_object_name = 'soins'
 
     def get_context_data(self, **kwargs):
-        context = super(Soin,self).get_context_data(**kwargs)
+        context = super(SoinListView,self).get_context_data(**kwargs)
         context['form'] = SoinForm()
         return context
 
 
-class SoinCreate(CreateView):
+class SoinCreateView(CreateView):
     model = Soin
     form_class = SoinForm
-    success_url = reverse_lazy('soin')
+    success_url = reverse_lazy('soin_list')
 
 
-class SoinUpdate(UpdateView):
+class SoinUpdateView(UpdateView):
     model = Soin
-    fields = ['cheval', 'pathologie', 'acte', 'soigneur']
+    form_class = SoinForm
     template_name = 'soin_update.html'
-    success_url = reverse_lazy('soin')
+    success_url = reverse_lazy('soin_list')
