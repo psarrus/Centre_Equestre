@@ -57,9 +57,9 @@
                     <td>{{ cheval.get_aptitude_display }}</td>
                     <td>{{ cheval.emplacement }}</td>
                     <td class="text-center">
-                        <a href="{% url 'cheval_detail' cheval.pk %}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'cheval_detail' cheval.pk %}" title="Visualiser"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                         {% if user.is_authenticated and perms.profil.chef_ecurie %}
-                        <a href="{% url 'cheval_update' cheval.pk %}"><i class="fa fa-pencil"></i></a>
+                        <a href="{% url 'cheval_update' cheval.pk %}" title="Modifier"><i class="fa fa-pencil"></i></a>
                         {% endif %}
                     </td>
                 </tr>

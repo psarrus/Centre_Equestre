@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load i18n widget_tweaks %}
+
 {% block title %}Liste des emplacements{% endblock %}
 
 {% block content %}
@@ -7,24 +9,40 @@
 <div class="container-fluid">
     <fieldset>
 
+        <legend class="text-center">Saisie d'un emplacement</legend>
+
+        <form class="form-inline" action="{% url 'emplacement_create' %}" method="POST">
+            {% csrf_token %}
+            {% for field in form %}
+            {{ field.label_tag }}
+            {{ field|attr:"class:form-control" }}
+            {% endfor %}
+            <td><button class="btn btn-default" type="submit">Créer</button></td>
+        </form>
+
+    </fieldset>
+
+    <fieldset>
+
         <legend class="text-center">Liste des emplacements</legend>
-        {% if user.is_authenticated and perms.profil.chef_ecurie %}
-        <p><a class="btn btn-primary" href="{% url 'emplacement_create' %}">Nouveau</a></p>
-        {% endif %}
 
         <table id="table" class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th class="text-center col-xs-4">Zone</th>
                     <th class="text-center col-xs-4">Box</th>
+                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
                     <th class="text-center col-xs-4">Actions</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tfoot>
                 <tr>
                     <th class="text-center">Zone</th>
                     <th class="text-center">Box</th>
+                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
                     <th class="text-center">Actions</th>
+                    {% endif %}
                 </tr>
             </tfoot>
             <tbody>
@@ -32,13 +50,12 @@
                 <tr>
                     <td>{{ emplacement.zone }}</td>
                     <td>{{ emplacement.box }}</td>
+                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
                     <td class="text-center">
-                        <a href="{% url 'emplacement_detail' emplacement.pk %}"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        {% if user.is_authenticated and perms.profil.chef_ecurie %}
-                        <a href="{% url 'emplacement_update' emplacement.pk %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{% url 'emplacement_delete' emplacement.pk %}"><i class="fa fa-trash"></i></a>
-                        {% endif %}
+                        <a href="{% url 'emplacement_update' emplacement.pk %}" title="Modifier"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'emplacement_delete' emplacement.pk %}" title="Supprimer"><i class="fa fa-trash"></i></a>
                     </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
