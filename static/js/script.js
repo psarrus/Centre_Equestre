@@ -69,6 +69,7 @@ $(document).ready(function(){
                     select.append( '<option value="'+d+'">'+d+'</option>' );
                 } );
             } );
+            
         },
         // drawCallback: function () {
         //     var api = this.api();
