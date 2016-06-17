@@ -1,5 +1,8 @@
 /*# sourceMappingURL=style.css.map */
-
+.container {
+    width: 90%;
+    margin: auto;
+}
 .choix-profil {
     font-size: 0.5em;
 }
@@ -67,6 +70,17 @@
 .table-journal table {
     width: 100%;
     margin-bottom: 20px
+}
+
+.montoir_cheval_eleve a {
+    text-decoration: none;
+    color: inherit;
+}
+.montoir_cheval_eleve:hover {
+    background-color: #A1C7F4;
+}
+.div-input {
+    margin: 5px;
 }
 fieldset {
     margin-bottom: 50px;

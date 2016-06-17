@@ -10,8 +10,12 @@ $(document).ready(function(){
         var change = this.checked ? permis.show() && $('#id_permis').val(1) : permis.hide() && $('#id_permis').val(0);
     });
 
-
-    $('#table').DataTable({
+    var table = $('#table').DataTable({
+    // $('#table').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'pdf', 'print'
+        ],
         rowReorder: true,
         colReorder: true,
         fixedHeader: true,
@@ -41,6 +45,7 @@ $(document).ready(function(){
                 "sortDescending": "Trier par ordre décroissant"
             }
         },
+
         initComplete: function () {
             this.api().columns().every( function () {
                 var column = this;
@@ -57,11 +62,26 @@ $(document).ready(function(){
                 } );
 
                 column.data().unique().sort().each( function ( d, j ) {
+                    if ($(d).text() != ''){
+                        d = $(d).text();
+                     }
+                    //console.log(d+' '+ $(d).text() );
                     select.append( '<option value="'+d+'">'+d+'</option>' );
                 } );
             } );
-        }
+            
+        },
+        // drawCallback: function () {
+        //     var api = this.api();
+        //     $( api.table().footer() ).html(
+        //         api.column( 1, {page:'current'} ).data().sum()
+        //     );
+        // }
     });
+
+
+    $("#table tfoot th:nth-child(2)").html(table.column(1, {page:'current'} ).data().sum());
+
 
 
     function getCookie(name) {
