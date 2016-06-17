@@ -1,7 +1,5 @@
 {% extends "base.html" %}
 
-{% load i18n widget_tweaks %}
-
 {% block title %}État des chevaux{% endblock %}
 
 {% block content %}
@@ -39,7 +37,7 @@
                     <td>
                         <form action="{% url 'aptitude_update' cheval.pk %}" method="POST">
                             {% csrf_token %}
-                            {{ form.aptitude|attr:"class:form-control" }}
+                            {{ form.aptitude }}
                             <button class="btn btn-default" type="submit">OK</button>
                         </form>
                     </td>

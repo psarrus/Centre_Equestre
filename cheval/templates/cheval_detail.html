@@ -15,18 +15,22 @@
             </div>
             <div class="col-xs-12 col-md-6 col-md-pull-6">
                 <p>Nom : {{ cheval.nom }}</p>
-                <p>N° sire : {{ cheval.sire }}</p>
+                <p>Numéro SIRE : {{ cheval.sire }}</p>
                 <p>Race : {{ cheval.race }}</p>
                 <p>Pedigree : {{ cheval.pedigree }}</p>
                 <p>Année de naissance : {{ cheval.annee_naissance }}</p>
                 <p>Date d'entrée : {{ cheval.date_entree }}</p>
                 <p>Date de sortie : {{ cheval.date_sortie }}</p>
-                <p>Activité : {{ cheval.get_activite_display }}</p>
+                <p>Activité pratiquée : {{ cheval.get_activite_display }}</p>
                 <p>Remarques : {{ cheval.remarques }}</p>
                 <p>Statut : {{ cheval.get_statut_display }}</p>
+                <br />
                 <p>Aptitude : {{ cheval.get_aptitude_display }}</p>
                 <p>Emplacement (zone) : {{ cheval.emplacement.zone }}</p>
                 <p>Emplacement (box) : {{ cheval.emplacement.box }}</p>
+                <p>Date du dernier soin : {{ cheval.get_dernier_soin.date }}</p>
+                <p>Date du dernier ferrage : {{ cheval.get_dernier_ferrage.date }}</p>
+                <p>Date de la dernière vermifugation : {{ cheval.get_derniere_vermifugation.date }}</p>
 
                 {% if user.is_authenticated and perms.profil.chef_ecurie %}
                 <p><a class="btn btn-default" href="{% url 'cheval_update' cheval.pk %}">Modifier</a></p>

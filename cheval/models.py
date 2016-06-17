@@ -95,7 +95,7 @@ class Cheval(models.Model):
 def add_cheval_piquet_montoir_staff(sender, instance, created, **kwargs):
     from monte.models import CreneauMontoir, PiquetMontoirStaff
     if not PiquetMontoirStaff.objects.filter(cheval = instance):
-        if created and instance.activite == '1' or (created == False and (not instance.date_sortie or instance.date_sortie > date.today())):
+        if instance.activite == '1' and (created or (created == False and (not instance.date_sortie or instance.date_sortie > date.today()))):
             for montoir in CreneauMontoir.objects.all():
                 PiquetMontoirStaff.objects.create(montoir = montoir, cheval = instance)
 
