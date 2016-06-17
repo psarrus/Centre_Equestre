@@ -1,0 +1,623 @@
+[Fri Jun 17 11:44:14.506128 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656] mod_wsgi (pid=15587): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 11:44:14.506216 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656] mod_wsgi (pid=15587): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 11:44:14.506260 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656] Traceback (most recent call last):
+[Fri Jun 17 11:44:14.506293 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 11:44:14.506399 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     application = get_wsgi_application()
+[Fri Jun 17 11:44:14.506420 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 11:44:14.506861 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     django.setup()
+[Fri Jun 17 11:44:14.506894 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 11:44:14.507357 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 11:44:14.507381 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 11:44:14.507919 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     self._setup(name)
+[Fri Jun 17 11:44:14.507958 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 11:44:14.508006 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 11:44:14.508023 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 11:44:14.508042 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 11:44:14.508054 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 11:44:14.508486 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     __import__(name)
+[Fri Jun 17 11:44:14.508530 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656] ImportError: No module named centre_equestre.settings
+[Fri Jun 17 11:54:50.289096 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/DataTables/datatables.min.css
+[Fri Jun 17 11:54:50.289142 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.289147 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.289151 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.289155 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.289159 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.289163 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.289167 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.289170 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.289174 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.289203 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.292242 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/font-awesome/css/font-awesome.min.css
+[Fri Jun 17 11:54:50.292264 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.292269 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.292273 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.292277 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.292281 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.292285 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.292288 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.292292 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.292295 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.292298 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.295302 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css
+[Fri Jun 17 11:54:50.295324 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.295328 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.295333 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.295336 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.295340 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.295344 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.295348 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.295351 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.295354 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.295358 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.302647 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap/dist/css/bootstrap.min.css
+[Fri Jun 17 11:54:50.302669 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.302673 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.302677 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.302681 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.302685 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.302689 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.302709 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.302713 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.302717 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.302720 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.369575 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/datepicker/css/datepicker.css
+[Fri Jun 17 11:54:50.369624 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.369629 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.369632 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.369636 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.369639 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.369642 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.369645 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.369648 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.369650 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.369653 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.373748 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/css/style.css
+[Fri Jun 17 11:54:50.373764 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.373767 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.373770 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.373772 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.373775 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.373778 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.373781 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.373783 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.373786 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.373788 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.726177 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/jquery/dist/jquery.min.js
+[Fri Jun 17 11:54:50.726225 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.726234 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.726243 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.726251 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.726292 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.726301 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.726307 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.726310 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.726314 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.726318 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.730989 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap/dist/js/bootstrap.min.js
+[Fri Jun 17 11:54:50.731012 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.731017 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.731021 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.731025 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.731029 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.731034 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.731038 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.731041 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.731045 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.731049 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.764202 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/DataTables/datatables.min.js
+[Fri Jun 17 11:54:50.764224 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.764228 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.764232 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.764235 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.764238 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.764242 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.764245 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.764248 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.764251 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.764254 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.767362 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js
+[Fri Jun 17 11:54:50.767382 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.767386 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.767407 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.767412 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.767418 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.767424 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.767430 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.767435 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.767441 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.767446 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.770639 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/datepicker/js/bootstrap-datepicker.js
+[Fri Jun 17 11:54:50.770659 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.770663 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.770667 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.770671 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.770674 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.770678 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.770681 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.770684 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.770687 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.770691 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.774548 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/js/script.js
+[Fri Jun 17 11:54:50.774566 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.774570 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.774574 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.774577 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.774581 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.774584 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.774587 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.774590 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.774593 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.774596 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.184842 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap/dist/js/bootstrap.min.js
+[Fri Jun 17 11:54:51.184875 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.184878 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.184880 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.184882 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.184885 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.184887 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.184889 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.184891 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.184893 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.184895 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.190367 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/js/jquery.formset.js
+[Fri Jun 17 11:54:51.190382 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.190385 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.190387 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.190390 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.190392 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.190394 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.190397 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.190399 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.190401 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.190403 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.377062 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/DataTables/datatables.min.js
+[Fri Jun 17 11:54:51.377093 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.377095 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.377098 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.377100 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.377102 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.377105 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.377107 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.377109 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.377133 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.377136 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.382895 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/img/image003b.jpg
+[Fri Jun 17 11:54:51.382919 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.382923 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.382928 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.382932 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.382936 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.382941 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.382945 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.382949 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.382953 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.382956 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.829841 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js
+[Fri Jun 17 11:54:51.829879 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.829883 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.829888 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.829892 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.829896 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.829900 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.829904 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.829908 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.829911 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.829915 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.984674 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/datepicker/js/bootstrap-datepicker.js
+[Fri Jun 17 11:54:51.984709 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.984712 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.984716 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.984719 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.984722 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.984748 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.984751 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.984754 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.984757 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.984759 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:52.123717 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/js/script.js
+[Fri Jun 17 11:54:52.123760 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:52.123764 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:52.123768 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:52.123772 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:52.123776 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:52.123779 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:52.123783 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:52.123786 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:52.123789 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:52.123793 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:52.279358 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/js/jquery.formset.js
+[Fri Jun 17 11:54:52.279394 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:52.279397 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:52.279401 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:52.279404 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:52.279408 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:52.279412 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:52.279415 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:52.279418 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:52.279420 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:52.279423 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:52.462291 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/img/image003b.jpg
+[Fri Jun 17 11:54:52.462329 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:52.462334 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:52.462339 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:52.462343 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:52.462373 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:52.462378 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:52.462381 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:52.462385 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:52.462388 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:52.462391 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 12:10:06.362656 2016] [authz_core:error] [pid 15940] [client 80.13.157.88:44866] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:10:06.363281 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44868] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:10:20.289149 2016] [authz_core:error] [pid 15938] [client 80.13.157.88:44900] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:10:20.290312 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44902] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:05.706390 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:05.706930 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:06.886092 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:06.886430 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:07.573613 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:07.574462 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:08.228321 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:08.229171 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:08.745665 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:08.746002 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:22.217082 2016] [authz_core:error] [pid 15938] [client 80.13.157.88:44952] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:22.217510 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44958] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:13:13.110537 2016] [authz_core:error] [pid 15988] [client 80.13.157.88:44972] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:13:13.111610 2016] [authz_core:error] [pid 15966] [client 80.13.157.88:44976] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 16:20:24.259609 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512] mod_wsgi (pid=17036): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:20:24.259647 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512] mod_wsgi (pid=17036): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:20:24.259672 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512] Traceback (most recent call last):
+[Fri Jun 17 16:20:24.259691 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:20:24.259746 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]     application = get_wsgi_application()
+[Fri Jun 17 16:20:24.259757 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:20:24.259800 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]     django.setup()
+[Fri Jun 17 16:20:24.259812 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:20:24.259851 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:20:24.259861 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:20:24.259930 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]     self._setup(name)
+[Fri Jun 17 16:20:24.259940 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:20:24.259952 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:20:24.259958 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:20:24.259966 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:20:24.259972 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:20:24.260023 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]     __import__(name)
+[Fri Jun 17 16:20:24.260032 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:20:24.260070 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512]     from site_settings import *
+[Fri Jun 17 16:20:24.260090 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:512] ImportError: No module named site_settings
+[Fri Jun 17 16:20:29.081035 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329] mod_wsgi (pid=17036): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:20:29.085687 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329] mod_wsgi (pid=17036): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:20:29.085745 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329] Traceback (most recent call last):
+[Fri Jun 17 16:20:29.085795 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:20:29.085867 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]     application = get_wsgi_application()
+[Fri Jun 17 16:20:29.085894 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:20:29.085932 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]     django.setup()
+[Fri Jun 17 16:20:29.085946 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:20:29.085964 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:20:29.085975 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:20:29.085991 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]     self._setup(name)
+[Fri Jun 17 16:20:29.086001 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:20:29.086016 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:20:29.086026 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:20:29.086040 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:20:29.086051 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:20:29.086068 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]     __import__(name)
+[Fri Jun 17 16:20:29.086078 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:20:29.086094 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329]     from site_settings import *
+[Fri Jun 17 16:20:29.086122 2016] [wsgi:error] [pid 17036] [remote 80.13.157.88:20329] ImportError: No module named site_settings
+[Fri Jun 17 16:20:51.014008 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:20:51.014055 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:20:51.014096 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512] Traceback (most recent call last):
+[Fri Jun 17 16:20:51.014115 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:20:51.014172 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]     application = get_wsgi_application()
+[Fri Jun 17 16:20:51.014182 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:20:51.014211 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]     django.setup()
+[Fri Jun 17 16:20:51.014220 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:20:51.014246 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:20:51.014253 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:20:51.014309 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]     self._setup(name)
+[Fri Jun 17 16:20:51.014316 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:20:51.014328 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:20:51.014334 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:20:51.014342 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:20:51.014347 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:20:51.014375 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]     __import__(name)
+[Fri Jun 17 16:20:51.014382 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:20:51.014418 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512]     from site_settings import *
+[Fri Jun 17 16:20:51.014437 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:512] ImportError: No module named site_settings
+[Fri Jun 17 16:20:53.558208 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:20:53.558254 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:20:53.558287 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562] Traceback (most recent call last):
+[Fri Jun 17 16:20:53.558323 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:20:53.558371 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     application = get_wsgi_application()
+[Fri Jun 17 16:20:53.558384 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:20:53.558405 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     django.setup()
+[Fri Jun 17 16:20:53.558484 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:20:53.558509 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:20:53.558520 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:20:53.558535 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     self._setup(name)
+[Fri Jun 17 16:20:53.558544 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:20:53.558557 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:20:53.558566 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:20:53.558579 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:20:53.558589 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:20:53.558604 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     __import__(name)
+[Fri Jun 17 16:20:53.558613 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:20:53.558628 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     from site_settings import *
+[Fri Jun 17 16:20:53.558656 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562] ImportError: No module named site_settings
+[Fri Jun 17 16:20:55.768949 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:20:55.768994 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:20:55.769024 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562] Traceback (most recent call last):
+[Fri Jun 17 16:20:55.769056 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:20:55.769102 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     application = get_wsgi_application()
+[Fri Jun 17 16:20:55.769114 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:20:55.769133 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     django.setup()
+[Fri Jun 17 16:20:55.769142 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:20:55.769157 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:20:55.769165 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:20:55.769180 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     self._setup(name)
+[Fri Jun 17 16:20:55.769187 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:20:55.769265 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:20:55.769278 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:20:55.769290 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:20:55.769299 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:20:55.769313 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     __import__(name)
+[Fri Jun 17 16:20:55.769321 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:20:55.769334 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562]     from site_settings import *
+[Fri Jun 17 16:20:55.769362 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:47562] ImportError: No module named site_settings
+[Fri Jun 17 16:20:56.384853 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:20:56.385838 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:20:56.385897 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] Traceback (most recent call last):
+[Fri Jun 17 16:20:56.385935 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:20:56.385992 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     application = get_wsgi_application()
+[Fri Jun 17 16:20:56.386007 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:20:56.386031 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     django.setup()
+[Fri Jun 17 16:20:56.386042 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:20:56.386060 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:20:56.386070 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:20:56.386088 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     self._setup(name)
+[Fri Jun 17 16:20:56.386098 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:20:56.386113 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:20:56.386123 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:20:56.386138 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:20:56.386149 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:20:56.386167 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     __import__(name)
+[Fri Jun 17 16:20:56.386177 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:20:56.386222 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     from site_settings import *
+[Fri Jun 17 16:20:56.386264 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] ImportError: No module named site_settings
+[Fri Jun 17 16:21:00.416038 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:21:00.416096 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:21:00.416127 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] Traceback (most recent call last):
+[Fri Jun 17 16:21:00.416172 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:21:00.416238 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     application = get_wsgi_application()
+[Fri Jun 17 16:21:00.416257 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:21:00.416297 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     django.setup()
+[Fri Jun 17 16:21:00.416311 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:21:00.416343 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:21:00.416356 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:21:00.416374 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     self._setup(name)
+[Fri Jun 17 16:21:00.416385 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:21:00.416400 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:21:00.416410 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:21:00.416425 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:21:00.416436 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:21:00.416453 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     __import__(name)
+[Fri Jun 17 16:21:00.416463 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:21:00.416479 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     from site_settings import *
+[Fri Jun 17 16:21:00.416519 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] ImportError: No module named site_settings
+[Fri Jun 17 16:21:01.063292 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:21:01.063336 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:21:01.063367 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] Traceback (most recent call last):
+[Fri Jun 17 16:21:01.063445 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:21:01.063495 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     application = get_wsgi_application()
+[Fri Jun 17 16:21:01.063509 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:21:01.063530 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     django.setup()
+[Fri Jun 17 16:21:01.063540 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:21:01.063555 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:21:01.063564 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:21:01.063579 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     self._setup(name)
+[Fri Jun 17 16:21:01.063588 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:21:01.063601 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:21:01.063610 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:21:01.063623 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:21:01.063633 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:21:01.063648 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     __import__(name)
+[Fri Jun 17 16:21:01.063656 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:21:01.063671 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     from site_settings import *
+[Fri Jun 17 16:21:01.063697 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] ImportError: No module named site_settings
+[Fri Jun 17 16:22:00.867281 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:22:00.867401 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:22:00.867482 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] Traceback (most recent call last):
+[Fri Jun 17 16:22:00.867551 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:22:00.867673 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     application = get_wsgi_application()
+[Fri Jun 17 16:22:00.867691 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:22:00.867725 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     django.setup()
+[Fri Jun 17 16:22:00.867748 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:22:00.867827 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:22:00.867842 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:22:00.867867 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     self._setup(name)
+[Fri Jun 17 16:22:00.867879 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:22:00.867895 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:22:00.867906 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:22:00.867922 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:22:00.867933 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:22:00.867950 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     __import__(name)
+[Fri Jun 17 16:22:00.867960 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:22:00.867977 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956]     from site_settings import *
+[Fri Jun 17 16:22:00.868034 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:9956] ImportError: No module named site_settings
+[Fri Jun 17 16:22:01.545248 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:22:01.545294 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:22:01.545326 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] Traceback (most recent call last):
+[Fri Jun 17 16:22:01.545357 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:22:01.545403 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     application = get_wsgi_application()
+[Fri Jun 17 16:22:01.545417 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:22:01.545439 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     django.setup()
+[Fri Jun 17 16:22:01.545451 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:22:01.545468 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:22:01.545479 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:22:01.545496 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     self._setup(name)
+[Fri Jun 17 16:22:01.545614 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:22:01.545668 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:22:01.545691 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:22:01.545735 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:22:01.545749 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:22:01.545767 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     __import__(name)
+[Fri Jun 17 16:22:01.545778 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:22:01.545795 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     from site_settings import *
+[Fri Jun 17 16:22:01.545823 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] ImportError: No module named site_settings
+[Fri Jun 17 16:22:02.106168 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:22:02.106218 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:22:02.106251 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] Traceback (most recent call last):
+[Fri Jun 17 16:22:02.106284 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:22:02.106334 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     application = get_wsgi_application()
+[Fri Jun 17 16:22:02.106347 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:22:02.106372 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     django.setup()
+[Fri Jun 17 16:22:02.106384 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:22:02.106401 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:22:02.106416 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:22:02.106434 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     self._setup(name)
+[Fri Jun 17 16:22:02.106444 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:22:02.106459 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:22:02.106469 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:22:02.106485 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:22:02.106496 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:22:02.106513 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     __import__(name)
+[Fri Jun 17 16:22:02.106523 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:22:02.106539 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586]     from site_settings import *
+[Fri Jun 17 16:22:02.106595 2016] [wsgi:error] [pid 17113] [remote 80.13.157.88:48586] ImportError: No module named site_settings
+[Fri Jun 17 16:22:40.405477 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956] mod_wsgi (pid=17113): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:22:40.405652 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956] mod_wsgi (pid=17113): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:22:40.405724 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956] Traceback (most recent call last):
+[Fri Jun 17 16:22:40.405769 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:22:40.405822 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]     application = get_wsgi_application()
+[Fri Jun 17 16:22:40.405837 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:22:40.405874 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]     django.setup()
+[Fri Jun 17 16:22:40.405888 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:22:40.405906 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:22:40.405916 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:22:40.405943 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]     self._setup(name)
+[Fri Jun 17 16:22:40.405955 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:22:40.405970 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:22:40.405980 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:22:40.405995 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:22:40.406006 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:22:40.406029 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]     __import__(name)
+[Fri Jun 17 16:22:40.406041 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:22:40.406058 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956]     from site_settings import *
+[Fri Jun 17 16:22:40.406093 2016] [wsgi:error] [pid 17113] [remote 117.89.153.229:9956] ImportError: No module named site_settings
+[Fri Jun 17 16:22:54.423740 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512] mod_wsgi (pid=17212): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 16:22:54.423779 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512] mod_wsgi (pid=17212): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 16:22:54.423803 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512] Traceback (most recent call last):
+[Fri Jun 17 16:22:54.423822 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 16:22:54.423905 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]     application = get_wsgi_application()
+[Fri Jun 17 16:22:54.423916 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 16:22:54.423948 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]     django.setup()
+[Fri Jun 17 16:22:54.423957 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 16:22:54.423984 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 16:22:54.423992 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 16:22:54.424049 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]     self._setup(name)
+[Fri Jun 17 16:22:54.424057 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 16:22:54.424069 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 16:22:54.424074 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 16:22:54.424082 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 16:22:54.424088 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 16:22:54.424117 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]     __import__(name)
+[Fri Jun 17 16:22:54.424124 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/settings.py", line 14, in <module>
+[Fri Jun 17 16:22:54.424162 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512]     from site_settings import *
+[Fri Jun 17 16:22:54.424181 2016] [wsgi:error] [pid 17212] [remote 80.13.157.88:512] ImportError: No module named site_settings
+[Fri Jun 17 16:24:38.177480 2016] [wsgi:error] [pid 17212] Internal Server Error: /cheval/creer/
+[Fri Jun 17 16:24:38.177537 2016] [wsgi:error] [pid 17212] Traceback (most recent call last):
+[Fri Jun 17 16:24:38.177542 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 16:24:38.177580 2016] [wsgi:error] [pid 17212]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 16:24:38.177587 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 16:24:38.177591 2016] [wsgi:error] [pid 17212]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 16:24:38.177595 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+[Fri Jun 17 16:24:38.177599 2016] [wsgi:error] [pid 17212]     return self.dispatch(request, *args, **kwargs)
+[Fri Jun 17 16:24:38.177602 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+[Fri Jun 17 16:24:38.177606 2016] [wsgi:error] [pid 17212]     return handler(request, *args, **kwargs)
+[Fri Jun 17 16:24:38.177609 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/edit.py", line 256, in post
+[Fri Jun 17 16:24:38.177665 2016] [wsgi:error] [pid 17212]     return super(BaseCreateView, self).post(request, *args, **kwargs)
+[Fri Jun 17 16:24:38.177671 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/edit.py", line 222, in post
+[Fri Jun 17 16:24:38.177677 2016] [wsgi:error] [pid 17212]     return self.form_valid(form)
+[Fri Jun 17 16:24:38.177682 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/edit.py", line 201, in form_valid
+[Fri Jun 17 16:24:38.177688 2016] [wsgi:error] [pid 17212]     self.object = form.save()
+[Fri Jun 17 16:24:38.177693 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/forms/models.py", line 451, in save
+[Fri Jun 17 16:24:38.177698 2016] [wsgi:error] [pid 17212]     self.instance.save()
+[Fri Jun 17 16:24:38.177703 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/base.py", line 708, in save
+[Fri Jun 17 16:24:38.177708 2016] [wsgi:error] [pid 17212]     force_update=force_update, update_fields=update_fields)
+[Fri Jun 17 16:24:38.177714 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/base.py", line 736, in save_base
+[Fri Jun 17 16:24:38.177720 2016] [wsgi:error] [pid 17212]     updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+[Fri Jun 17 16:24:38.177726 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/base.py", line 820, in _save_table
+[Fri Jun 17 16:24:38.177732 2016] [wsgi:error] [pid 17212]     result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+[Fri Jun 17 16:24:38.177737 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/base.py", line 859, in _do_insert
+[Fri Jun 17 16:24:38.177743 2016] [wsgi:error] [pid 17212]     using=using, raw=raw)
+[Fri Jun 17 16:24:38.177748 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+[Fri Jun 17 16:24:38.177754 2016] [wsgi:error] [pid 17212]     return getattr(self.get_queryset(), name)(*args, **kwargs)
+[Fri Jun 17 16:24:38.177758 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/query.py", line 1039, in _insert
+[Fri Jun 17 16:24:38.177761 2016] [wsgi:error] [pid 17212]     return query.get_compiler(using=using).execute_sql(return_id)
+[Fri Jun 17 16:24:38.177775 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1059, in execute_sql
+[Fri Jun 17 16:24:38.177783 2016] [wsgi:error] [pid 17212]     for sql, params in self.as_sql():
+[Fri Jun 17 16:24:38.177786 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1019, in as_sql
+[Fri Jun 17 16:24:38.177790 2016] [wsgi:error] [pid 17212]     for obj in self.query.objs
+[Fri Jun 17 16:24:38.177793 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 968, in pre_save_val
+[Fri Jun 17 16:24:38.177796 2016] [wsgi:error] [pid 17212]     return field.pre_save(obj, add=True)
+[Fri Jun 17 16:24:38.177799 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/fields/files.py", line 311, in pre_save
+[Fri Jun 17 16:24:38.177803 2016] [wsgi:error] [pid 17212]     file.save(file.name, file, save=False)
+[Fri Jun 17 16:24:38.177806 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/fields/files.py", line 93, in save
+[Fri Jun 17 16:24:38.177809 2016] [wsgi:error] [pid 17212]     self.name = self.storage.save(name, content, max_length=self.field.max_length)
+[Fri Jun 17 16:24:38.177824 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/files/storage.py", line 63, in save
+[Fri Jun 17 16:24:38.177827 2016] [wsgi:error] [pid 17212]     name = self._save(name, content)
+[Fri Jun 17 16:24:38.177830 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/files/storage.py", line 222, in _save
+[Fri Jun 17 16:24:38.177834 2016] [wsgi:error] [pid 17212]     os.makedirs(directory)
+[Fri Jun 17 16:24:38.177837 2016] [wsgi:error] [pid 17212]   File "/usr/lib/python2.7/os.py", line 150, in makedirs
+[Fri Jun 17 16:24:38.177840 2016] [wsgi:error] [pid 17212]     makedirs(head, mode)
+[Fri Jun 17 16:24:38.177842 2016] [wsgi:error] [pid 17212]   File "/usr/lib/python2.7/os.py", line 157, in makedirs
+[Fri Jun 17 16:24:38.177845 2016] [wsgi:error] [pid 17212]     mkdir(name, mode)
+[Fri Jun 17 16:24:38.177848 2016] [wsgi:error] [pid 17212] OSError: [Errno 13] Permission denied: '/home/web/Centre_Equestre-env/Centre_Equestre/media'
+[Fri Jun 17 16:25:29.924250 2016] [wsgi:error] [pid 17212] Internal Server Error: /cheval/creer/
+[Fri Jun 17 16:25:29.924301 2016] [wsgi:error] [pid 17212] Traceback (most recent call last):
+[Fri Jun 17 16:25:29.924306 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 16:25:29.924310 2016] [wsgi:error] [pid 17212]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 16:25:29.924313 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 16:25:29.924317 2016] [wsgi:error] [pid 17212]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 16:25:29.924321 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/base.py", line 68, in view
+[Fri Jun 17 16:25:29.924324 2016] [wsgi:error] [pid 17212]     return self.dispatch(request, *args, **kwargs)
+[Fri Jun 17 16:25:29.924327 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/base.py", line 88, in dispatch
+[Fri Jun 17 16:25:29.924331 2016] [wsgi:error] [pid 17212]     return handler(request, *args, **kwargs)
+[Fri Jun 17 16:25:29.924334 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/edit.py", line 256, in post
+[Fri Jun 17 16:25:29.924337 2016] [wsgi:error] [pid 17212]     return super(BaseCreateView, self).post(request, *args, **kwargs)
+[Fri Jun 17 16:25:29.924340 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/edit.py", line 222, in post
+[Fri Jun 17 16:25:29.924343 2016] [wsgi:error] [pid 17212]     return self.form_valid(form)
+[Fri Jun 17 16:25:29.924347 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/generic/edit.py", line 201, in form_valid
+[Fri Jun 17 16:25:29.924350 2016] [wsgi:error] [pid 17212]     self.object = form.save()
+[Fri Jun 17 16:25:29.924353 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/forms/models.py", line 451, in save
+[Fri Jun 17 16:25:29.924356 2016] [wsgi:error] [pid 17212]     self.instance.save()
+[Fri Jun 17 16:25:29.924359 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/base.py", line 708, in save
+[Fri Jun 17 16:25:29.924362 2016] [wsgi:error] [pid 17212]     force_update=force_update, update_fields=update_fields)
+[Fri Jun 17 16:25:29.924365 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/base.py", line 736, in save_base
+[Fri Jun 17 16:25:29.924402 2016] [wsgi:error] [pid 17212]     updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+[Fri Jun 17 16:25:29.924406 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/base.py", line 820, in _save_table
+[Fri Jun 17 16:25:29.924409 2016] [wsgi:error] [pid 17212]     result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+[Fri Jun 17 16:25:29.924413 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/base.py", line 859, in _do_insert
+[Fri Jun 17 16:25:29.924416 2016] [wsgi:error] [pid 17212]     using=using, raw=raw)
+[Fri Jun 17 16:25:29.924419 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/manager.py", line 122, in manager_method
+[Fri Jun 17 16:25:29.924422 2016] [wsgi:error] [pid 17212]     return getattr(self.get_queryset(), name)(*args, **kwargs)
+[Fri Jun 17 16:25:29.924425 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/query.py", line 1039, in _insert
+[Fri Jun 17 16:25:29.924429 2016] [wsgi:error] [pid 17212]     return query.get_compiler(using=using).execute_sql(return_id)
+[Fri Jun 17 16:25:29.924432 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1059, in execute_sql
+[Fri Jun 17 16:25:29.924435 2016] [wsgi:error] [pid 17212]     for sql, params in self.as_sql():
+[Fri Jun 17 16:25:29.924438 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 1019, in as_sql
+[Fri Jun 17 16:25:29.924441 2016] [wsgi:error] [pid 17212]     for obj in self.query.objs
+[Fri Jun 17 16:25:29.924444 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/sql/compiler.py", line 968, in pre_save_val
+[Fri Jun 17 16:25:29.924448 2016] [wsgi:error] [pid 17212]     return field.pre_save(obj, add=True)
+[Fri Jun 17 16:25:29.924451 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/fields/files.py", line 311, in pre_save
+[Fri Jun 17 16:25:29.924454 2016] [wsgi:error] [pid 17212]     file.save(file.name, file, save=False)
+[Fri Jun 17 16:25:29.924457 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/db/models/fields/files.py", line 93, in save
+[Fri Jun 17 16:25:29.924460 2016] [wsgi:error] [pid 17212]     self.name = self.storage.save(name, content, max_length=self.field.max_length)
+[Fri Jun 17 16:25:29.924464 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/files/storage.py", line 63, in save
+[Fri Jun 17 16:25:29.924467 2016] [wsgi:error] [pid 17212]     name = self._save(name, content)
+[Fri Jun 17 16:25:29.924470 2016] [wsgi:error] [pid 17212]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/files/storage.py", line 222, in _save
+[Fri Jun 17 16:25:29.924473 2016] [wsgi:error] [pid 17212]     os.makedirs(directory)
+[Fri Jun 17 16:25:29.924476 2016] [wsgi:error] [pid 17212]   File "/usr/lib/python2.7/os.py", line 157, in makedirs
+[Fri Jun 17 16:25:29.924479 2016] [wsgi:error] [pid 17212]     mkdir(name, mode)
+[Fri Jun 17 16:25:29.924482 2016] [wsgi:error] [pid 17212] OSError: [Errno 13] Permission denied: '/home/web/Centre_Equestre-env/Centre_Equestre/media/photos'
