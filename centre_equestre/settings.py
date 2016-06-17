@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
-from site_settings import * 
+from site_settings import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,6 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jv!#3m=@f=++w))x_=v2%n7f_db+p!4y$7(8dgg1d=q0_rg#8o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+
 
 
 # Application definition
@@ -91,16 +92,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-DATABASES = {
-    'default': {
-        'NAME': 'centre_equestre',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'merkur',
-        'PASSWORD': 'plop48000',
-        'HOST':'localhost'
-    }
-}
 
 
 # Internationalization

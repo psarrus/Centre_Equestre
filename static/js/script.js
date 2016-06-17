@@ -63,10 +63,7 @@ $(document).ready(function(){
     });
     // PROFIL FIN
 
-    $('#table').DataTable({
-
-    // var table = $('#table').DataTable({
-    // $('#table').DataTable({
+    var table = $('#table').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'pdf', 'print'
@@ -136,7 +133,7 @@ $(document).ready(function(){
     });
 
 
-    $("#table tfoot th:nth-child(2)").html(table.column(1, {page:'current'} ).data().sum());
+    // $("#table tfoot th:nth-child(2)").html(table.column(1, {page:'current'} ).data().sum());
 
 
 
