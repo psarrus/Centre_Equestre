@@ -1,0 +1,267 @@
+[Fri Jun 17 11:44:14.506128 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656] mod_wsgi (pid=15587): Target WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py' cannot be loaded as Python module.
+[Fri Jun 17 11:44:14.506216 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656] mod_wsgi (pid=15587): Exception occurred processing WSGI script '/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py'.
+[Fri Jun 17 11:44:14.506260 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656] Traceback (most recent call last):
+[Fri Jun 17 11:44:14.506293 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/home/web/Centre_Equestre-env/Centre_Equestre/centre_equestre/wsgi.py", line 16, in <module>
+[Fri Jun 17 11:44:14.506399 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     application = get_wsgi_application()
+[Fri Jun 17 11:44:14.506420 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/core/wsgi.py", line 13, in get_wsgi_application
+[Fri Jun 17 11:44:14.506861 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     django.setup()
+[Fri Jun 17 11:44:14.506894 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/__init__.py", line 17, in setup
+[Fri Jun 17 11:44:14.507357 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+[Fri Jun 17 11:44:14.507381 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 55, in __getattr__
+[Fri Jun 17 11:44:14.507919 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     self._setup(name)
+[Fri Jun 17 11:44:14.507958 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 43, in _setup
+[Fri Jun 17 11:44:14.508006 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     self._wrapped = Settings(settings_module)
+[Fri Jun 17 11:44:14.508023 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/local/lib/python2.7/dist-packages/django/conf/__init__.py", line 99, in __init__
+[Fri Jun 17 11:44:14.508042 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     mod = importlib.import_module(self.SETTINGS_MODULE)
+[Fri Jun 17 11:44:14.508054 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]   File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+[Fri Jun 17 11:44:14.508486 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656]     __import__(name)
+[Fri Jun 17 11:44:14.508530 2016] [wsgi:error] [pid 15587] [client 80.13.157.88:44656] ImportError: No module named centre_equestre.settings
+[Fri Jun 17 11:54:50.289096 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/DataTables/datatables.min.css
+[Fri Jun 17 11:54:50.289142 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.289147 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.289151 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.289155 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.289159 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.289163 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.289167 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.289170 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.289174 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.289203 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.292242 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/font-awesome/css/font-awesome.min.css
+[Fri Jun 17 11:54:50.292264 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.292269 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.292273 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.292277 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.292281 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.292285 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.292288 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.292292 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.292295 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.292298 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.295302 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css
+[Fri Jun 17 11:54:50.295324 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.295328 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.295333 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.295336 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.295340 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.295344 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.295348 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.295351 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.295354 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.295358 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.302647 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap/dist/css/bootstrap.min.css
+[Fri Jun 17 11:54:50.302669 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.302673 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.302677 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.302681 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.302685 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.302689 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.302709 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.302713 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.302717 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.302720 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.369575 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/datepicker/css/datepicker.css
+[Fri Jun 17 11:54:50.369624 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.369629 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.369632 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.369636 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.369639 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.369642 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.369645 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.369648 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.369650 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.369653 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.373748 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/css/style.css
+[Fri Jun 17 11:54:50.373764 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.373767 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.373770 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.373772 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.373775 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.373778 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.373781 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.373783 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.373786 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.373788 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.726177 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/jquery/dist/jquery.min.js
+[Fri Jun 17 11:54:50.726225 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.726234 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.726243 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.726251 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.726292 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.726301 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.726307 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.726310 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.726314 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.726318 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.730989 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap/dist/js/bootstrap.min.js
+[Fri Jun 17 11:54:50.731012 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.731017 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.731021 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.731025 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.731029 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.731034 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.731038 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.731041 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.731045 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.731049 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.764202 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/DataTables/datatables.min.js
+[Fri Jun 17 11:54:50.764224 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.764228 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.764232 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.764235 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.764238 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.764242 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.764245 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.764248 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.764251 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.764254 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.767362 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js
+[Fri Jun 17 11:54:50.767382 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.767386 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.767407 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.767412 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.767418 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.767424 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.767430 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.767435 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.767441 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.767446 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.770639 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/datepicker/js/bootstrap-datepicker.js
+[Fri Jun 17 11:54:50.770659 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.770663 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.770667 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.770671 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.770674 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.770678 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.770681 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.770684 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.770687 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.770691 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:50.774548 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/js/script.js
+[Fri Jun 17 11:54:50.774566 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:50.774570 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:50.774574 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:50.774577 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:50.774581 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:50.774584 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:50.774587 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:50.774590 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:50.774593 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:50.774596 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.184842 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap/dist/js/bootstrap.min.js
+[Fri Jun 17 11:54:51.184875 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.184878 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.184880 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.184882 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.184885 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.184887 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.184889 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.184891 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.184893 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.184895 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.190367 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/js/jquery.formset.js
+[Fri Jun 17 11:54:51.190382 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.190385 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.190387 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.190390 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.190392 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.190394 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.190397 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.190399 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.190401 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.190403 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.377062 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/DataTables/datatables.min.js
+[Fri Jun 17 11:54:51.377093 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.377095 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.377098 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.377100 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.377102 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.377105 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.377107 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.377109 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.377133 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.377136 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.382895 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/img/image003b.jpg
+[Fri Jun 17 11:54:51.382919 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.382923 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.382928 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.382932 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.382936 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.382941 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.382945 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.382949 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.382953 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.382956 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.829841 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js
+[Fri Jun 17 11:54:51.829879 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.829883 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.829888 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.829892 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.829896 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.829900 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.829904 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.829908 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.829911 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.829915 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:51.984674 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/bower_components/datepicker/js/bootstrap-datepicker.js
+[Fri Jun 17 11:54:51.984709 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:51.984712 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:51.984716 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:51.984719 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:51.984722 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:51.984748 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:51.984751 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:51.984754 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:51.984757 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:51.984759 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:52.123717 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/js/script.js
+[Fri Jun 17 11:54:52.123760 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:52.123764 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:52.123768 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:52.123772 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:52.123776 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:52.123779 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:52.123783 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:52.123786 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:52.123789 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:52.123793 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:52.279358 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/js/jquery.formset.js
+[Fri Jun 17 11:54:52.279394 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:52.279397 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:52.279401 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:52.279404 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:52.279408 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:52.279412 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:52.279415 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:52.279418 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:52.279420 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:52.279423 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 11:54:52.462291 2016] [wsgi:error] [pid 15658] Internal Server Error: /static/img/image003b.jpg
+[Fri Jun 17 11:54:52.462329 2016] [wsgi:error] [pid 15658] Traceback (most recent call last):
+[Fri Jun 17 11:54:52.462334 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 149, in get_response
+[Fri Jun 17 11:54:52.462339 2016] [wsgi:error] [pid 15658]     response = self.process_exception_by_middleware(e, request)
+[Fri Jun 17 11:54:52.462343 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/core/handlers/base.py", line 147, in get_response
+[Fri Jun 17 11:54:52.462373 2016] [wsgi:error] [pid 15658]     response = wrapped_callback(request, *callback_args, **callback_kwargs)
+[Fri Jun 17 11:54:52.462378 2016] [wsgi:error] [pid 15658]   File "/home/web/Centre_Equestre-env/lib/python2.7/site-packages/django/views/static.py", line 54, in serve
+[Fri Jun 17 11:54:52.462381 2016] [wsgi:error] [pid 15658]     fullpath = os.path.join(document_root, newpath)
+[Fri Jun 17 11:54:52.462385 2016] [wsgi:error] [pid 15658]   File "/usr/lib/python2.7/posixpath.py", line 77, in join
+[Fri Jun 17 11:54:52.462388 2016] [wsgi:error] [pid 15658]     elif path == '' or path.endswith('/'):
+[Fri Jun 17 11:54:52.462391 2016] [wsgi:error] [pid 15658] AttributeError: 'NoneType' object has no attribute 'endswith'
+[Fri Jun 17 12:10:06.362656 2016] [authz_core:error] [pid 15940] [client 80.13.157.88:44866] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:10:06.363281 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44868] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:10:20.289149 2016] [authz_core:error] [pid 15938] [client 80.13.157.88:44900] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:10:20.290312 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44902] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:05.706390 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:05.706930 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:06.886092 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:06.886430 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:07.573613 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:07.574462 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:08.228321 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:08.229171 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:08.745665 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44932] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:08.746002 2016] [authz_core:error] [pid 15939] [client 80.13.157.88:44934] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:22.217082 2016] [authz_core:error] [pid 15938] [client 80.13.157.88:44952] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:12:22.217510 2016] [authz_core:error] [pid 15976] [client 80.13.157.88:44958] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:13:13.110537 2016] [authz_core:error] [pid 15988] [client 80.13.157.88:44972] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/base.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
+[Fri Jun 17 12:13:13.111610 2016] [authz_core:error] [pid 15966] [client 80.13.157.88:44976] AH01630: client denied by server configuration: /home/web/Centre_Equestre-env/static/admin/css/login.css, referer: http://vps270582.ovh.net/admin/login/?next=/admin/
