@@ -81,7 +81,6 @@ class Cheval(models.Model):
             'race': self.race,
             'pedigree': self.pedigree,
             'annee_naissance': self.annee_naissance,
-            # 'photo': self.photo,
             'date_entree': self.date_entree,
             'date_sortie': self.date_sortie,
             'activite': self.activite,
@@ -93,33 +92,30 @@ class Cheval(models.Model):
 
 
 @receiver(post_save, sender = Cheval)
-
 def add_cheval_piquet_montoir_staff(sender, instance, created, **kwargs):
     from monte.models import CreneauMontoir, PiquetMontoirStaff
     if not PiquetMontoirStaff.objects.filter(cheval = instance):
-        if created or (created == False and (not instance.date_sortie or instance.date_sortie > date.today())):
+        if created and instance.activite == '1' or (created == False and (not instance.date_sortie or instance.date_sortie > date.today())):
             for montoir in CreneauMontoir.objects.all():
                 PiquetMontoirStaff.objects.create(montoir = montoir, cheval = instance)
 
 
 @receiver(post_save, sender = Cheval)
-
 def del_cheval_piquet_montoir_staff(sender, instance, created, **kwargs):
     from monte.models import CreneauMontoir, PiquetMontoirStaff
-    if created == False and (instance.date_sortie and instance.date_sortie <= date.today()):
+    if created == False and (instance.date_sortie and instance.date_sortie <= date.today()) or instance.activite == '2':
         for montoir in CreneauMontoir.objects.all():
             PiquetMontoirStaff.objects.filter(cheval = instance).delete()
 
 
-        # for cheval in Cheval.objects.filter(Q(date_sortie__gte = datetime.date.today()) | Q(date_sortie__isnull = True),activite = '1'):
-        #     PiquetMontoirStaff.objects.create(montoir = instance, cheval = cheval)
-        # user = User(   email = instance.email,
-        #                first_name = instance.prenom,
-        #                last_name = instance.nom,
-        #                username = instance.nom,
-        #                is_active = instance.profil_actif
-        # )
-        # user.set_password('plop48000')
-        # user.save()
-        # instance.user = user
-        # instance.save()
+class Journal(models.Model):
+    cheval  = models.ForeignKey(Cheval)
+    date    = models.DateField()
+    motif   = models.CharField(max_length = 100)
+    lieu    = models.CharField(max_length = 100)
+
+    class Meta:
+        verbose_name_plural = 'Journaux'
+
+    def __unicode__(self):
+        return '%s %s' % (self.cheval.nom, self.lieu)

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+
+
+<form class="" action="{{request.path}}" method="post"> {% csrf_token %}
+<fieldset>
+
+    <legend class="center" id="creneau_montoir" id_montoir="{{creneau.id}}">Piquet</legend>
+
+    {{form}}
+
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th class="large15 center">Jour</th>
+            <th class="center">Public</th>
+            <th class="center">Heure</th>
+            <th class="center">Duree</th>
+            <th class="center">Professeur</th>
+            <th class="center">Effectif</th>
+            <th class="center">Remarques</th>
+        </tr>
+        <tr>
+            <td class="large15">{{ date }}</td>
+            <td class="large30">{{ creneau.public }}</td>
+            <td class="large10">{{ creneau.heure_debut }}</td>
+            <td class="large20">{{ creneau.duree }}</td>
+            <td class="large20">{{ encadrant }}</td>
+            <td class="large20">{{ creneau.effectif }}</td>
+            <td class="large20">{{ creneau.remarque }}</td>
+
+        </tr>
+    </table>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th class="center">Cheval</th>
+            <th class="center">Aptitude</th>
+            <th class="center">Emplacement</th>
+            <th class="center">Selection</th>
+            <th class="center">Profil</th>
+        </tr>
+
+        {% for piquet_montoir_reel_form in piquet_montoir_reel_forms %}
+        <tr class="piquet" id_piquet_enseignant="{{piquet_montoir_reel_form.id}}">
+            <td class="large15">{{ piquet_montoir_reel_form.nom_cheval }}{{ piquet_montoir_reel_form.cheval}}</td>
+            <td class="large15">{{ piquet_montoir_reel_form.aptitude }}</td>
+            <td class="large15">{{ piquet_montoir_reel_form.emplacement }}</td>
+            <td class="large15">{{ piquet_montoir_reel_form.selected }}</td>
+            <td class="large15">{{ piquet_montoir_reel_form.profil }}</td>
+            {% endfor %}
+        </tr>
+
+        </form>
+    </table>
+    <input type="submit" value="Créer">
+</form>
+</fieldset>
+
+
+
+{% endblock %}

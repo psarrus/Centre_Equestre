@@ -29,7 +29,7 @@ perms_choices = (
     )
 
 class Profil(models.Model):
-    user         = models.OneToOneField(User, null=True)
+    user         = models.OneToOneField(User, null=True, related_name="profile" )
     civilite     = models.CharField(max_length=3, choices = civilite_choices)
     nom          = models.CharField(max_length=200)
     prenom       = models.CharField(max_length=200)

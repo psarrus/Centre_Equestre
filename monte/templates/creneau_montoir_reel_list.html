@@ -4,7 +4,8 @@
 
     <fieldset>
 
-        <legend class="center">Liste des montoirs de {{user.first_name}} {{user.last_name}} le {{date_du_jour}}</legend>
+        <!-- <legend class="center">Liste des montoirs de {{user.first_name}} {{user.last_name}} le {{date_du_jour}}</legend> -->
+        <legend class="center">Veuillez selectionner un piquet montoir de référence :</legend>
 
         <table class="table table-bordered table-hover">
             <tr>
@@ -19,7 +20,7 @@
             </tr>
             {% for creneau in creneaux %}
             <tr>
-                <td><a href="{% url 'piquet_montoir_reel' creneau.pk %}"><i class="fa fa-list" aria-hidden="true"></i></a></td>
+                <td><a href="{% url 'creneau_montoir_ensignant_create' creneau.pk %}"><i class="fa fa-list" aria-hidden="true"></i></a></td>
                 <td class="large15">{{ creneau.get_jour_display }}</td>
                 <td class="large30">{{ creneau.public }}</td>
                 <td class="large10">{{ creneau.heure_debut }}</td>
@@ -30,7 +31,6 @@
             </tr>
             {% endfor %}
         </table>
-
     </fieldset>
 
 </div>
