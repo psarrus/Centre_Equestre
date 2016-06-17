@@ -45,7 +45,7 @@
                     {% endif %}
                     {% endfor %} -->
 
-                    <td class="text-center"><a href="{% url 'profil_update' profil.id %}"><i class="fa fa-eye fa-2x" aria-hidden="true"></a></i></td>
+                    <td class="text-center"><a href="{% url 'detail_profil' profil.id %}"><i class="fa fa-eye fa-2x" aria-hidden="true"></a></i></td>
                     <td class="text-center"><a href="{% url 'profil_update' profil.id %}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></a></i></td>
                     {% endfor %}
                 </tr>

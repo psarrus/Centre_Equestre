@@ -1,21 +1,77 @@
 $(document).ready(function(){
-    var permis = $('#id_permis').parent().parent();
-    var actif  = $('#id_profil_actif');
-    permis.hide();
+    // PROFIL
+    var permis    = $('#id_permis');
+    var perms     = $('.perm');
+    var actif     = $('#id_profil_actif');
+    var categorie = $("[id$='categorie']");
+    var license   = $(".license");
+    var publi     = $("[id$='public']");
+
+    license.hide();
+    permis.parent().parent().hide();
+
     if (actif.is(":checked")) {
-        permis.show();
-        // $('#id_permis option:first').remove();
+        permis.parent().parent().show();
     }
     actif.change(function() {
-        var change = this.checked ? permis.show() && $('#id_permis').val(1) : permis.hide() && $('#id_permis').val(0);
+        if (this.checked){
+            permis.parent().parent().show();
+            $('#id_permis').val(1);
+            categorie.val(3);
+            perms.hide();
+         }else{
+            permis.parent().parent().hide();
+            $('#id_permis').val(0);
+            categorie.val(0);
+            perms.show();
+            license.hide();
+         }
     });
 
-    var table = $('#table').DataTable({
+    permis.change(function() {
+        var perm = $('#id_permis option:selected').text();
+        if (perm === "Professeur") {
+            categorie.val(3);
+        }else if(perm === "Chef d'écurie"){
+            categorie.val(4);
+        }else{
+            categorie.val(0);
+        }
+    });
+
+    categorie.change(function() {
+        var cat = $("[id$='categorie'] option:selected").text();
+        if (cat === "Cavalier") {
+            publi.val(2);
+            license.show();
+        }else if(cat === "Elève"){
+            publi.val(1);
+            license.hide();
+        }else{
+            publi.val(0);
+            license.hide();
+        }
+    });
+
+    publi.change(function() {
+        var pub = $("[id$='public'] option:selected").text();
+        if (pub === "Club") {
+            license.show();
+        }else{
+            license.hide();
+        }
+    });
+    // PROFIL FIN
+
+    $('#table').DataTable({
+
+    // var table = $('#table').DataTable({
     // $('#table').DataTable({
         dom: 'Bfrtip',
         buttons: [
             'copy', 'pdf', 'print'
         ],
+
         rowReorder: true,
         colReorder: true,
         fixedHeader: true,
@@ -69,7 +125,7 @@ $(document).ready(function(){
                     select.append( '<option value="'+d+'">'+d+'</option>' );
                 } );
             } );
-            
+
         },
         // drawCallback: function () {
         //     var api = this.api();
@@ -121,6 +177,7 @@ $(document).ready(function(){
           }
         });
     });
+
 
     $("[name='my-checkbox']").bootstrapSwitch();
 

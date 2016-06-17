@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from models import Profil, Public, Periode
 from django.contrib.auth.models import User, Group
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DetailView
 from django.core.urlresolvers import reverse_lazy, reverse
 from .forms import ProfilLineFormSet
 # from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
@@ -48,6 +48,12 @@ class ListProfil(ListView):
         context = super(ListProfil, self).get_context_data(**kwargs)
         context['periodes'] = Periode.objects.all()
         return context
+
+
+class ProfilDetail(DetailView):
+    model = Profil
+    template_name = 'display_profil.html'
+    context_object_name = 'profil'
 
 
 class ProfilUpdate(UpdateView):

@@ -4,4 +4,4 @@ from models import Profil, Periode
 
 ProfilLineFormSet = inlineformset_factory(Profil, Periode,
                                             fields='__all__',
-                                            extra=2)
+                                            extra=1)
