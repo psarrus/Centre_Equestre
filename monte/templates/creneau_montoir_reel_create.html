@@ -45,7 +45,11 @@
         {% for piquet_montoir_reel_form in piquet_montoir_reel_forms %}
         <tr class="piquet" id_piquet_enseignant="{{piquet_montoir_reel_form.id}}">
             <td class="large15">{{ piquet_montoir_reel_form.nom_cheval }}{{ piquet_montoir_reel_form.cheval}}</td>
-            <td class="large15">{{ piquet_montoir_reel_form.aptitude }}</td>
+            <td class="large15"
+            {% if piquet_montoir_reel_form.aptitude = 'Apte' %}style="background-color:lightgreen"{% endif %}
+            {% if piquet_montoir_reel_form.aptitude = 'Infirmerie' %}style="background-color:red"{% endif %}>
+                {{ piquet_montoir_reel_form.aptitude }}
+            </td>
             <td class="large15">{{ piquet_montoir_reel_form.emplacement }}</td>
             <td class="large15">{{ piquet_montoir_reel_form.selected }}</td>
             <td class="large15">{{ piquet_montoir_reel_form.profil }}</td>
@@ -59,5 +63,24 @@
 </fieldset>
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $("input[type=checkbox]").bootstrapSwitch({
+        onSwitchChange : function(){
+            var id = $(this).attr("name").replace("piquet_montoir_reel_form_", "").replace("-selected", "");
+            var profils = $('#id_piquet_montoir_reel_form_'+id+'-profil')
+            profils.val("");
+            profils.toggle();
+        }
+    });
+    $("input[type=checkbox]").each(function(index, elmt){
+        var id = $(elmt).attr("name").replace("piquet_montoir_reel_form_", "").replace("-selected", "")
+        if($(elmt).is(':checked') == false) {
+            $('#id_piquet_montoir_reel_form_'+id+'-profil').hide();
+        };
+    })
+
+});
+</script>
 
 {% endblock %}
