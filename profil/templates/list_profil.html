@@ -5,7 +5,7 @@
 {% if request.get_full_path == list_profil %}
 <div class="container">
     <div class="row">
-        <table class="table table-striped table-hover">
+        <table class="table table-bordered table-hover">
             <caption class="text-center"><h1>Profiles</h1></caption>
             <thead>
                 <tr>
@@ -19,9 +19,7 @@
                     <th class="text-center">Classe</th>
                     <th colspan="2" class="text-center">Période</th> -->
                     <th class="text-center">Visualisation</th>
-                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
                     <th class="text-center">Edition</th>
-                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -48,19 +46,15 @@
                     {% endfor %} -->
 
                     <td class="text-center"><a href="{% url 'detail_profil' profil.id %}"><i class="fa fa-eye fa-2x" aria-hidden="true"></a></i></td>
-                    {% if user.is_authenticated and perms.profil.chef_ecurie %}
                     <td class="text-center"><a href="{% url 'profil_update' profil.id %}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></a></i></td>
-                    {% endif %}
                     {% endfor %}
                 </tr>
             </tbody>
         </table>
     </div>
-    {% if user.is_authenticated and perms.profil.chef_ecurie %}
     <div class="row">
         <a class="btn btn-default" href="{% url 'create_profil' %}">Nouveau</a>
     </div>
-    {% endif %}
 </div>
 {% endif %}
 {% endblock %}
