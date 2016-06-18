@@ -1,13 +1,8 @@
 $(document).ready(function(){
     // PROFIL
     var permis    = $('#id_permis');
-    var perms     = $('.perm');
     var actif     = $('#id_profil_actif');
-    var categorie = $("[id$='categorie']");
-    var license   = $(".license");
-    var publi     = $("[id$='public']");
 
-    license.hide();
     permis.parent().parent().hide();
 
     if (actif.is(":checked")) {
@@ -17,49 +12,10 @@ $(document).ready(function(){
         if (this.checked){
             permis.parent().parent().show();
             $('#id_permis').val(1);
-            categorie.val(3);
-            perms.hide();
          }else{
             permis.parent().parent().hide();
             $('#id_permis').val(0);
-            categorie.val(0);
-            perms.show();
-            license.hide();
          }
-    });
-
-    permis.change(function() {
-        var perm = $('#id_permis option:selected').text();
-        if (perm === "Professeur") {
-            categorie.val(3);
-        }else if(perm === "Chef d'écurie"){
-            categorie.val(4);
-        }else{
-            categorie.val(0);
-        }
-    });
-
-    categorie.change(function() {
-        var cat = $("[id$='categorie'] option:selected").text();
-        if (cat === "Cavalier") {
-            publi.val(2);
-            license.show();
-        }else if(cat === "Elève"){
-            publi.val(1);
-            license.hide();
-        }else{
-            publi.val(0);
-            license.hide();
-        }
-    });
-
-    publi.change(function() {
-        var pub = $("[id$='public'] option:selected").text();
-        if (pub === "Club") {
-            license.show();
-        }else{
-            license.hide();
-        }
     });
     // PROFIL FIN
 
