@@ -29,7 +29,7 @@ class CreneauMontoirPrevisionnelForm(forms.ModelForm):
             'heure_debut': TextInput(attrs={'placeholder':'Heure de debut'}),
             'duree': TextInput(attrs={'placeholder':'Duree'}),
             'effectif': TextInput(attrs={'placeholder':'Effectif'}),
-            'encadrant': TextInput(attrs={'placeholder':'Professeur'}),
+            'encadrant': Select(attrs={'placeholder':'Professeur'}),
             'remarque': Textarea(attrs={'placeholder':'Remarques'}),
             'public': Select(attrs={'placeholder':'Public'}),
         }
