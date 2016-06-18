@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^detail/montoir/previsionnel(?P<pk>[\w-]+)$', CreneauMontoirPrevisionnelDetail.as_view(), name='piquet_montoir_previsionnel'),
     # url(r'^detail/montoir/reel/(?P<pk>[\w-]+)$', CreneauMontoirReelDetail.as_view(), name='piquet_montoir_reel'),
 
-    url(r'^create/montoir/enseignant/(?P<pk_prev>[\w-]+)$', CreneauMontoirReelCreate.as_view(), name='creneau_montoir_ensignant_create'),
+    url(r'^create/montoir/enseignant/(?P<pk_prev>[\w-]+)$', CreneauMontoirReelCreate.as_view(), name='creneau_montoir_enseignant_create'),
 
     url(r'^list/piquet/reel$', PiquetReelList.as_view(), name='piquet_reel_list'),
 

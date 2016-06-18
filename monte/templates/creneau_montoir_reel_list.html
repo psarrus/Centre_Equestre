@@ -20,7 +20,7 @@
             </tr>
             {% for creneau in creneaux %}
             <tr>
-                <td><a href="{% url 'creneau_montoir_ensignant_create' creneau.pk %}"><i class="fa fa-list" aria-hidden="true"></i></a></td>
+                <td><a href="{% url 'creneau_montoir_enseignant_create' creneau.pk %}"><i class="fa fa-list" aria-hidden="true"></i></a></td>
                 <td class="large15">{{ creneau.get_jour_display }}</td>
                 <td class="large30">{{ creneau.public }}</td>
                 <td class="large10">{{ creneau.heure_debut }}</td>

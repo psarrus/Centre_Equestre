@@ -32,7 +32,7 @@
                     <td>{{piquet.montoir.encadrant}}</td>
                     <td>{{piquet.montoir.creneau_montoir.public}}</td>
                     <td class="montoir_cheval_eleve"><a href="{% url 'cheval_detail' piquet.cheval.id %}" target=blank>{{piquet.cheval}}</a></td>
-                    <td class="montoir_cheval_eleve"><a href="{% url 'profil_update' piquet.profil.id %}" target=blank>{{piquet.profil}}</a></td>
+                    <td class="montoir_cheval_eleve"><a href="{% url 'detail_profil' piquet.profil.id %}" target=blank>{{piquet.profil}}</a></td>
                 </tr>
                 {% endif %}
                 {% endfor %}
