@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
         <fieldset>
             <legend>Fiche de {{ profil.nom }} {{ profil.prenom }}</legend>
@@ -36,4 +37,17 @@
                 </div>
             </form>
         </fieldset>
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+        <script type="text/javascript">
+            $(function() {
+                var debut = $("input[id$='debut']");
+                var fin = $("input[id$='fin']");
+                $(debut).datepicker({
+                    weekStart: 1
+                });
+                $(fin).datepicker({
+                   weekStart: 1
+               });
+            })
+        </script>
 {% endblock %}

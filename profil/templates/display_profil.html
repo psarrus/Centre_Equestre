@@ -5,59 +5,116 @@
 <div class="container">
     <fieldset>
         <div class="row">
-            <div class="col-sm-12">
-                <p><a href="{% url 'list_profil' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
-
-                <table class="table table-bordered table-hover">
+            <div class="col-sm-8 col-sm-offset-2">
+                <table class="table">
                     <caption class="text-center"><h1>Profil de {{ profil.get_civilite_display }} {{ profil.nom }} {{ profil.prenom }}</h1></caption>
-                    <thead>
+                    <tr>
+                        <td style="width:50%"><a type="button" class="btn btn-primary pull-left"href="{% url 'list_profil' %}"><i class="fa fa-arrow-left"></i> Retour</a></td>
+                        {% if user.is_authenticated and perms.profil.chef_ecurie %}
+                        <td class=""><a type="button" class="btn btn-primary pull-right"href="{% url 'profil_update' profil.id %}"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+                        {% endif %}
+                    </tr>
+                </table>
+
+                <table class="table table-striped table-hover table-bordered">
+                    {% if profil.nom %}
+                    <tr>
+                        <td style="width:50%; font-weight:bold">Nom:</td>
+                        <td class="">{{profil.nom}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if profil.prenom %}
+                    <tr>
+                        <td style="width:50%; font-weight:bold">Prénom:</td>
+                        <td class="">{{profil.prenom}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if profil.email %}
+                    <tr>
+                        <td style="width:50%; font-weight:bold">Email:</td>
+                        <td class=""><a href="mailto:{{profil.email}}">{{profil.email}}</a></td>
+                    </tr>
+                    {% endif %}
+                    {% if profil.adresse %}
+                    <tr>
+                        <td style="width:50%; font-weight:bold">Adresse:</td>
+                        <td class="">{{profil.adresse}}, {{profil.cp}} {{profil.ville}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if profil.tel_1 %}
+                    <tr>
+                        <td style="width:50%; font-weight:bold">Tel 1:</td>
+                        <td class="">{{profil.tel_1|phonenumber:"FR"}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if profil.tel_2 %}
+                    <tr>
+                        <td style="width:50%; font-weight:bold">Tel 2:</td>
+                        <td class="">{{profil.tel_2|phonenumber:"FR"}}</td>
+                    </tr>
+                    {% endif %}
+                    {% if profil.tel_3 %}
+                    <tr>
+                        <td style="width:50%; font-weight:bold">Tel 3:</td>
+                        <td class="">{{profil.tel_3|phonenumber:"FR"}}</td>
+                    </tr>
+                    {% endif %}
+
+
+                    <tr>
+                        <td style="width:50%; font-weight:bold">Catégorie:</td>
+                        <td class="">
+                        {% for periode in profil.periode_set.all %}
+                                {{periode.get_categorie_display}}{% if not forloop.last%},{%endif%}
+                        {% endfor %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%; font-weight:bold">Classe:</td>
+                        <td class="">
+                        {% for periode in profil.periode_set.all %}
+                                {{periode.public.nom}}{% if not forloop.last%},{%endif%}
+                        {% endfor %}
+                        </td>
+                    </tr>
+
+                    {% for periode in profil.periode_set.all %}
+                    {% if periode.license %}
+                    <tr>
+                        <td style="width:50%; font-weight:bold">License:</td>
+                        <td class="">
+                            {{periode.license}}
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% for periode in profil.periode_set.all %}
+                    <tr>
+                        {% if forloop.first%}
+                        <td style="width:50%; font-weight:bold" rowspan="{{profil.periode_set.count}}">Date d'entrée:</td>
+                        {% endif %}
+                        <td class="date-profil">
+                                {{periode.get_categorie_display}} : {{periode.debut|date:"d M Y"}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                    {% for periode in profil.periode_set.all %}
+                    {% if periode.fin %}
                         <tr>
-                            <th class="text-center">Nom</th>
-                            <th class="text-center">Prénom</th>
-                            <th class="text-center">Email</th>
-                            <th class="text-center">Adresse</th>
-                            <th class="text-center">Tel</th>
-                            <!-- <th class="text-center">License</th>
-                            <th class="text-center">Catégorie</th>
-                            <th class="text-center">Classe</th>
-                            <th colspan="2" class="text-center">Période</th> -->
-                            {% if user.is_authenticated and perms.profil.chef_ecurie %}
-                            <th class="text-center">Edition</th>
+                            {% if forloop.first%}
+                            <td style="width:50%; font-weight:bold" rowspan="{{profil.periode_set.count}}">Date de sortie:</td>
                             {% endif %}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="text-center">{{profil.nom}}</td>
-                            <td class="text-center">{{profil.prenom}}</td>
-                            <td class="text-center">{{profil.email}}</td>
-                            <td class="text-center">{{profil.adresse}} {{profil.cp}}, {{profil.ville}}</td>
-                            <td class="text-center">{{profil.tel_1|phonenumber:"FR"}} <br>
-                                                    {{profil.tel_2|phonenumber:"FR"}} <br>
-                                                    {{profil.tel_3|phonenumber:"FR"}}</td>
-                            <!-- {% for per in periodes %}
-                            {% if per.profil.id == profil.id %}
-                            <td class="text-center">{{per.license}}</td>
-                            <td class="text-center">{{per.get_categorie_display}}</td>
-                            <td class="text-center">{{per.public.nom}}</td>
-                            <td colspan="1" class="text-center">
-                                {{per.debut|date:"d M Y"}}</td>
-                                <td colspan="1" class="text-center">
-                                {% if per.fin %}
-                                    {{per.fin|date:"d M Y"}}
-                                {% endif %}
+                            <td class="">
+                                {{periode.get_categorie_display}} : {{periode.fin|date:"d M Y"}}
                             </td>
-                            {% endif %}
-                            {% endfor %} -->
-                            {% if user.is_authenticated and perms.profil.chef_ecurie %}
-                            <td class="text-center"><a href="{% url 'profil_update' profil.id %}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></a></i></td>
-                            {% endif %}
                         </tr>
-                    </tbody>
+                        {% endif %}
+                        {% endfor %}
                 </table>
             </div>
         </div>
-
     </fieldset>
 </div>
 {% endblock %}

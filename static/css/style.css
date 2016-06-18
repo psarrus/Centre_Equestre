@@ -85,3 +85,13 @@
 fieldset {
     margin-bottom: 50px;
 }
+.date-profil {
+    background-color: #f9f9f9;
+}
+.date-profil:hover {
+    background-color: #f5f5f5;
+}
+.checkbox {
+    width: 30px;
+    height: 30px;
+}
