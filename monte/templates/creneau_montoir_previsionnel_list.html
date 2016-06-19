@@ -5,7 +5,9 @@
     <fieldset>
 
         <legend class="center">Liste des montoirs prévionnels</legend>
+        {% if user.is_authenticated and perms.profil.chef_ecurie %}
         <a class="btn btn-default" href="{% url 'creneau_montoir_create' %}">Nouveau</a>
+        {% endif %}
 
         <table class="table table-bordered table-hover">
             <tr>

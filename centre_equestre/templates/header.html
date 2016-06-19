@@ -18,8 +18,8 @@
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profils <span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="/profil">Fiche</a></li>
-                <li><a href="/profil/public/list">Publics</a></li>
+                <li><a href="{% url 'list_profil' %}">Fiche</a></li>
+                <li><a href="{% url 'list_public' %}">Publics</a></li>
             </ul>
         </li>
         {% endif %}
@@ -42,7 +42,7 @@
                 <li><a href="{% url 'piquet_reel_list' %}">Montoirs Enseignant</a></li>
                 <li><a href="/monte/list/montoir/reel">Créer un montoir</a></li>
                 {% endif %}
-                <li><a href="">Piquet Cours</a></li>
+                <li><a href="#">Piquet Cours</a></li>
             </ul>
         </li>
         {% endif %}

@@ -1,20 +1,38 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-6">
-        <fieldset>
-            <legend>
-                <a class="btn btn-default" href="/profil/public/edit">nouveau</a>
-                 Liste des Publics
-             </legend>
-            <ul>
-                {% for public in publics %}
-                <li><a href="{{public.id}}">{{public.nom}}</a></li>
-                {% endfor %}
-            </ul>
-
-        </fieldset>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <table id="table" class="table table-bordered table-hover">
+                <caption class="text-center"><h1>Publics</h1></caption>
+                <thead>
+                    <tr>
+                        <th class="text-center">Nom</th>
+                        {% if user.is_authenticated and perms.profil.chef_ecurie %}
+                        <th class="text-center">Edition</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for public in publics %}
+                    <tr>
+                        <td style="font-weight:bold" class="text-center">{{public.nom}}</td>
+                        {% if user.is_authenticated and perms.profil.chef_ecurie %}
+                        <td class="text-center"><a href="{% url 'public_update' public.id %}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a></td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
+    {% if user.is_authenticated and perms.profil.chef_ecurie %}
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="row">
+            <a class="btn btn-default" href="{% url 'create_public' %}">Nouveau</a>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}

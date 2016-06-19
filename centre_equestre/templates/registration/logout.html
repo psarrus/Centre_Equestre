@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>Vous êtes déconnecté</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-5 col-md-3">
+            <div class="form-signin-heading">
+                <h4 class="text-center">Vous êtes déconnecté</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+// redirect to google after 5 seconds
+$(document).ready(function() {
+    window.setTimeout(function() {
+        window.location.href = '/';
+    }, 3000);
+});
+</script>
 {% endblock %}
