@@ -3,14 +3,14 @@
 {% block content %}
 
 
+<div class="container">
 
 
-<form class="" action="{{request.path}}" method="post"> {% csrf_token %}
 <fieldset>
 
-    <legend class="center" id="creneau_montoir" id_montoir="{{creneau.id}}">Piquet</legend>
+    <legend class="center" id="creneau_montoir" id_montoir="{{creneau.id}}">Piquet Enseignant</legend>
 
-    {{form}}
+    <!-- {{form}} -->
 
     <table class="table table-bordered table-hover">
         <tr>
@@ -22,7 +22,7 @@
             <th class="center">Effectif</th>
             <th class="center">Remarques</th>
         </tr>
-        <tr>
+        <tr class="center">
             <td class="large15">{{ date }}</td>
             <td class="large30">{{ creneau.public }}</td>
             <td class="large10">{{ creneau.heure_debut }}</td>
@@ -30,34 +30,67 @@
             <td class="large20">{{ encadrant }}</td>
             <td class="large20">{{ creneau.effectif }}</td>
             <td class="large20">{{ creneau.remarque }}</td>
-
         </tr>
     </table>
-    <table class="table table-bordered table-hover">
-        <tr>
-            <th class="center">Cheval</th>
-            <th class="center">Aptitude</th>
-            <th class="center">Emplacement</th>
-            <th class="center">Selection</th>
-            <th class="center">Profil</th>
-        </tr>
 
-        {% for piquet_montoir_reel_form in piquet_montoir_reel_forms %}
-        <tr class="piquet" id_piquet_enseignant="{{piquet_montoir_reel_form.id}}">
-            <td class="large15">{{ piquet_montoir_reel_form.nom_cheval }}{{ piquet_montoir_reel_form.cheval}}</td>
-            <td class="large15">{{ piquet_montoir_reel_form.aptitude }}</td>
-            <td class="large15">{{ piquet_montoir_reel_form.emplacement }}</td>
-            <td class="large15">{{ piquet_montoir_reel_form.selected }}</td>
-            <td class="large15">{{ piquet_montoir_reel_form.profil }}</td>
-            {% endfor %}
-        </tr>
+    <form class="" action="{{request.path}}" method="post">
+    {% csrf_token %}
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th class="center">Cheval</th>
+                <th class="center">Aptitude</th>
+                <th class="center">Emplacement</th>
+                <th class="center">Selection</th>
+                <th class="center">Profil</th>
+            </tr>
 
-        </form>
-    </table>
-    <input type="submit" value="Créer">
-</form>
+            {% for piquet_montoir_reel_form in piquet_montoir_reel_forms %}
+            <tr class="center piquet" id_piquet_enseignant="{{piquet_montoir_reel_form.id}}">
+                <td class="large15">{{ piquet_montoir_reel_form.nom_cheval }}{{ piquet_montoir_reel_form.cheval}}</td>
+                <td class="large15"
+                {% if piquet_montoir_reel_form.aptitude = 'Apte'%}
+                    {% if piquet_montoir_reel_form.selected.value = False %}
+                    style="background-color:orange"
+                    {% else %}
+                    style="background-color:lightgreen"
+                    {% endif %}
+                {% endif %}
+                {% if piquet_montoir_reel_form.aptitude = 'Infirmerie' %}style="background-color:red"{% endif %}>
+                    {{ piquet_montoir_reel_form.aptitude }}
+                </td>
+                <td class="large15">{{ piquet_montoir_reel_form.emplacement }}</td>
+                <td class="large15">{{ piquet_montoir_reel_form.selected }}</td>
+                <td class="large15">{{ piquet_montoir_reel_form.profil }}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    <div class="center">
+        <input type="submit" value="Créer">
+    </div>
+    </form>
 </fieldset>
+</div>
 
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $("input[type=checkbox]").bootstrapSwitch({
+        onSwitchChange : function(){
+
+            var id = $(this).attr("name").replace("piquet_montoir_reel_form_", "").replace("-selected", "");
+            var profils = $('#id_piquet_montoir_reel_form_'+id+'-profil')
+            profils.val("");
+            profils.toggle();
+        }
+    });
+    $("input[type=checkbox]").each(function(index, elmt){
+        var id = $(elmt).attr("name").replace("piquet_montoir_reel_form_", "").replace("-selected", "")
+        if($(elmt).is(':checked') == false) {
+            $('#id_piquet_montoir_reel_form_'+id+'-profil').hide();
+        };
+    })
+
+});
+</script>
 
 {% endblock %}

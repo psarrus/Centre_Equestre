@@ -3,14 +3,12 @@
 {% block content %}
 
 
-
-
-
+<div class="container">
 
 <fieldset>
+    <a class="btn btn-default" href="{% url 'creneau_montoir_previsonnel_list' %}">Retour Liste</a>
 
-    <legend class="center" id="creneau_montoir" id_montoir="{{creneau.id}}">Piquet</legend>
-
+    <legend class="center" id="creneau_montoir" id_montoir="{{creneau.id}}">Piquet prévisionnels</legend>
 
     <table class="table table-bordered table-hover">
         <tr>
@@ -34,25 +32,23 @@
         </tr>
     </table>
 
+    <div class="listechevaux">
+        <table class="table table-bordered table-hover">
+            <form role="form" name="form" action="" method="post" enctype="multipart/form-data" >
+            {% csrf_token %}
 
-    <table class="table table-bordered table-hover">
-        <form role="form" name="form" action="" method="post" enctype="multipart/form-data" >
-        {% csrf_token %}
+            {% for piquet in creneau.piquet_staff.all %}
+            <tr>
+                <td class="large50 center">{{ piquet.cheval.nom }}</td>
+                <!-- <td class="large15">{{ piquet.selected }}</td> -->
+                <td class="large50 center"><input type="checkbox" name="my-checkbox" value="{{ piquet.cheval.id }}" piquet_staff="{{ piquet.id }}" {% if piquet.selected %}checked{% endif %}></td>
+            </tr>
+            {% endfor %}
+            </form>
+        </table>
+    </div>
 
-
-        {% for piquet in creneau.piquet_staff.all %}
-        <tr>
-            <td class="large15">{{ piquet.cheval.nom }}</td>
-            <td class="large15">{{ piquet.selected }}</td>
-            <td><input type="checkbox" name="my-checkbox" value="{{ piquet.cheval.id }}" piquet_staff="{{ piquet.id }}" {% if piquet.selected %}checked{% endif %}></td>
-        </tr>
-        {% endfor %}
-        </form>
-
-
-
-    </table>
-
+</div>
 
 </fieldset>
 

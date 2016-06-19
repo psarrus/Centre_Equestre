@@ -88,7 +88,6 @@ class CreneauMontoirReelCreate(CreateView):
                                                                  prefix="piquet_montoir_reel_form_%s" %  piquet_montoir_staff.id)
 
                 if piquet_montoir_reel_form.is_valid():
-                    print "coucou"
                     piquet_montoir_reel_form.save()
                 else:
                     print piquet_montoir_reel_form.errors
