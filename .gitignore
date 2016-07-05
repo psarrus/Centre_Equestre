@@ -3,3 +3,4 @@ centre_equestre/site_settings.py
 static/bower_components
 media/
 site_settings.py
+*.db

@@ -5,7 +5,7 @@
 
 <fieldset>
     <legend class="center">Saisie d'un nouveau créneau montoir prévisionnel</legend>
-<form role="form" name="form" action="/monte/create/montoir" method="post" enctype="multipart/form-data" >
+<form role="form" name="form" action="{{ request.path }}" method="post">
  {% csrf_token %}
  {% for field in form %}
  <div class="center div-input">

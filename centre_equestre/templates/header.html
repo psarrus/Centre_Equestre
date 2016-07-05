@@ -39,10 +39,11 @@
             <ul class="dropdown-menu">
                 {% if user.is_authenticated and perms.profil.chef_ecurie %}
                 <li><a href="/monte/list/montoir/previsionnel">Montoir Prévisionnel</a></li>
+                {% endif %}
+                 {% if user.is_authenticated and perms.profil.chef_ecurie or perms.profil.professeur %}
                 <li><a href="{% url 'piquet_reel_list' %}">Montoirs Enseignant</a></li>
                 <li><a href="/monte/list/montoir/reel">Créer un montoir</a></li>
                 {% endif %}
-                <li><a href="#">Piquet Cours</a></li>
             </ul>
         </li>
         {% endif %}
