@@ -1,22 +1,22 @@
 $(document).ready(function(){
     // PROFIL
-    var permis    = $('#id_permis');
-    var actif     = $('#id_profil_actif');
-
-    permis.parent().parent().hide();
-
-    if (actif.is(":checked")) {
-        permis.parent().parent().show();
-    }
-    actif.change(function() {
-        if (this.checked){
-            permis.parent().parent().show();
-            $('#id_permis').val(1);
-         }else{
-            permis.parent().parent().hide();
-            $('#id_permis').val(0);
-         }
-    });
+    // var permis    = $('#id_permis');
+    // var actif     = $('#id_profil_actif');
+    //
+    // // permis.parent().parent().hide();
+    //
+    // if (actif.is(":checked")) {
+    //     // permis.parent().parent().show();
+    // }
+    // actif.change(function() {
+    //     if (this.checked){
+    //         $('#id_permis').val(1);
+    //         // permis.parent().parent().show();
+    //      }else{
+    //          $('#id_permis').val(0);
+    //         // permis.parent().parent().hide();
+    //      }
+    // });
     // PROFIL FIN
 
     var table = $('#table').DataTable({

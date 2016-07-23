@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
-<div class="container-fluid">
+<div class="container">
     <fieldset>
         <legend class="text-center">Fiche de {{profil.get_civilite_display}} {{profil.nom}} {{profil.prenom}}</legend>
         <form action="{{ request.path }}" method="POST" enctype="multipart/form-data">
@@ -17,46 +17,55 @@
             {% endfor %}
             <hr>
             {{periodes.management_form}}
-            {% for field in periodes %}
-            <div class="profil_line">
-                <div class="form-group row perm categorie">
-                    <div class="col-xs-12 col-md-4 col-md-offset-4">
-                        {{ field.categorie.label_tag }}
-                        {{ field.categorie.errors }}
-                        {{ field.categorie }}
-                    </div>
-                </div>
-                <div class="form-group row perm public">
-                    <div class="col-xs-12 col-md-4 col-md-offset-4">
-                        {{ field.public.label_tag }}
-                        {{ field.public.errors }}
-                        {{ field.public }}
-                    </div>
-                </div>
-                <div class="form-group row perm license">
-                    <div class="col-xs-12 col-md-4 col-md-offset-4">
-                        {{ field.license.label_tag }}
-                        {{ field.license.errors }}
-                        {{ field.license }}
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-4">
-                        {{ field.debut.label_tag }}
-                        {{ field.debut.errors }}
-                        {{ field.debut }}
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-xs-12 col-md-4 col-md-offset-4">
-                        {{ field.fin.label_tag }}
-                        {{ field.fin.errors }}
-                        {{ field.fin }}
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
             <div class="row">
+            {% for field in periodes %}
+                <div class="col-sm-4 col-sm-offset-0">
+                    <div class="form-group">
+                        <div class="blank">
+                            {{ field.id.label_tag }}
+                            {{ field.id.errors }}
+                            {{ field.id }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            {{ field.categorie.label_tag }}
+                            {{ field.categorie.errors }}
+                            {{ field.categorie }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            {{ field.public.label_tag }}
+                            {{ field.public.errors }}
+                            {{ field.public }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            {{ field.license.label_tag }}
+                            {{ field.license.errors }}
+                            {{ field.license }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            {{ field.debut.label_tag }}
+                            {{ field.debut.errors }}
+                            {{ field.debut }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div>
+                            {{ field.fin.label_tag }}
+                            {{ field.fin.errors }}
+                            {{ field.fin }}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+            <div class="row btnup">
                 <div class="col-xs-12 col-md-4 col-md-offset-4">
                     <p><button class="btn btn-success btn-block" type="submit">Enregistrer</button></p>
                     <p class="text-center"><a type="button" class="btn btn-primary"href="{% url 'list_profil' %}"><i class="fa fa-arrow-left"></i> Retour</a></p>
@@ -71,73 +80,75 @@
     var debut = $("input[id$='debut']");
     var fin = $("input[id$='fin']");
     $(debut).datepicker({
+        format: 'dd/mm/yyyy',
         weekStart: 1
     });
     $(fin).datepicker({
+        format: 'dd/mm/yyyy',
         weekStart: 1
     });
 
-    var permis    = $('#id_permis');
-    var perms     = $('.perm');
-    var actif     = $('#id_profil_actif');
-    var categorie = $("[id$='categorie']");
-    var license   = $("[id$='license']");
-    var publi     = $("[id$='public']");
-
-    license.parent().parent().hide();
-    permis.parent().parent().hide();
-
-    if (actif.is(":checked")) {
-        permis.parent().parent().show();
-    }
-    actif.change(function() {
-    if (this.checked){
-        permis.parent().parent().show();
-        $('#id_permis').val(1);
-        categorie.val(3);
-        perms.hide();
-    }else{
-        permis.parent().parent().hide();
-        $('#id_permis').val(0);
-        categorie.val(0);
-        perms.show();
-        license.parent().parent().hide();
-    }
-    });
-
-    permis.change(function() {
-        var perm = $('#id_permis option:selected').text();
-        if (perm === "Professeur") {
-            categorie.val(3);
-        }else if(perm === "Chef d'écurie"){
-            categorie.val(4);
-        }else{
-            categorie.val(0);
-        }
-    });
-
-    categorie.change(function() {
-        var cat = $("[id$='categorie'] option:selected").text();
-        if (cat === "Cavalier") {
-            publi.val(2);
-            license.parent().parent().show();
-        }else if(cat === "Elève"){
-            publi.val(1);
-            license.parent().parent().hide();
-        }else{
-            publi.val(0);
-            license.parent().parent().hide();
-        }
-    });
-
-    publi.change(function() {
-        var pub = $("[id$='public'] option:selected").text();
-        if (pub === "Club") {
-            license.parent().parent().show();
-        }else{
-            license.parent().parent().hide();
-        }
-    });
+    // var permis    = $('#id_permis');
+    // var perms     = $('.perm');
+    // var actif     = $('#id_profil_actif');
+    // var categorie = $("[id$='0-categorie']");
+    // var license   = $("[id$='license']");
+    // var publi     = $("[id$='public']");
+    //
+    // license.parent().parent().hide();
+    // permis.parent().parent().hide();
+    //
+    // if (actif.is(":checked")) {
+    //     permis.parent().parent().show();
+    // }
+    // actif.change(function() {
+    // if (this.checked){
+    //     permis.parent().parent().show();
+    //     $('#id_permis').val(1);
+    //     categorie.val(3);
+    //     // perms.hide();
+    // }else{
+    //     permis.parent().parent().hide();
+    //     $('#id_permis').val(0);
+    //     categorie.val(0);
+    //     perms.show();
+    //     license.parent().parent().hide();
+    // }
+    // });
+    //
+    // permis.change(function() {
+    //     var perm = $('#id_permis option:selected').text();
+    //     if (perm === "Professeur") {
+    //         categorie.val(3);
+    //     }else if(perm === "Chef d'écurie"){
+    //         categorie.val(4);
+    //     }else{
+    //         categorie.val(0);
+    //     }
+    // });
+    //
+    // categorie.change(function() {
+    //     var cat = $("[id$='categorie'] option:selected").text();
+    //     if (cat === "Cavalier") {
+    //         publi.val(2);
+    //         license.parent().parent().show();
+    //     }else if(cat === "Elève"){
+    //         publi.val(1);
+    //         license.parent().parent().hide();
+    //     }else{
+    //         publi.val(0);
+    //         license.parent().parent().hide();
+    //     }
+    // });
+    //
+    // publi.change(function() {
+    //     var pub = $("[id$='public'] option:selected").text();
+    //     if (pub === "Club") {
+    //         license.parent().parent().show();
+    //     }else{
+    //         license.parent().parent().hide();
+    //     }
+    // });
 
     $(function reloadForm() {
         $('input').addClass('form-control');
@@ -145,12 +156,12 @@
         $('#id_profil_actif').removeClass('form-control');
         $('#id_profil_actif').addClass('checkbox');
     })
-    $(function() {
-        $('.profil_line').formset({
-            deleteText: '<i class="fa fa-trash"></i>',
-            addText: '<i class="fa fa-plus"></i>',
-            prefix: '{{ profilline_formset.prefix }}',
-        });reloadForm()
-    });
+    // $(function() {
+    //     $('.profil_line').formset({
+    //         deleteText: '<i class="fa fa-trash"></i>',
+    //         addText: '<i class="fa fa-plus"></i>',
+    //         prefix: '{{ profilline_formset.prefix }}',
+    //     });reloadForm()
+    // });
 </script>
 {% endblock %}

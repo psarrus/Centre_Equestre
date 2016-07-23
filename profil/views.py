@@ -105,7 +105,7 @@ class ListPublic(ListView):
     template_name = "list_public.html"
     context_object_name = "publics"
     queryset = Public.objects.all()
-    
+
 
 class PublicUpdate(UpdateView):
     model = Public

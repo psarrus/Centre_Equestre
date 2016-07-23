@@ -69,35 +69,37 @@
                         {% endfor %}
                         </td>
                     </tr>
+                    {% for periode in profil.periode_set.all %}
+                    {% if periode.public %}
                     <tr>
                         <td style="width:50%; font-weight:bold">Classe:</td>
                         <td class="">
-                        {% for periode in profil.periode_set.all %}
                                 {{periode.public.nom}}{% if not forloop.last%},{%endif%}
-                        {% endfor %}
-                        </td>
-                    </tr>
-
-                    {% for periode in profil.periode_set.all %}
-                    {% if periode.license %}
-                    <tr>
-                        <td style="width:50%; font-weight:bold">License:</td>
-                        <td class="">
-                            {{periode.license}}
                         </td>
                     </tr>
                     {% endif %}
                     {% endfor %}
 
                     {% for periode in profil.periode_set.all %}
-                    <tr>
-                        {% if forloop.first%}
-                        <td style="width:50%; font-weight:bold" rowspan="{{profil.periode_set.count}}">Date d'entrée:</td>
+                        {% if periode.license %}
+                            <tr>
+                                <td style="width:50%; font-weight:bold">License:</td>
+                                <td class="">
+                                    {{periode.license}}
+                                </td>
+                            </tr>
                         {% endif %}
-                        <td class="date-profil">
-                                {{periode.get_categorie_display}} : {{periode.debut|date:"d M Y"}}
-                        </td>
-                    </tr>
+                    {% endfor %}
+
+                    {% for periode in profil.periode_set.all %}
+                        <tr>
+                            {% if forloop.first%}
+                            <td style="width:50%; font-weight:bold" rowspan="{{profil.periode_set.count}}">Date d'entrée:</td>
+                            {% endif %}
+                            <td class="date-profil">
+                                    {{periode.get_categorie_display}} : {{periode.debut|date:"d M Y"}}
+                            </td>
+                        </tr>
                     {% endfor %}
 
                     {% for periode in profil.periode_set.all %}
@@ -110,8 +112,8 @@
                                 {{periode.get_categorie_display}} : {{periode.fin|date:"d M Y"}}
                             </td>
                         </tr>
-                        {% endif %}
-                        {% endfor %}
+                    {% endif %}
+                    {% endfor %}
                 </table>
             </div>
         </div>

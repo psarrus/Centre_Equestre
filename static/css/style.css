@@ -102,3 +102,10 @@ fieldset {
     width: 30px;
     height: 30px;
 }
+.blank {
+    display: none;
+    visibility: hidden;
+}
+.btnup {
+    margin-top: 50px;
+}
